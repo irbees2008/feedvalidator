@@ -75,6 +75,7 @@ def contentSniffing(mediaType, rawdata, loggedEvents):
   if mediaType == 'application/vnd.google-earth.kml+xml': return
 
   block = rawdata[:512]
+  if isinstance(block, bytes): block = block.decode('latin-1')
 
   if block.find('<rss') >= 0: return
   if block.find('<feed') >= 0: return

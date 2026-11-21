@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ru" class="js">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Regex Tester онлайн — FEED Валидатор</title>
+	<meta name="description" content="Проверка регулярных выражений JavaScript онлайн: совпадения, группы и замена">
+	<meta name="robots" content="index,follow,max-image-preview:large">
+	<link rel="canonical" href="https://lab.ngcms.org/regex-tester.html">
+	<meta name="theme-color" content="#1F65DB">
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="FEED Валидатор">
+	<meta property="og:locale" content="ru_RU">
+	<meta property="og:title" content="Regex Tester онлайн — FEED Валидатор">
+	<meta property="og:description" content="Проверка регулярных выражений JavaScript онлайн: совпадения, группы и замена">
+	<meta property="og:url" content="https://lab.ngcms.org/regex-tester.html">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Regex Tester онлайн — FEED Валидатор">
+	<meta name="twitter:description" content="Проверка регулярных выражений JavaScript онлайн: совпадения, группы и замена">
+	<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Regex Tester","url":"https://lab.ngcms.org/regex-tester.html","applicationCategory":"DeveloperApplication","operatingSystem":"Any","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"FEED Валидатор","url":"https://lab.ngcms.org/"},"offers":{"@type":"Offer","price":"0","priceCurrency":"RUB"}}</script>
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="stylesheet" href="assets/css/vendor.bundle.css">
+	<link rel="stylesheet" href="assets/css/style.css?ver=131">
+	<link rel="stylesheet" href="assets/css/theme.css?ver=131">
+	<link rel="stylesheet" href="css/fv-theme.css">
+</head>
+<body>
+
+	<!--fv:navbar-->
+	<div id="home" class="header-section half-header section gradiant-background overflow-hidden">
+	<div id="particles-js" class="particles-container"></div>
+	<div id="navigation" class="navigation is-transparent" data-spy="affix" data-offset-top="5">
+	<nav class="navbar navbar-default" aria-label="Основная навигация">
+	<div class="container">
+	<div class="navbar-header">
+	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#site-collapse-nav" aria-expanded="false">
+	<span class="sr-only">Открыть меню</span>
+	<span class="icon-bar"></span>
+	<span class="icon-bar"></span>
+	<span class="icon-bar"></span>
+	</button>
+	<a class="navbar-brand" href="./">
+	<span class="logo logo-light"><span class="lg-hash">#</span> <span class="lg-f">Re</span><span class="lg-e1">g</span><span class="lg-e2">e</span><span class="lg-d">x</span> Тестер</span>
+	<span class="logo logo-color"><span class="lg-hash">#</span> <span class="lg-f">Re</span><span class="lg-e1">g</span><span class="lg-e2">e</span><span class="lg-d">x</span> Тестер</span>
+	</a>
+	</div>
+	<div class="collapse navbar-collapse font-secondary" id="site-collapse-nav">
+	<ul class="nav nav-list navbar-nav navbar-right">
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Проверить</a>
+	<ul class="dropdown-menu">
+	<li><a href="check.cgi">Проверить ленту</a></li>
+	<li><a href="open-graph.html">Open Graph</a></li>
+	<li><a href="meta-tags-analyzer.html">Meta-теги</a></li>
+	<li><a href="http-status-checker.html">HTTP-статус</a></li>
+	<li><a href="robots-txt-validator.html">Robots.txt</a></li>
+	<li><a href="sitemap-validator.html">Sitemap</a></li>
+	<li><a href="dns-lookup.html">DNS</a></li>
+	<li><a href="security-headers-checker.html">Заголовки безопасности</a></li>
+	<li><a href="ssl-checker.html">SSL</a></li>
+	<li><a href="schema-validator.html">Schema.org</a></li>
+	</ul>
+	</li>
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Кодирование</a>
+	<ul class="dropdown-menu">
+	<li><a href="base64.html">Base64</a></li>
+	<li><a href="url-encoder.html">URL</a></li>
+	<li><a href="json-formatter.html">JSON</a></li>
+	<li><a href="jwt-decoder.html">JWT</a></li>
+	<li><a href="html-entities.html">HTML Entities</a></li>
+	</ul>
+	</li>
+	<li class="dropdown active">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Генераторы</a>
+	<ul class="dropdown-menu">
+	<li><a href="favicon-generator.html">Favicon</a></li>
+	<li><a href="markdown-editor.html">Markdown</a></li>
+	<li><a href="fancy-text.html">Красивый текст</a></li>
+	<li class="active"><a href="regex-tester.html" aria-current="page">Regex</a></li>
+	<li><a href="pixel-art-maker.html">Пиксель-арт</a></li>
+	<li><a href="image-to-pixel-art.html">Фото в пиксель-арт</a></li>
+	<li><a href="image-animation.html">Создать анимацию</a></li>
+	</ul>
+	</li>
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Утилиты</a>
+	<ul class="dropdown-menu">
+	<li><a href="timestamp-converter.html">Timestamp</a></li>
+	<li><a href="color-tools.html">Цвета</a></li>
+	<li><a href="cron-generator.html">Cron</a></li>
+	<li><a href="user-agent-parser.html">User-Agent</a></li>
+	<li><a href="image-converter.html">Конвертер фото</a></li>
+	<li><a href="fonts.html">Шрифты</a></li>
+	<li><a href="image-compressor.html">Сжатие фото</a></li>
+	<li><a href="qr-code.html">QR-код</a></li>
+	</ul>
+	</li>
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">NGCMS</a>
+	<ul class="dropdown-menu">
+	<li><a href="bbcode-preview.html">BBCode</a></li>
+	<li><a href="sql-analyzer.html">SQL</a></li>
+	<li><a href="twig-playground.html">Twig</a></li>
+	<li><a href="template-checker.html">Шаблоны</a></li>
+	<li><a href="plugin-checker.html">Плагины</a></li>
+	<li><a href="php-compat-checker.html">PHP</a></li>
+	</ul>
+	</li>
+	</ul>
+	</div>
+	</div>
+	</nav>
+	</div>
+	<!--/fv:navbar-->
+
+		<div class="header-content">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 text-center">
+						<div class="header-texts">
+							<h1 class="wow fadeInUp" data-wow-duration=".5s">Regex Tester</h1>
+							<p class="lead wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".3s">Проверка регулярных выражений JavaScript онлайн: совпадения, группы и замена</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="feature-boxes fv-panel-wrap fv-tool">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<section class="fv-panel" id="regex-tester-tool" aria-label="Regex Tester">
+						<div class="fv-tab-content">
+							<div id="regex-tester-error" class="fv-error" role="alert" hidden></div>
+							<div class="b64-field-head"><label for="rx-pattern">Регулярное выражение</label></div>
+							<input type="text" id="rx-pattern" class="form-control" spellcheck="false" autocomplete="off" placeholder="(\d{4})-(\d{2})-(\d{2})">
+							<div class="b64-toolbar" id="rx-flags" role="group" aria-label="Флаги">
+								<label><input type="checkbox" value="g" checked> g</label>
+								<label><input type="checkbox" value="i"> i</label>
+								<label><input type="checkbox" value="m"> m</label>
+								<label><input type="checkbox" value="s"> s</label>
+								<label><input type="checkbox" value="u"> u</label>
+							</div>
+							<div class="b64-field-head"><label for="rx-text">Текст</label></div>
+							<textarea id="rx-text" class="form-control" rows="6" spellcheck="false" placeholder="Дата: 2025-01-31"></textarea>
+							<div class="b64-field-head"><label for="rx-replace">Замена (необязательно, $1, $&amp;, $&lt;имя&gt;)</label></div>
+							<input type="text" id="rx-replace" class="form-control" spellcheck="false" autocomplete="off">
+							<div class="b64-actions fv-actions">
+								<button type="button" class="b64-seg-btn" id="rx-example">Пример</button>
+								<button type="button" class="b64-seg-btn" id="rx-clear">Очистить</button>
+							</div>
+							<div id="rx-result" class="fv-result" hidden>
+								<p id="rx-summary"></p>
+								<h3>Текст с подсветкой</h3>
+								<pre class="fv-code" id="rx-highlight"></pre>
+								<div id="rx-matches"></div>
+								<div id="rx-replaced-wrap" hidden>
+									<h3>Результат замены</h3>
+									<pre class="fv-code" id="rx-replaced"></pre>
+								</div>
+							</div>
+						</div>
+					</section>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="footer-section section">
+		<div class="container">
+			<div class="row text-center">
+				<div class="col-md-12">
+					<!--fv:footer-nav-->
+					<ul class="footer-navigation inline-list">
+					<li><a href="about.html">О проекте</a></li>
+					<li><a href="docs/">Документация</a></li>
+					<li><a href="terms.html">Условия</a></li>
+					</ul>
+					<!--/fv:footer-nav-->
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="assets/js/jquery.bundle.js"></script>
+	<script src="assets/js/script.js"></script>
+	<script src="js/fv-common.js"></script>
+	<script src="js/regex-tester.js"></script>
+</body>
+</html>

@@ -36,6 +36,267 @@ div.specialmessage {
   padding-right: 1em;
 }
 
+/* ----- feed report ----- */
+
+.feed-report {
+  max-width: 1100px;
+  margin: 28px auto;
+  padding: 0 16px;
+  text-align: left;
+}
+
+.feed-report-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.feed-report-header h2,
+.feed-report-section h3 {
+  margin: 0;
+}
+
+.feed-report-verdict {
+  padding: 7px 12px;
+  border-radius: 999px;
+  font-weight: bold;
+}
+
+.feed-report-sections {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr));
+  gap: 16px;
+}
+
+.feed-report-section {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #d9e0e8;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.feed-report-section h3 {
+  padding: 15px 18px;
+  border-bottom: 1px solid #e8edf2;
+  background: #f7f9fb;
+  font-size: 1.05em;
+}
+
+.feed-report-rows {
+  padding: 4px 16px;
+}
+
+.feed-report-row {
+  display: grid;
+  grid-template-columns: 22px minmax(125px, 0.8fr) minmax(0, 1.6fr);
+  align-items: start;
+  gap: 8px;
+  padding: 11px 0;
+  border-bottom: 1px solid #edf0f3;
+  text-align: left;
+}
+
+.feed-report-row:last-child {
+  border-bottom: 0;
+}
+
+.feed-report-icon {
+  font-weight: bold;
+  text-align: center;
+}
+
+.report-ok .feed-report-icon,
+.feed-report-verdict.report-ok {
+  color: #147a3d;
+}
+
+.report-warning .feed-report-icon,
+.feed-report-verdict.report-warning {
+  color: #9a5b00;
+}
+
+.report-info .feed-report-icon {
+  color: #3266a8;
+}
+
+.report-error .feed-report-icon,
+.feed-report-verdict.report-error {
+  color: #b42318;
+}
+
+.feed-report-value {
+  overflow-wrap: anywhere;
+}
+
+.feed-report-row small {
+  grid-column: 3;
+  color: #5b6573;
+  line-height: 1.45;
+}
+
+.feed-report-messages {
+  padding: 16px;
+}
+
+.feed-report-empty {
+  margin: 0;
+  color: #147a3d;
+}
+
+.feed-report-messages > ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.feed-report-messages > ul > li {
+  margin-bottom: 12px;
+  padding: 12px 14px;
+  border: 1px solid #edf0f3;
+  border-radius: 6px;
+  background: #fbfcfe;
+}
+
+.feed-report-messages > ul > li > p {
+  margin: 0 0 8px;
+}
+
+.feed-report-messages blockquote {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-size: 13px;
+}
+
+.feed-report-messages pre {
+  margin: 0;
+  overflow-x: auto;
+  border-color: #e1e8f0;
+  background: #fff;
+  font-size: 12px;
+  white-space: pre-wrap;
+}
+
+.feed-report-messages .message {
+  background: #fff3b0;
+  color: #333;
+}
+
+.feed-report-messages .result-note {
+  margin: 4px 0 12px;
+  color: #526176;
+  font-weight: 600;
+}
+
+.feed-report-macro {
+  font-family: Consolas, "Courier New", monospace;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 600px) {
+  .feed-report-row {
+    grid-template-columns: 22px minmax(0, 1fr);
+  }
+
+  .feed-report-value,
+  .feed-report-row small {
+    grid-column: 2;
+  }
+}
+
+/* ----- feed preview ----- */
+
+.feed-preview {
+  max-width: 1100px;
+  margin: 32px auto;
+  padding: 0 16px;
+  text-align: left;
+}
+
+.feed-preview-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.feed-preview-heading h2,
+.feed-preview-title {
+  margin: 0;
+}
+
+.feed-preview-title,
+.feed-preview-count,
+.feed-card-date {
+  color: #5b6573;
+}
+
+.feed-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.feed-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #d9e0e8;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  text-align: left;
+}
+
+.feed-card-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: #eef2f6;
+}
+
+.feed-card-title {
+  margin: 0;
+  padding: 18px 18px 10px;
+  font-size: 1.1em;
+  line-height: 1.4;
+}
+
+.feed-card-date {
+  margin: 0;
+  padding: 0 18px 12px;
+  font-size: 0.85em;
+}
+
+.feed-card-summary {
+  margin: 0;
+  padding: 0 18px 16px;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+.feed-card-link {
+  margin-top: auto;
+  padding: 0 18px 18px;
+}
+
+.feed-preview-empty {
+  grid-column: 1 / -1;
+  padding: 18px;
+  border: 1px dashed #cbd5e1;
+  border-radius: 10px;
+  color: #5b6573;
+}
+
 /* ----- code listing ----- */
 
 /* code listing from <http://development.incutio.com/simon/numbered-code-experiment.html> */

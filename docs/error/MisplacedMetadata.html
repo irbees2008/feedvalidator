@@ -1,68 +1,152 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru" class="js">
 <head>
-<meta charset="utf-8">
-<title>foo must appear before all entries</title>
-<style media="screen">@import "../../css/common.css";
-@import "../../css/documentation.css";</style>
-<script><!-- --></script>
-<link rel="start" href="http://feedvalidator.org/docs/" title="Home" />
-<link rel="canonical" href="https://www.feedvalidator.org/docs/error/MisplacedMetadata.html" />
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>foo must appear before all entries — Документация FEED Валидатор</title>
+	<meta name="description" content="Пояснение к сообщению валидатора RSS и Atom и рекомендации по исправлению.">
+	<meta name="robots" content="index,follow">
+	<link rel="canonical" href="https://lab.ngcms.org/docs/error/MisplacedMetadata.html">
+	<meta name="theme-color" content="#1F65DB">
+	<link rel="shortcut icon" href="../../favicon.ico">
+	<link rel="stylesheet" href="../../assets/css/vendor.bundle.css">
+	<link rel="stylesheet" href="../../assets/css/style.css?ver=131">
+	<link rel="stylesheet" href="../../assets/css/theme.css?ver=131">
+	<link rel="stylesheet" href="../../css/fv-theme.css">
 </head>
 <body>
-<div id="logo">
-<h1><a href="../../"><span id="feed"><span id="f">F</span><span id="e1">E</span><span id="e2">E</span></span><span id="d">D</span> Validator</a></h1>
-<p>Documentation</p>
-<a class="skip" href="#startnavigation">Jump to navigation</a>
-</div> <!--logo-->
+	<!--fv:navbar-->
+	<div id="home" class="header-section half-header section gradiant-background overflow-hidden">
+	<div id="particles-js" class="particles-container"></div>
+	<div id="navigation" class="navigation is-transparent" data-spy="affix" data-offset-top="5">
+	<nav class="navbar navbar-default" aria-label="Основная навигация">
+	<div class="container">
+	<div class="navbar-header">
+	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#site-collapse-nav" aria-expanded="false">
+	<span class="sr-only">Открыть меню</span>
+	<span class="icon-bar"></span>
+	<span class="icon-bar"></span>
+	<span class="icon-bar"></span>
+	</button>
+	<a class="navbar-brand" href="../../">
+	<span class="logo logo-light"><span class="lg-hash">#</span> <span class="lg-f">F</span><span class="lg-e1">E</span><span class="lg-e2">E</span><span class="lg-d">D</span> Валидатор</span>
+	<span class="logo logo-color"><span class="lg-hash">#</span> <span class="lg-f">F</span><span class="lg-e1">E</span><span class="lg-e2">E</span><span class="lg-d">D</span> Валидатор</span>
+	</a>
+	</div>
+	<div class="collapse navbar-collapse font-secondary" id="site-collapse-nav">
+	<ul class="nav nav-list navbar-nav navbar-right">
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Проверить</a>
+	<ul class="dropdown-menu">
+	<li><a href="../../check.cgi">Проверить ленту</a></li>
+	<li><a href="../../open-graph.html">Open Graph</a></li>
+	<li><a href="../../meta-tags-analyzer.html">Meta-теги</a></li>
+	<li><a href="../../http-status-checker.html">HTTP-статус</a></li>
+	<li><a href="../../robots-txt-validator.html">Robots.txt</a></li>
+	<li><a href="../../sitemap-validator.html">Sitemap</a></li>
+	<li><a href="../../dns-lookup.html">DNS</a></li>
+	<li><a href="../../security-headers-checker.html">Заголовки безопасности</a></li>
+	<li><a href="../../ssl-checker.html">SSL</a></li>
+	<li><a href="../../schema-validator.html">Schema.org</a></li>
+	</ul>
+	</li>
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Кодирование</a>
+	<ul class="dropdown-menu">
+	<li><a href="../../base64.html">Base64</a></li>
+	<li><a href="../../url-encoder.html">URL</a></li>
+	<li><a href="../../json-formatter.html">JSON</a></li>
+	<li><a href="../../jwt-decoder.html">JWT</a></li>
+	<li><a href="../../html-entities.html">HTML Entities</a></li>
+	</ul>
+	</li>
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Генераторы</a>
+	<ul class="dropdown-menu">
+	<li><a href="../../favicon-generator.html">Favicon</a></li>
+	<li><a href="../../markdown-editor.html">Markdown</a></li>
+	<li><a href="../../fancy-text.html">Красивый текст</a></li>
+	<li><a href="../../regex-tester.html">Regex</a></li>
+	<li><a href="../../pixel-art-maker.html">Пиксель-арт</a></li>
+	<li><a href="../../image-to-pixel-art.html">Фото в пиксель-арт</a></li>
+	<li><a href="../../image-animation.html">Создать анимацию</a></li>
+	</ul>
+	</li>
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Утилиты</a>
+	<ul class="dropdown-menu">
+	<li><a href="../../timestamp-converter.html">Timestamp</a></li>
+	<li><a href="../../color-tools.html">Цвета</a></li>
+	<li><a href="../../cron-generator.html">Cron</a></li>
+	<li><a href="../../user-agent-parser.html">User-Agent</a></li>
+	<li><a href="../../image-converter.html">Конвертер фото</a></li>
+	<li><a href="../../fonts.html">Шрифты</a></li>
+	<li><a href="../../image-compressor.html">Сжатие фото</a></li>
+	<li><a href="../../qr-code.html">QR-код</a></li>
+	</ul>
+	</li>
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">NGCMS</a>
+	<ul class="dropdown-menu">
+	<li><a href="../../bbcode-preview.html">BBCode</a></li>
+	<li><a href="../../sql-analyzer.html">SQL</a></li>
+	<li><a href="../../twig-playground.html">Twig</a></li>
+	<li><a href="../../template-checker.html">Шаблоны</a></li>
+	<li><a href="../../plugin-checker.html">Плагины</a></li>
+	<li><a href="../../php-compat-checker.html">PHP</a></li>
+	</ul>
+	</li>
+	</ul>
+	</div>
+	</div>
+	</nav>
+	</div>
+	<!--/fv:navbar-->
+		<div class="header-content">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 text-center">
+						<div class="header-texts">
+							<h1>Справка валидатора</h1>
+							<p class="lead">foo must appear before all entries</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<div id="main">
-<h2>Message</h2>
-<div class="docbody">
-<p><code>foo</code> must appear before all entries</p>
-</div>
-<h2>Explanation</h2>
-
-<div class="docbody">
-<p>All metadata elements must appear before the first entry in a feed.</p>
-</div>
-<h2>Solution</h2>
-<div class="docbody">
-<p>Move the element before the first entry</p>
-</div>
-<h2>Not clear?  Disagree?</h2>
-<div class="docbody">
-<p>You might be able to find help in one of <a href="../howto/resources.html">these fine resources</a>.</p>
-</div>
-
-</div><!--main-->
-<div class="centered">
-<a name="startnavigation" id="startnavigation"></a>
-<div class="navbarWrapper">
-    <div class="navbarContent">
-        <img class="borderTL" src="../../images/borderTL.gif" alt="" width="14" height="14" />
-        <img class="borderTR" src="../../images/borderTR.gif" alt="" width="14" height="14" />
-
-<p>
-<a href="../../">Home</a> &middot;
-<a href="../../about.html">About</a> &middot;
-<a href="../../news/">News</a> &middot;
-<a href="../../docs/">Docs</a> &middot;
-<a href="../../terms.html">Terms</a>
-</p>
-
-        <div class="roundedCornerSpacer">&nbsp;</div>
-    </div><!-- .content -->
-    <div class="bottomCorners">
-        <img class="borderBL" src="../../images/borderBL.gif" alt="" width="14" height="14" />
-        <img class="borderBR" src="../../images/borderBR.gif" alt="" width="14" height="14" />
-    </div><!-- .bottomCorners -->
-</div><!-- .contentWrapper -->
-</div><!-- .centered -->
-
-<div class="centered">
-<address>Copyright &copy; 2002-4 <a href="http://diveintomark.org/">Mark Pilgrim</a> and <a href="http://www.intertwingly.net/blog/">Sam Ruby</a></address>
-</div>
-
+	<main class="section grey-background fv-page fv-docs">
+		<div class="container">
+			<article class="fv-doc-card fv-doc-message-page">
+				<p><a href="../">← К документации</a></p>
+				<h2>Сообщение валидатора</h2>
+				<div class="fv-doc-prose"><p><code>foo</code> must appear before all entries</p></div>
+				<h2>Что означает</h2>
+				<div class="fv-doc-prose"><p>All metadata elements must appear before the first entry in a feed.</p></div>
+				<h2>Как исправить</h2>
+				<div class="fv-doc-prose"><p>Move the element before the first entry</p></div>
+				<p class="fv-doc-note">Пояснения к части исторических сообщений сохранены на английском языке; термины и код приведены в оригинальном виде.</p>
+				<p><a href="../howto/declare_namespaces.html">О пространствах имён RSS</a> · <a href="../../">Все инструменты</a></p>
+			</article>
+		</div>
+	</main>
+	<div class="footer-section section">
+		<div class="container">
+			<div class="row text-center">
+				<div class="col-md-12">
+					<!--fv:footer-nav-->
+					<ul class="footer-navigation inline-list">
+					<li><a href="../../about.html">О проекте</a></li>
+					<li><a href="../">Документация</a></li>
+					<li><a href="../../terms.html">Условия</a></li>
+					</ul>
+					<!--/fv:footer-nav-->
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="../../assets/js/jquery.bundle.js"></script>
+	<script src="../../assets/js/script.js"></script>
 </body>
 </html>

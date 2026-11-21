@@ -1,101 +1,109 @@
-#!/usr/bin/python
-
-# Given a template (with a specific format), a target document root and a set of formatted XML
-#  documents, generate HTML documentation for public web access.
-
-# Extracts information from XML using regular expression and proper parsing
-
-
-from sys import argv, stderr, exit
-
-if len(argv) < 3:
-  print >>stderr,"Usage:",argv[0]," <template.html> <target-doc-directory> [source XML document ... ]"
-  exit(5)
-
-template = argv[1]
-targetDir = argv[2]
-
-f = open(template)
-bp = f.read()
-f.close()
-
-doc = bp
-
-import libxml2
-import os.path
-
-libxml2.substituteEntitiesDefault(True)
-
-def asText(x):
-  d = libxml2.parseDoc(x)
-  return d.xpathCastNodeToString()
-
+#!/usr/bin/env python3
+"""Generate styled HTML help pages from validator diagnostic XML."""
+import html
+import os
 import re
+import sys
+import xml.etree.ElementTree as ET
 
-wsRE = re.compile('\s+')
+ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.insert(0, ROOT)
+from site_config import SITE_URL
 
-def trimWS(s):
-  s = wsRE.sub(' ', s)
-  if s and s[0] == ' ':
-    s = s[1:]
-  if s and s[-1] == ' ':
-    s = s[:-1]
-
-  return s
-
-secRe = re.compile("<div id='(\w+)'>\n(.*?\n)</div>\n", re.DOTALL)
-
-import codecs
-
-def writeDoc(x, h):
-  f = open(x)
-  t = f.read()
-  f.close()
-
-  doc = bp
-
-  # Get the title
-  xd = libxml2.parseFile(x)
-  ctxt = xd.xpathNewContext()
-  ctxt.xpathRegisterNs('html', 'http://www.w3.org/1999/xhtml')
-
-  title = ctxt.xpathEvalExpression('string(/fvdoc//html:div[@id="message"])')
-
-  title = trimWS(title)
-  title = title.replace('&', '&amp;').replace('<', '&gt;')
-  doc = doc.replace('<title></title>', '<title>' + title + '</title>')
+ALLOWED_TAGS = {
+    'a', 'b', 'blockquote', 'br', 'cite', 'code', 'dd', 'del', 'div', 'dl', 'dt',
+    'em', 'i', 'ins', 'li', 'ol', 'p', 'pre', 'q', 'samp', 'span', 'strong', 'ul',
+}
+ALLOWED_ATTRIBUTES = {'class', 'href', 'title'}
 
 
-  for (sec, txt) in secRe.findall(t):
-    r = re.compile('<h2>' + sec + '</h2>\s*<div class="docbody">\s*()</div>', re.IGNORECASE)
-    idx = r.search(doc).start(1)
-    doc = doc[:idx] + txt + doc[idx:]
+def local_name(tag):
+    return tag.rsplit('}', 1)[-1]
 
-  c = codecs.getdecoder('utf-8')
 
-  doc = c(doc)[0]
+def safe_href(value):
+    value = value.strip()
+    if value.startswith(('https://', 'http://', 'mailto:', '../', './', '/', '#')):
+        return value
+    return ''
 
-  c = codecs.getencoder('utf-8')
 
-  f = open(h, 'w')
-  f.write(c(doc, 'xmlcharrefreplace')[0])
-  f.close()
+def render_node(node):
+    tag = local_name(node.tag)
+    if tag not in ALLOWED_TAGS:
+        body = html.escape(node.text or '', quote=False)
+        for child in node:
+            body += render_node(child)
+            body += html.escape(child.tail or '', quote=False)
+        return body
 
-for f in argv[3:]:
-  sp = os.path.abspath(f)
+    attrs = []
+    for key, value in node.attrib.items():
+        name = local_name(key)
+        if name not in ALLOWED_ATTRIBUTES:
+            continue
+        if name == 'href':
+            value = safe_href(value)
+            if not value:
+                continue
+        attrs.append(' %s="%s"' % (name, html.escape(value, quote=True)))
 
-  if not(os.path.isfile(sp)):
-    continue
+    opening = '<%s%s>' % (tag, ''.join(attrs))
+    if tag == 'br':
+        return opening
+    body = html.escape(node.text or '', quote=False)
+    for child in node:
+        body += render_node(child)
+        body += html.escape(child.tail or '', quote=False)
+    return opening + body + '</%s>' % tag
 
-  category = os.path.split(os.path.dirname(sp))[1]
-  filename = os.path.basename(sp)
 
-  if not(category):
-    continue
+def find_section(root, section):
+    for node in root.iter():
+        if node.attrib.get('id') == section:
+            return ''.join(render_node(child) for child in node)
+    return ''
 
-  (name, ext) = os.path.splitext(filename)
 
-  if ext == '.xml':
-    writeDoc(sp, os.path.join(targetDir, category, name + '.html'))
-  else:
-    print >>stderr,"Ignoring",f
+def plain_text(markup):
+    return ' '.join(html.unescape(re.sub(r'<[^>]*>', ' ', markup)).split())
+
+
+def build(source, target, template):
+    root = ET.parse(source).getroot()
+    message = find_section(root, 'message')
+    if not message:
+        raise ValueError('В XML нет раздела message: ' + source)
+    title = plain_text(message)
+    category = os.path.basename(os.path.dirname(source))
+    name = os.path.splitext(os.path.basename(source))[0]
+    canonical = '%s/docs/%s/%s.html' % (SITE_URL.rstrip('/'), category, name)
+    page = template
+    page = page.replace('{{TITLE}}', html.escape(title))
+    page = page.replace('{{CANONICAL}}', html.escape(canonical, quote=True))
+    page = page.replace('{{MESSAGE}}', message)
+    page = page.replace('{{EXPLANATION}}', find_section(root, 'explanation') or '<p>Дополнительное пояснение не указано.</p>')
+    page = page.replace('{{SOLUTION}}', find_section(root, 'solution') or '<p>Для этого сообщения отдельная рекомендация не указана. Сверьте элемент с требованиями соответствующего формата.</p>')
+    os.makedirs(os.path.dirname(target), exist_ok=True)
+    with open(target, 'w', encoding='utf-8', newline='\n') as output:
+        output.write(page)
+
+
+def main(argv):
+    if len(argv) < 4:
+        raise SystemExit('Использование: build-html-docs.py template.html каталог-документации исходный.xml [...]')
+    template_path = os.path.abspath(argv[1])
+    target_root = os.path.abspath(argv[2])
+    with open(template_path, encoding='utf-8') as source:
+        template = source.read()
+    for source_path in argv[3:]:
+        source_path = os.path.abspath(source_path)
+        if not source_path.lower().endswith('.xml') or not os.path.isfile(source_path):
+            continue
+        category = os.path.basename(os.path.dirname(source_path))
+        target = os.path.join(target_root, category, os.path.splitext(os.path.basename(source_path))[0] + '.html')
+        build(source_path, target, template)
+
+
+if __name__ == '__main__':
+    main(sys.argv)

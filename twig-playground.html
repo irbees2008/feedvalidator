@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ru" class="js">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Twig Playground онлайн — FEED Валидатор</title>
+	<meta name="description" content="Песочница Twig онлайн: шаблон, JSON-данные, предпросмотр результата и примеры конструкций">
+	<meta name="robots" content="index,follow,max-image-preview:large">
+	<link rel="canonical" href="https://lab.ngcms.org/twig-playground.html">
+	<meta name="theme-color" content="#1F65DB">
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="FEED Валидатор">
+	<meta property="og:locale" content="ru_RU">
+	<meta property="og:title" content="Twig Playground онлайн — FEED Валидатор">
+	<meta property="og:description" content="Песочница Twig онлайн: шаблон, JSON-данные, предпросмотр результата и примеры конструкций">
+	<meta property="og:url" content="https://lab.ngcms.org/twig-playground.html">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Twig Playground онлайн — FEED Валидатор">
+	<meta name="twitter:description" content="Песочница Twig онлайн: шаблон, JSON-данные, предпросмотр результата и примеры конструкций">
+	<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Twig Playground","url":"https://lab.ngcms.org/twig-playground.html","applicationCategory":"DeveloperApplication","operatingSystem":"Any","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"FEED Валидатор","url":"https://lab.ngcms.org/"},"offers":{"@type":"Offer","price":"0","priceCurrency":"RUB"}}</script>
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="stylesheet" href="assets/css/vendor.bundle.css">
+	<link rel="stylesheet" href="assets/css/style.css?ver=131">
+	<link rel="stylesheet" href="assets/css/theme.css?ver=131">
+	<link rel="stylesheet" href="css/fv-theme.css">
+</head>
+<body>
+
+	<!--fv:navbar-->
+	<div id="home" class="header-section half-header section gradiant-background overflow-hidden">
+	<div id="particles-js" class="particles-container"></div>
+	<div id="navigation" class="navigation is-transparent" data-spy="affix" data-offset-top="5">
+	<nav class="navbar navbar-default" aria-label="Основная навигация">
+	<div class="container">
+	<div class="navbar-header">
+	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#site-collapse-nav" aria-expanded="false">
+	<span class="sr-only">Открыть меню</span>
+	<span class="icon-bar"></span>
+	<span class="icon-bar"></span>
+	<span class="icon-bar"></span>
+	</button>
+	<a class="navbar-brand" href="./">
+	<span class="logo logo-light"><span class="lg-hash">#</span> <span class="lg-f">T</span><span class="lg-e1">w</span><span class="lg-e2">i</span><span class="lg-d">g</span> Песочница</span>
+	<span class="logo logo-color"><span class="lg-hash">#</span> <span class="lg-f">T</span><span class="lg-e1">w</span><span class="lg-e2">i</span><span class="lg-d">g</span> Песочница</span>
+	</a>
+	</div>
+	<div class="collapse navbar-collapse font-secondary" id="site-collapse-nav">
+	<ul class="nav nav-list navbar-nav navbar-right">
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Проверить</a>
+	<ul class="dropdown-menu">
+	<li><a href="check.cgi">Проверить ленту</a></li>
+	<li><a href="open-graph.html">Open Graph</a></li>
+	<li><a href="meta-tags-analyzer.html">Meta-теги</a></li>
+	<li><a href="http-status-checker.html">HTTP-статус</a></li>
+	<li><a href="robots-txt-validator.html">Robots.txt</a></li>
+	<li><a href="sitemap-validator.html">Sitemap</a></li>
+	<li><a href="dns-lookup.html">DNS</a></li>
+	<li><a href="security-headers-checker.html">Заголовки безопасности</a></li>
+	<li><a href="ssl-checker.html">SSL</a></li>
+	<li><a href="schema-validator.html">Schema.org</a></li>
+	</ul>
+	</li>
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Кодирование</a>
+	<ul class="dropdown-menu">
+	<li><a href="base64.html">Base64</a></li>
+	<li><a href="url-encoder.html">URL</a></li>
+	<li><a href="json-formatter.html">JSON</a></li>
+	<li><a href="jwt-decoder.html">JWT</a></li>
+	<li><a href="html-entities.html">HTML Entities</a></li>
+	</ul>
+	</li>
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Генераторы</a>
+	<ul class="dropdown-menu">
+	<li><a href="favicon-generator.html">Favicon</a></li>
+	<li><a href="markdown-editor.html">Markdown</a></li>
+	<li><a href="fancy-text.html">Красивый текст</a></li>
+	<li><a href="regex-tester.html">Regex</a></li>
+	<li><a href="pixel-art-maker.html">Пиксель-арт</a></li>
+	<li><a href="image-to-pixel-art.html">Фото в пиксель-арт</a></li>
+	<li><a href="image-animation.html">Создать анимацию</a></li>
+	</ul>
+	</li>
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Утилиты</a>
+	<ul class="dropdown-menu">
+	<li><a href="timestamp-converter.html">Timestamp</a></li>
+	<li><a href="color-tools.html">Цвета</a></li>
+	<li><a href="cron-generator.html">Cron</a></li>
+	<li><a href="user-agent-parser.html">User-Agent</a></li>
+	<li><a href="image-converter.html">Конвертер фото</a></li>
+	<li><a href="fonts.html">Шрифты</a></li>
+	<li><a href="image-compressor.html">Сжатие фото</a></li>
+	<li><a href="qr-code.html">QR-код</a></li>
+	</ul>
+	</li>
+	<li class="dropdown active">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">NGCMS</a>
+	<ul class="dropdown-menu">
+	<li><a href="bbcode-preview.html">BBCode</a></li>
+	<li><a href="sql-analyzer.html">SQL</a></li>
+	<li class="active"><a href="twig-playground.html" aria-current="page">Twig</a></li>
+	<li><a href="template-checker.html">Шаблоны</a></li>
+	<li><a href="plugin-checker.html">Плагины</a></li>
+	<li><a href="php-compat-checker.html">PHP</a></li>
+	</ul>
+	</li>
+	</ul>
+	</div>
+	</div>
+	</nav>
+	</div>
+	<!--/fv:navbar-->
+
+		<div class="header-content">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 text-center">
+						<div class="header-texts">
+							<h1 class="wow fadeInUp" data-wow-duration=".5s">Twig Playground</h1>
+							<p class="lead wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".3s">Песочница Twig онлайн: шаблон, JSON-данные, предпросмотр результата и примеры конструкций</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="feature-boxes fv-panel-wrap fv-tool">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<section class="fv-panel" id="twig-playground-tool" aria-label="Twig Playground">
+						<div class="fv-tab-content">
+							<div id="twig-playground-error" class="fv-error" role="alert" hidden></div>
+							<div class="fv-img-opts">
+								<div>
+									<label for="tw-example">Пример</label>
+									<select id="tw-example" class="form-control"></select>
+								</div>
+							</div>
+							<div class="b64-field-head"><label for="tw-template">Шаблон Twig</label></div>
+							<textarea id="tw-template" class="form-control" rows="9" spellcheck="false"></textarea>
+							<div class="b64-field-head"><label for="tw-data">Данные (JSON)</label></div>
+							<textarea id="tw-data" class="form-control" rows="6" spellcheck="false"></textarea>
+							<div class="b64-actions fv-actions">
+								<button type="button" class="b64-seg-btn" id="tw-run">Выполнить</button>
+								<button type="button" class="b64-seg-btn" id="tw-copy">Копировать HTML</button>
+							</div>
+							<div id="tw-result" class="fv-result" hidden>
+								<div class="b64-field-head"><strong>Предпросмотр</strong></div>
+								<iframe id="tw-preview" class="fv-bb-output" sandbox="" title="Результат шаблона" style="width:100%;height:220px"></iframe>
+								<div class="b64-field-head"><strong>HTML-код результата</strong></div>
+								<pre id="tw-html" class="fv-pre-out"></pre>
+								<ul id="tw-warn" class="fv-issues"></ul>
+							</div>
+							<p class="text-muted">Это встроенный в браузер интерпретатор подмножества Twig, а не настоящий PHP-Twig: поддержаны {{ }}, {% if / for / set %}, фильтры, тесты и основные операторы; extends, include, block, macro и вызовы методов не поддерживаются. Автоэкранирование HTML включено, предпросмотр выводится в изолированном iframe без скриптов. Шаблон и данные не отправляются на сервер.</p>
+
+						</div>
+					</section>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="footer-section section">
+		<div class="container">
+			<div class="row text-center">
+				<div class="col-md-12">
+					<!--fv:footer-nav-->
+					<ul class="footer-navigation inline-list">
+					<li><a href="about.html">О проекте</a></li>
+					<li><a href="docs/">Документация</a></li>
+					<li><a href="terms.html">Условия</a></li>
+					</ul>
+					<!--/fv:footer-nav-->
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="assets/js/jquery.bundle.js"></script>
+	<script src="assets/js/script.js"></script>
+	<script src="js/fv-common.js"></script>
+	<script src="js/twig-playground.js"></script>
+</body>
+</html>

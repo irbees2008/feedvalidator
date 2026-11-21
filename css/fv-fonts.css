@@ -1,0 +1,138 @@
+.fv-fonts .fv-font-card {
+  margin: 0 0 24px;
+  padding: 26px 30px;
+  border: 1px solid #e8edf5;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 5px 22px rgba(29, 49, 79, .06);
+}
+
+.fv-fonts .fv-font-card h2 {
+  margin: 0 0 14px;
+  color: #263a57;
+  font-size: 22px;
+}
+
+.fv-fonts .fv-font-card h3 {
+  margin: 18px 0 10px;
+  color: #334762;
+  font-size: 16px;
+}
+
+.fv-font-controls {
+  margin-bottom: 16px;
+}
+
+.fv-font-controls label,
+.fv-fonts label {
+  display: block;
+  margin-bottom: 7px;
+  color: #34445a;
+  font-weight: 600;
+}
+
+.fv-font-preview-box {
+  margin-top: 20px;
+  padding: 18px;
+  border: 1px solid #e8edf5;
+  border-radius: 10px;
+  background: #fbfcfe;
+}
+
+.fv-font-preview {
+  min-height: 66px;
+  margin: 14px 0 8px;
+  overflow-wrap: anywhere;
+  color: #263a57;
+  font-size: 28px;
+}
+
+.fv-font-note {
+  margin: 8px 0 0;
+  color: #68778c;
+  font-size: 13px;
+}
+
+.fv-font-formats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin: 18px 0;
+  padding: 14px 16px;
+  border: 1px solid #e8edf5;
+  border-radius: 8px;
+}
+
+.fv-font-formats legend {
+  width: auto;
+  margin: 0;
+  padding: 0 5px;
+  border: 0;
+  color: #34445a;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.fv-font-formats label {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin: 0;
+  font-weight: 400;
+}
+
+.fv-font-formats input {
+  margin: 0;
+}
+
+.fv-font-code-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.fv-font-code-head h3 {
+  margin-top: 12px;
+}
+
+.fv-font-code {
+  overflow: auto;
+  padding: 16px;
+  border: 1px solid #e4e9f1;
+  border-radius: 8px;
+  background: #f7f9fc;
+  color: #2e405b;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.fv-font-results {
+  margin: 14px 0 0;
+  padding-left: 20px;
+  color: #334762;
+}
+
+.fv-fonts .fv-btn-light {
+  padding: 8px 13px;
+  border: 1px solid #d5deeb;
+  border-radius: 6px;
+  background: #fff;
+  color: #2d5da8;
+}
+
+.fv-fonts .fv-btn[disabled] {
+  cursor: not-allowed;
+  opacity: .55;
+}
+
+@media (max-width: 767px) {
+  .fv-fonts .fv-font-card {
+    padding: 20px 16px;
+  }
+
+  .fv-font-preview {
+    font-size: 23px;
+  }
+}

@@ -1,7 +1,142 @@
-<div class="centered">
-<form id="validation" action="check.cgi" method="get">
-<div>
-<input name="url" id="url" type="text" size="55" maxlength="255" value="%(value)s" />&nbsp;<input type="submit" value="Validate" />
+<div class="feature-boxes fv-panel-wrap">
+<div class="container">
+<div class="row">
+<div class="col-md-10 col-md-offset-1">
+    <section class="fv-panel" id="check" aria-label="Проверка ленты">
+        <ul class="nav nav-tabs fv-tabs" role="tablist">
+            <li role="presentation" class="%(urlActive)s">
+                <a href="#url-tab" aria-controls="url-tab" role="tab" data-toggle="tab">Проверить URL</a>
+            </li>
+            <li role="presentation" class="%(manualActive)s">
+                <a href="#manual-tab" aria-controls="manual-tab" role="tab" data-toggle="tab">Вставить XML</a>
+            </li>
+            <li role="presentation" class="%(fileActive)s">
+                <a href="#file-tab" aria-controls="file-tab" role="tab" data-toggle="tab">Загрузить файл</a>
+            </li>
+        </ul>
+
+        <div class="tab-content fv-tab-content">
+            <div role="tabpanel" class="tab-pane %(urlActive)s" id="url-tab">
+                <form id="validation-url" action="check.cgi" method="get" onsubmit="return prepareUrl()">
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label class="sr-only" for="url-proto">Протокол</label>
+                                <select id="url-proto" class="form-control">
+                                    <option value="https://">https://</option>
+                                    <option value="http://">http://</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="form-group">
+                                <label class="sr-only" for="url">Адрес RSS или Atom ленты</label>
+                                <input name="url" id="url" class="form-control" type="text" maxlength="255" value="%(value)s" placeholder="example.com/rss.xml" />
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <button class="button" type="submit">Проверить</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div role="tabpanel" class="tab-pane %(manualActive)s" id="manual-tab">
+                <form id="validation-manual" action="check.cgi" method="post">
+                    <div class="form-group">
+                        <label for="rawdata">Вставьте XML-код RSS или Atom</label>
+                        <textarea name="rawdata" id="rawdata" class="form-control" rows="15" placeholder="Вставьте сюда RSS/Atom XML...">%(rawdata)s</textarea>
+                    </div>
+                    <button class="button" type="submit">Проверить</button>
+                    <input type="hidden" name="manual" id="manual" value="1" />
+                </form>
+            </div>
+
+            <div role="tabpanel" class="tab-pane %(fileActive)s" id="file-tab">
+                <form id="validation-file" action="check.cgi" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="uploadfile">Выберите XML-файл с RSS/Atom лентой</label>
+                        <input type="file" name="uploadfile" id="uploadfile" class="form-control" accept=".xml,.rss,.atom,application/xml,application/rss+xml,application/atom+xml" />
+                    </div>
+                    <button class="button" type="submit">Проверить</button>
+                    <input type="hidden" name="manual" value="1" />
+                </form>
+            </div>
+        </div>
+    </section>
 </div>
-</form>
 </div>
+</div>
+</div>
+
+<div class="container fv-features %(welcomeClass)s">
+<div class="row text-center">
+<div class="col-md-4 col-sm-6 col-sm-offset-3 col-md-offset-0">
+<div class="box wow fadeInUp" data-wow-duration=".5s">
+<div class="box-icon"><em class="ti ti-check"></em></div>
+<h4>Проверка стандартов</h4>
+<p>RSS, Atom и KML с подробными объяснениями замечаний.</p>
+</div>
+</div>
+<div class="col-md-4 col-sm-6 col-sm-offset-3 col-md-offset-0">
+<div class="box wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".3s">
+<div class="box-icon"><em class="ti ti-clipboard"></em></div>
+<h4>Подробный отчёт</h4>
+<p>Диагностика XML, HTTP-ответа и содержимого ленты.</p>
+</div>
+</div>
+<div class="col-md-4 col-sm-6 col-sm-offset-3 col-md-offset-0">
+<div class="box wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".6s">
+<div class="box-icon"><em class="ti ti-eye"></em></div>
+<h4>Предпросмотр записей</h4>
+<p>Как записи и изображения ленты выглядят после разбора.</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="section fv-results-section">
+<div class="container validator-results">
+
+<script>
+(function() {
+    var urlInput = document.getElementById('url');
+    var protoSel = document.getElementById('url-proto');
+    function splitProto(val) {
+        var m = val.match(/^(https?:\/\/)(.*)/i);
+        if (m) return {proto: m[1].toLowerCase(), rest: m[2]};
+        var m2 = val.match(/^(https?)\/{1,2}(.*)/i);
+        if (m2) return {proto: m2[1].toLowerCase() + '://', rest: m2[2]};
+        return {proto: null, rest: val};
+    }
+    if (urlInput.value) {
+        var parsed = splitProto(urlInput.value);
+        if (parsed.proto) {
+            for (var i = 0; i < protoSel.options.length; i++) {
+                if (protoSel.options[i].value === parsed.proto) {
+                    protoSel.selectedIndex = i;
+                    break;
+                }
+            }
+            urlInput.value = parsed.rest;
+        }
+    }
+    window.prepareUrl = function() {
+        var val = urlInput.value.trim();
+        if (!val) return true;
+        var parsed = splitProto(val);
+        urlInput.value = parsed.proto ? parsed.rest : val;
+        var hidden = document.getElementById('url-full');
+        if (!hidden) {
+            hidden = document.createElement('input');
+            hidden.type = 'hidden';
+            hidden.name = 'url';
+            hidden.id = 'url-full';
+            document.getElementById('validation-url').appendChild(hidden);
+            urlInput.name = ''; // убираем имя у текстового поля
+        }
+        hidden.value = protoSel.value + (parsed.proto ? parsed.rest : val);
+        return true;
+    };
+})();
+</script>

@@ -1,337 +1,520 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru" class="js">
 <head>
-<meta charset="utf-8">
-<title>Feed Validator Documentation</title>
-<style media="screen">@import "../css/common.css";
-@import "../css/documentation.css";</style>
-<script><!-- --></script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Документация — FEED Валидатор</title>
+	<meta name="description" content="Руководства по RSS и Atom, описание сообщений валидатора и каталог инструментов для сайта, кода и NGCMS.">
+	<meta name="robots" content="index,follow">
+	<link rel="canonical" href="https://lab.ngcms.org/docs/">
+	<meta name="theme-color" content="#1F65DB">
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="FEED Валидатор">
+	<meta property="og:locale" content="ru_RU">
+	<meta property="og:title" content="Документация — FEED Валидатор">
+	<meta property="og:description" content="Руководства по RSS и Atom, описание сообщений валидатора и каталог инструментов для сайта, кода и NGCMS.">
+	<meta property="og:url" content="https://lab.ngcms.org/docs/">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Документация — FEED Валидатор">
+	<meta name="twitter:description" content="Руководства, описание сообщений валидатора и каталог инструментов FEED Валидатор.">
+	<link rel="shortcut icon" href="../favicon.ico">
+	<link rel="stylesheet" href="../assets/css/vendor.bundle.css">
+	<link rel="stylesheet" href="../assets/css/style.css?ver=131">
+	<link rel="stylesheet" href="../assets/css/theme.css?ver=131">
+	<link rel="stylesheet" href="../css/fv-theme.css">
 </head>
 <body>
+	<!--fv:navbar-->
+	<div id="home" class="header-section half-header section gradiant-background overflow-hidden">
+	<div id="particles-js" class="particles-container"></div>
+	<div id="navigation" class="navigation is-transparent" data-spy="affix" data-offset-top="5">
+	<nav class="navbar navbar-default" aria-label="Основная навигация">
+	<div class="container">
+	<div class="navbar-header">
+	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#site-collapse-nav" aria-expanded="false">
+	<span class="sr-only">Открыть меню</span>
+	<span class="icon-bar"></span>
+	<span class="icon-bar"></span>
+	<span class="icon-bar"></span>
+	</button>
+	<a class="navbar-brand" href="../">
+	<span class="logo logo-light"><span class="lg-hash">#</span> <span class="lg-f">F</span><span class="lg-e1">E</span><span class="lg-e2">E</span><span class="lg-d">D</span> Валидатор</span>
+	<span class="logo logo-color"><span class="lg-hash">#</span> <span class="lg-f">F</span><span class="lg-e1">E</span><span class="lg-e2">E</span><span class="lg-d">D</span> Валидатор</span>
+	</a>
+	</div>
+	<div class="collapse navbar-collapse font-secondary" id="site-collapse-nav">
+	<ul class="nav nav-list navbar-nav navbar-right">
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Проверить</a>
+	<ul class="dropdown-menu">
+	<li><a href="../check.cgi">Проверить ленту</a></li>
+	<li><a href="../open-graph.html">Open Graph</a></li>
+	<li><a href="../meta-tags-analyzer.html">Meta-теги</a></li>
+	<li><a href="../http-status-checker.html">HTTP-статус</a></li>
+	<li><a href="../robots-txt-validator.html">Robots.txt</a></li>
+	<li><a href="../sitemap-validator.html">Sitemap</a></li>
+	<li><a href="../dns-lookup.html">DNS</a></li>
+	<li><a href="../security-headers-checker.html">Заголовки безопасности</a></li>
+	<li><a href="../ssl-checker.html">SSL</a></li>
+	<li><a href="../schema-validator.html">Schema.org</a></li>
+	</ul>
+	</li>
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Кодирование</a>
+	<ul class="dropdown-menu">
+	<li><a href="../base64.html">Base64</a></li>
+	<li><a href="../url-encoder.html">URL</a></li>
+	<li><a href="../json-formatter.html">JSON</a></li>
+	<li><a href="../jwt-decoder.html">JWT</a></li>
+	<li><a href="../html-entities.html">HTML Entities</a></li>
+	</ul>
+	</li>
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Генераторы</a>
+	<ul class="dropdown-menu">
+	<li><a href="../favicon-generator.html">Favicon</a></li>
+	<li><a href="../markdown-editor.html">Markdown</a></li>
+	<li><a href="../fancy-text.html">Красивый текст</a></li>
+	<li><a href="../regex-tester.html">Regex</a></li>
+	<li><a href="../pixel-art-maker.html">Пиксель-арт</a></li>
+	<li><a href="../image-to-pixel-art.html">Фото в пиксель-арт</a></li>
+	<li><a href="../image-animation.html">Создать анимацию</a></li>
+	</ul>
+	</li>
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Утилиты</a>
+	<ul class="dropdown-menu">
+	<li><a href="../timestamp-converter.html">Timestamp</a></li>
+	<li><a href="../color-tools.html">Цвета</a></li>
+	<li><a href="../cron-generator.html">Cron</a></li>
+	<li><a href="../user-agent-parser.html">User-Agent</a></li>
+	<li><a href="../image-converter.html">Конвертер фото</a></li>
+	<li><a href="../fonts.html">Шрифты</a></li>
+	<li><a href="../image-compressor.html">Сжатие фото</a></li>
+	<li><a href="../qr-code.html">QR-код</a></li>
+	</ul>
+	</li>
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">NGCMS</a>
+	<ul class="dropdown-menu">
+	<li><a href="../bbcode-preview.html">BBCode</a></li>
+	<li><a href="../sql-analyzer.html">SQL</a></li>
+	<li><a href="../twig-playground.html">Twig</a></li>
+	<li><a href="../template-checker.html">Шаблоны</a></li>
+	<li><a href="../plugin-checker.html">Плагины</a></li>
+	<li><a href="../php-compat-checker.html">PHP</a></li>
+	</ul>
+	</li>
+	</ul>
+	</div>
+	</div>
+	</nav>
+	</div>
+	<!--/fv:navbar-->
+		<div class="header-content">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 text-center">
+						<div class="header-texts">
+							<h1 class="wow fadeInUp" data-wow-duration=".5s">Документация</h1>
+							<p class="lead wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".3s">Руководства по работе с лентами, описания сообщений валидатора и справочник инструментов сайта.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<div id="logo">
-<h1><a href="/"><span id="feed"><span id="f">F</span><span id="e1">E</span><span id="e2">E</span></span><span id="d">D</span> Validator</a></h1>
-<p>Documentation</p>
-<a class="skip" href="#startnavigation">Jump to navigation</a>
-</div> <!--logo-->
+	<main class="section grey-background fv-page fv-docs">
+		<div class="container">
+			<section class="fv-doc-card" aria-labelledby="start-title">
+				<h2 id="start-title">Начало работы</h2>
+				<p>Выберите, что нужно сделать. Для самой проверки откройте валидатор и укажите адрес ленты, вставьте XML или загрузите файл.</p>
+				<div class="fv-doc-actions">
+					<a class="fv-btn" href="../check.cgi">Проверить RSS, Atom или KML</a>
+					<a class="b64-seg-btn" href="../">Все инструменты</a>
+				</div>
+				<ul class="fv-doc-links">
+					<li><a href="howto/declare_namespaces.html">Пространства имён в RSS: что объявлять и зачем</a></li>
+					<li><a href="howto/install_and_run.html">Установка и локальный запуск проекта</a></li>
+				</ul>
+			</section>
 
-
-<div id="main">
-
-<h2>Tutorials</h2>
-
-<ul>
-<li><a href="howto/declare_namespaces.html">How do I declare namespaces in my RSS feed?</a></li>
-<li><a href="howto/install_and_run.html">How do I install and run the Feed Validator?</a></li>
-
+			<section class="fv-doc-card" aria-labelledby="tools-title">
+				<h2 id="tools-title">Инструменты сайта</h2>
+				<p>Каталог синхронизирован с меню и главной страницей: здесь перечислены текущие инструменты проекта.</p>
+				<section class="fv-doc-tools-group">
+<h3>Проверки сайта и SEO</h3>
+<ul class="fv-doc-tools-list">
+<li><a href="../check.cgi">FEED Валидатор</a><span>Проверка RSS, Atom и KML по ссылке, XML-коду или файлу: ошибки, предупреждения и предпросмотр записей.</span></li>
+<li><a href="../open-graph.html">OpenGraph Чекер</a><span>Теги Open Graph и Twitter Card страницы и предпросмотр карточки для соцсетей и мессенджеров.</span></li>
+<li><a href="../meta-tags-analyzer.html">Meta Анализатор</a><span>Разбор title, description, robots, canonical и других мета-тегов в вставленном HTML.</span></li>
+<li><a href="../http-status-checker.html">HTTP Статус</a><span>Код ответа, цепочка редиректов, заголовки и время ответа любого адреса.</span></li>
+<li><a href="../robots-txt-validator.html">Robots Валидатор</a><span>Проверка синтаксиса robots.txt, правил для ботов и ссылок на карту сайта.</span></li>
+<li><a href="../sitemap-validator.html">Sitemap Валидатор</a><span>Проверка sitemap.xml и Sitemap Index: структура, даты, лимиты и доступность адресов.</span></li>
+<li><a href="../dns-lookup.html">DNS Проверка</a><span>DNS-записи домена: A, AAAA, CNAME, MX, NS, TXT, SOA, CAA и обратный PTR.</span></li>
+<li><a href="../security-headers-checker.html">Headers Чекер</a><span>CSP, HSTS, X-Frame-Options и другие заголовки безопасности с оценкой и советами.</span></li>
+<li><a href="../ssl-checker.html">SSL Чекер</a><span>SSL-сертификат сайта: срок действия, издатель, домены, версия TLS и HTTP/2.</span></li>
+<li><a href="../schema-validator.html">Schema Валидатор</a><span>Структурированные данные JSON-LD, Microdata и RDFa: обязательные поля и рекомендации.</span></li>
 </ul>
-
-<h2>Specifications</h2>
-
-<ul>
-<li><a href="http://www.atomenabled.org/developers/syndication/atom-format-spec.php">Atom 1.0</a></li>
-<li><a href="rss1.html">RSS 1.0 specification</a></li>
-<li><a href="rss2.html">RSS 2.0 specification</a></li>
+</section>
+<section class="fv-doc-tools-group">
+<h3>Кодирование и форматирование</h3>
+<ul class="fv-doc-tools-list">
+<li><a href="../base64.html">Base64 Кодировщик</a><span>Кодирование и декодирование Base64 для текста и файлов, включая Base64URL.</span></li>
+<li><a href="../url-encoder.html">URL Кодировщик</a><span>Процентное кодирование и разбор адресов, параметров запроса и кириллических ссылок.</span></li>
+<li><a href="../json-formatter.html">JSON Форматтер</a><span>Форматирование, минификация и проверка JSON с указанием места ошибки.</span></li>
+<li><a href="../jwt-decoder.html">JWT Декодер</a><span>Расшифровка JWT-токена: заголовок, содержимое и сроки действия прямо в браузере.</span></li>
+<li><a href="../html-entities.html">HTML Сущности</a><span>Кодирование и декодирование HTML-сущностей: именованных и числовых.</span></li>
 </ul>
-
-<h2>Validator messages</h2>
-
-<h3>Errors</h3>
-<ul>
-<li><a href="error/AtomLinkNotEmpty.html"><code>foo</code> should not have text (all data is in attributes)</a></li>
-<li><a href="error/BadXmlVersion.html">Feeds must specify XML Version 1.0</a></li>
-<li><a href="error/ConflictingCatAttr.html">Categories can't have both <code>href</code> and <code>foo</code> attributes</a></li>
-<li><a href="error/ConflictingCatChildren.html">Categories can't have both <code>href</code> attributes and children</a></li>
-<li><a href="error/ContainsSystemEntity.html">Feeds must not contain SYSTEM entities</a></li>
-<li><a href="error/CurrentNotSelfInCompleteFeed.html">Current not self in complete feed</a></li>
-<li><a href="error/DeprecatedDTD.html">The use of this DTD has been deprecated by Netscape</a></li>
-<li><a href="error/DuplicateAtomLink.html">Duplicate alternate links with the same type and hreflang</a></li>
-<li><a href="error/DuplicateElement.html"><code>foo</code> contains more than one <code>bar</code></a></li>
-<li><a href="error/DuplicateIds.html">All entries have the same id</a></li>
-<li><a href="error/DuplicateValue.html"><code>element</code> values must not be duplicated within a feed</a></li>
-<li><a href="error/EightDaysAWeek.html">skipDays can not contain more than 7 day elements</a></li>
-<li><a href="error/FeedRelInCompleteFeed.html"><code>foo</code> link relation found in complete feed</a></li>
-<li><a href="error/HttpError.html">HTTP Error</a></li>
-<li><a href="error/HttpErrorWithPossibleFeed.html">HTTP error with content that looks like a feed</a></li>
-<li><a href="error/HttpProtocolError.html">HTTP Protocol Error</a></li>
-<li><a href="error/IOError.html">IO Error</a></li>
-<li><a href="error/IncorrectDOW.html">Incorrect day of week: <code>foo</code></a></li>
-<li><a href="error/IntegerOverflow.html"><code>attribute</code> value too large</a></li>
-<li><a href="error/InvalidAccessRestrictionRel.html">Invalid value for access:restriction: <code>foo</code></a></li>
-<li><a href="error/InvalidAddrSpec.html"><code>foo</code> must be an email address</a></li>
-<li><a href="error/InvalidAlphanum.html"><code>foo</code> must be alphanumeric</a></li>
-<li><a href="error/InvalidAltitudeMode.html">Invalid altitudeMode</a></li>
-<li><a href="error/InvalidAngle.html"><code>foo</code> must be between -360 and 360</a></li>
-<li><a href="error/InvalidBooleanAttribute.html"><code>foo</code> attribute of <code>bar</code> must be 'true' or 'false'</a></li>
-<li><a href="error/InvalidColor.html">Not a valid color</a></li>
-<li><a href="error/InvalidColorMode.html">Invalid colorMode.</a></li>
-<li><a href="error/InvalidCommaSeparatedIntegers.html"><code>foo</code> must be comma-separated integers</a></li>
-<li><a href="error/InvalidContact.html">Invalid email address</a></li>
-<li><a href="error/InvalidContentMode.html"><code>foo</code> is not a valid mode</a></li>
-<li><a href="error/InvalidCoord.html">Invalid Coordinate</a></li>
-<li><a href="error/InvalidCoordList.html">Invalid Coordinate</a></li>
-<li><a href="error/InvalidCountryCode.html">Invalid counry code: "<code>foo</code>"</a></li>
-<li><a href="error/InvalidCreditRole.html">Invalid Credit Role</a></li>
-<li><a href="error/InvalidCurrencyUnit.html">Invalid value for <code>g:currency</code>: "<code>foo</code>"</a></li>
-<li><a href="error/InvalidDay.html"><code>foo</code> must be Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, or Sunday</a></li>
-<li><a href="error/InvalidDoctype.html">This feed contains conflicting DOCTYPE and version information</a></li>
-<li><a href="error/InvalidDuration.html">Invalid duration: "<code>foo</code>"</a></li>
-<li><a href="error/InvalidEncoding.html">Invalid character encoding: <i>foo</i></a></li>
-<li><a href="error/InvalidExpansionState.html">&lt;expansionState&gt; is a comma-separated list of line numbers.</a></li>
-<li><a href="error/InvalidFloat.html">Invalid value for <code>foo</code>: "<code>bar</code>"</a></li>
-<li><a href="error/InvalidFloatUnit.html">Invalid value for <code>foo</code>: "<code>bar</code>"</a></li>
-<li><a href="error/InvalidFormComponentName.html">Invalid form component name</a></li>
-<li><a href="error/InvalidFullLink.html"><code>element</code> must be a full URI</a></li>
-<li><a href="error/InvalidFullLocation.html">Invalid value for <code>g:location</code>: "<code>foo</code>"</a></li>
-<li><a href="error/InvalidGender.html">Invalid value for <code>g:gender</code>: "<code>foo</code>"</a></li>
-<li><a href="error/InvalidHeight.html"><code>foo</code> must be between 1 and 400</a></li>
-<li><a href="error/InvalidHour.html"><code>foo</code> must be between an integer 0 and 23</a></li>
-<li><a href="error/InvalidHttpGUID.html"><code>guid</code> must be a full URL, unless isPermaLink attribute is false</a></li>
-<li><a href="error/InvalidIRI.html"><code>foo</code> must be a valid IRI</a></li>
-<li><a href="error/InvalidISO8601Date.html"><code>foo</code> must be an ISO-8601 date</a></li>
-<li><a href="error/InvalidISO8601DateTime.html"><code>foo</code> must be an ISO-8601 date-time</a></li>
-<li><a href="error/InvalidIntUnit.html">Invalid value for <code>foo</code>: "<code>bar</code>"</a></li>
-<li><a href="error/InvalidInteger.html"><code>foo</code> must be an integer</a></li>
-<li><a href="error/InvalidIntegerAttribute.html"><code>foo</code> attribute of <code>bar</code> must be a positive integer</a></li>
-<li><a href="error/InvalidItemIconState.html">Invalid state for Icon</a></li>
-<li><a href="error/InvalidItunesCategory.html"><code>foo</code> is not one of the predefined iTunes categories or sub-categories</a></li>
-<li><a href="error/InvalidKmlCoordList.html">Invalid coordinate list. Make sure that coordinates are of the form longitude,latitude or longitude,latitude,altitude and seperated by a single space. It is also a good idea to avoid line breaks or other extraneous white space</a></li>
-<li><a href="error/InvalidKmlLatitude.html">Invalid latitude found within coordinates. Latitudes have to be between -90 and 90.</a></li>
-<li><a href="error/InvalidKmlLongitude.html">Invalid longitude found within coordinates. Longitudes have to be between -180 and 180.</a></li>
-<li><a href="error/InvalidKmlUnits.html">Invalid units.</a></li>
-<li><a href="error/InvalidLabel.html">Invalid value for <code>g:label</code>: "<code>foo</code>"</a></li>
-<li><a href="error/InvalidLanguage.html"><code>foo</code> must be an ISO-639 language code</a></li>
-<li><a href="error/InvalidLatitude.html"><code>foo</code> must be between -90 and 90</a></li>
-<li><a href="error/InvalidLink.html"><code>foo</code> must be a valid URI</a></li>
-<li><a href="error/InvalidListItemType.html">Invalid list item type</a></li>
-<li><a href="error/InvalidLocalParameter.html">Invalid local parameter name: <i>foo</i></a></li>
-<li><a href="error/InvalidLocalRole.html">Invalid local role: <i>foo</i></a></li>
-<li><a href="error/InvalidLocation.html">Invalid value for <code>foo</code>: "<code>bar</code>"</a></li>
-<li><a href="error/InvalidLongitude.html"><code>foo</code> must be between -180 and 180</a></li>
-<li><a href="error/InvalidMIMEAttribute.html"><code>foo</code> attribute of <code>bar</code> must be a valid MIME type</a></li>
-<li><a href="error/InvalidMIMEType.html"><code>foo</code> is not a valid MIME type</a></li>
-<li><a href="error/InvalidMaritalStatus.html">Invalid value for <code>g:marital_status</code>: "<code>foo</code>"</a></li>
-<li><a href="error/InvalidMediaExpression.html">Invalid content expression: "<code>foo</code>"</a></li>
-<li><a href="error/InvalidMediaHash.html">Invalid Media Hash</a></li>
-<li><a href="error/InvalidMediaMedium.html">Invalid content medium: "<code>foo</code>"</a></li>
-<li><a href="error/InvalidMediaRating.html">Invalid Media Rating</a></li>
-<li><a href="error/InvalidMediaRestriction.html"><code>media:restriction</code> must be 'all' or 'none'</a></li>
-<li><a href="error/InvalidMediaRestrictionRel.html"><code>relationship</code> must be 'allow' or 'disallow'</a></li>
-<li><a href="error/InvalidMediaRestrictionType.html"><code>type</code> must be 'country' or 'uri'</a></li>
-<li><a href="error/InvalidMediaTextType.html">type attribute must be "plain" or "html"</a></li>
-<li><a href="error/InvalidMetaContent.html">Invalid value for <code>content</code>: "<code>foo</code>"</a></li>
-<li><a href="error/InvalidMetaName.html">Invalid value for <code>name</code>: "<code>foo</code>"</a></li>
-<li><a href="error/InvalidNPTTime.html"><code>foo</code> must be an NPT-time</a></li>
-<li><a href="error/InvalidNSS.html">Invalid Namespace Specific String: <code>attribute</code></a></li>
-<li><a href="error/InvalidNamespace.html"><code>foo</code> is in an invalid namespace</a></li>
-<li><a href="error/InvalidNonNegativeInteger.html"><code>foo</code> must be a non-negative integer</a></li>
-<li><a href="error/InvalidOPMLVersion.html">The "version" attribute for the opml element must be <code>1.0</code>, <code>1.1</code> or <code>2.0</code>.</a></li>
-<li><a href="error/InvalidPaymentMethod.html">Invalid value for <code>g:payment_accepted</code>: "<code>foo</code>"</a></li>
-<li><a href="error/InvalidPercentage.html"><code>foo</code> must be a percentage</a></li>
-<li><a href="error/InvalidPermalink.html"><code>guid</code> must be a full URL, unless isPermaLink attribute is false</a></li>
-<li><a href="error/InvalidPositiveInteger.html"><code>foo</code> must be a positive integer</a></li>
-<li><a href="error/InvalidPriceType.html">Invalid value for <code>g:price_type</code>: "<code>foo</code>"</a></li>
-<li><a href="error/InvalidRDF.html">RDF Parsing Error</a></li>
-<li><a href="error/InvalidRFC2822Date.html"><code>element</code> must be an RFC-822 date-time</a></li>
-<li><a href="error/InvalidRFC3339Date.html"><code>foo</code> must be an RFC 3339 date-time</a></li>
-<li><a href="error/InvalidRSSVersion.html">Invalid RSS Version: <code>x.y</code></a></li>
-<li><a href="error/InvalidRatingType.html">Invalid value for <code>g:rating</code>: "<code>foo</code>"</a></li>
-<li><a href="error/InvalidRefreshMode.html">Invalid refreshMode</a></li>
-<li><a href="error/InvalidReviewerType.html">Invalid value for <code>g:reviewer_type</code>: "<code>foo</code>"</a></li>
-<li><a href="error/InvalidSalaryType.html">Invalid value for <code>g:salary_type</code>: "<code>foo</code>"</a></li>
-<li><a href="error/InvalidSchemaFieldType.html">Invalid Schema field type</a></li>
-<li><a href="error/InvalidServiceType.html">Invalid value for <code>g:service</code>: "<code>foo</code>"</a></li>
-<li><a href="error/InvalidSseType.html">Invalid value for sx:related type</a></li>
-<li><a href="error/InvalidStyleState.html">Invalid key for StyleMap.</a></li>
-<li><a href="error/InvalidSyndicationRight.html">Invalid value for <code>SyndicationRight</code>: <code>foo</code></a></li>
-<li><a href="error/InvalidTAG.html"><code>foo</code> is not a valid TAG</a></li>
-<li><a href="error/InvalidTextType.html">type attribute must be "text", "html", or "xhtml"</a></li>
-<li><a href="error/InvalidTrueFalse.html"><code>foo</code> attribute of <code>bar</code> must be 'true' or 'false'</a></li>
-<li><a href="error/InvalidURI.html"><code>foo</code> is not a valid URI</a></li>
-<li><a href="error/InvalidURIAttribute.html"><code>foo</code> attribute of <code>bar</code> must be a valid URI</a></li>
-<li><a href="error/InvalidURLAttribute.html"><code>foo</code> attribute of <code>bar</code> must be a full URL</a></li>
-<li><a href="error/InvalidURN.html"><code>foo</code> is not a valid URN</a></li>
-<li><a href="error/InvalidUUID.html"><code>foo</code> is not a valid UUID</a></li>
-<li><a href="error/InvalidUpdatePeriod.html"><code>foo</code> must be hourly, daily, weekly, monthly, or yearly</a></li>
-<li><a href="error/InvalidUriChar.html">Invalid character in a URI: <code>c</code></a></li>
-<li><a href="error/InvalidValue.html">Invalid value for <code>foo</code>: "<code>bar</code>"</a></li>
-<li><a href="error/InvalidViewRefreshMode.html">Invalid viewRefreshMode.</a></li>
-<li><a href="error/InvalidW3CDTFDate.html"><code>foo</code> must be an W3CDTF date</a></li>
-<li><a href="error/InvalidWidth.html"><code>foo</code> must be between 1 and 144</a></li>
-<li><a href="error/InvalidYear.html">Invalid value for <code>g:year</code>: "<code>foo</code>"</a></li>
-<li><a href="error/InvalidYesNo.html"><code>foo</code> attribute of <code>bar</code> must be 'yes' or 'no'</a></li>
-<li><a href="error/InvalidYesNoClean.html"><code>foo</code> attribute of <code>bar</code> must be 'yes', 'no', or 'clean'</a></li>
-<li><a href="error/InvalidZeroOne.html">Invalid value. Should be 0 or 1.</a></li>
-<li><a href="error/ItemMustContainTitleOrDescription.html"><code>item</code> must contain either <code>title</code> or <code>description</code></a></li>
-<li><a href="error/LinkPastEnd.html">Link past end of list</a></li>
-<li><a href="error/MediaGroupWithoutAlternatives.html"><code>media:group</code> must have multiple <code>media:content</code> children</a></li>
-<li><a href="error/MediaRssNamespace.html">Missing trailing slash in mediaRSS namespace</a></li>
-<li><a href="error/MisplacedMetadata.html"><code>foo</code> must appear before all entries</a></li>
-<li><a href="error/MissingAttribute.html">Missing <code>element</code> attribute: <code>attribute-name</code></a></li>
-<li><a href="error/MissingByAndWhenAttrs.html">Missing <code>by</code> and <code>when</code> attributes</a></li>
-<li><a href="error/MissingContentOrAlternate.html">Missing content or alternate link</a></li>
-<li><a href="error/MissingDescription.html">Missing <code>foo</code> element: <code>description</code></a></li>
-<li><a href="error/MissingElement.html">Missing <code>parent</code> element: <code>child</code></a></li>
-<li><a href="error/MissingHref.html"><code>foo</code> must have an <code>href</code> attribute</a></li>
-<li><a href="error/MissingLink.html">Missing <code>foo</code> element: <code>link</code></a></li>
-<li><a href="error/MissingNamespace.html">Missing namespace for <code>foo</code></a></li>
-<li><a href="error/MissingSummary.html">Missing Summary</a></li>
-<li><a href="error/MissingTitle.html">Missing <code>foo</code> element: <code>title</code></a></li>
-<li><a href="error/MissingXhtmlDiv.html">Missing xhtml:div</a></li>
-<li><a href="error/NoBlink.html">There is no <code>blink</code> element in RSS</a></li>
-<li><a href="error/NoThrWhen.html"><code>thr:when</code> attribute obsolete; use <code>thr:updated</code> instead</a></li>
-<li><a href="error/NotBase64.html"><code>foo</code> claims to be base64-encoded, but isn't</a></li>
-<li><a href="error/NotEnoughHoursInTheDay.html">skipHours can not contain more than 24 hour elements</a></li>
-<li><a href="error/NotEscaped.html"><code>foo</code> claims to be escaped, but isn't</a></li>
-<li><a href="error/NotInANamespace.html">Missing namespace for <code>foo</code></a></li>
-<li><a href="error/NotURLEncoded.html">searchTerms must be URL encoded</a></li>
-<li><a href="error/ObsoleteNamespace.html">Feed uses an obsolete namespace</a></li>
-<li><a href="error/SAXError.html">XML Parsing error: <code>syntax error</code></a></li>
-<li><a href="error/SinceAfterUntil.html">Since After until</a></li>
-<li><a href="error/TooLong.html">length of <code>nnn</code> exceeds the maximum allowable for <code>foo</code> of <code>mmm</code></a></li>
-<li><a href="error/TooMany.html"><code>foo</code> contains more than ten <code>bar</code> elements</a></li>
-<li><a href="error/UndeclaredPrefix.html">Undeclared <code>foo</code> prefix: <code>bar</code></a></li>
-<li><a href="error/UndefinedElement.html">Undefined <code>parent</code> element: <code>child</code></a></li>
-<li><a href="error/UndefinedNamedEntity.html">Undefined named entity: <code>foo</code></a></li>
-<li><a href="error/UnexpectedAttribute.html">Unexpected <i>foo</i> attribute on <i>bar</i> element</a></li>
-<li><a href="error/UnexpectedText.html">Unexpected text</a></li>
-<li><a href="error/UnexpectedWhitespace.html">Whitespace not permitted here</a></li>
-<li><a href="error/UnicodeError.html">UnicodeError: decoding error, invalid data</a></li>
-<li><a href="error/UnknownEncoding.html">Unknown XML character encoding: <i>foo</i></a></li>
-<li><a href="error/UriNotIri.html">IRI found where URL expected</a></li>
-<li><a href="error/UseZeroForUnknown.html">Use zero for unknown length</a></li>
-<li><a href="error/ValidatorLimit.html">Unable to validate, due to hardcoded resource limits (<i>limit</i>)</a></li>
-<li><a href="error/WPBlankLine.html">Blank line before XML declaration (WordPress)</a></li>
+</section>
+<section class="fv-doc-tools-group">
+<h3>Генераторы и редакторы</h3>
+<ul class="fv-doc-tools-list">
+<li><a href="../favicon-generator.html">Favicon Генератор</a><span>Набор favicon из изображения: PNG, ICO и код для подключения, поддерживается GIF.</span></li>
+<li><a href="../markdown-editor.html">Markdown Редактор</a><span>Редактор Markdown с живым предпросмотром и экспортом в HTML.</span></li>
+<li><a href="../fancy-text.html">Fancy Генератор</a><span>Необычные шрифты и стили Unicode для ников, подписей и постов.</span></li>
+<li><a href="../regex-tester.html">Regex Тестер</a><span>Проверка регулярных выражений JavaScript: совпадения, группы, замена.</span></li>
+<li><a href="../pixel-art-maker.html">Пиксель-арт</a><span>Рисуйте пиксель-арт по сетке, анимируйте кадры и экспортируйте PNG, GIF, спрайт-лист или код. Всё работает в браузере.</span></li>
+<li><a href="../image-to-pixel-art.html">Фото в пиксель-арт</a><span>Преобразуйте фото в пиксель-арт с настройкой размера, палитры и дизеринга. Обработка выполняется локально в браузере.</span></li>
 </ul>
-
-<h3>Warnings</h3>
-<ul>
-<li><a href="warning/ArchiveIncomplete.html">Archive incomplete</a></li>
-<li><a href="warning/AtomLinkNotEmpty.html"><code>foo</code> should not have text (all data is in attributes)</a></li>
-<li><a href="warning/AttrNotBlank.html"><code>foo</code> attribute of <code>bar</code> should not be blank</a></li>
-<li><a href="warning/AvoidNamespacePrefix.html">Avoid Namespace Prefix: <code>foo</code></a></li>
-<li><a href="warning/AvoidTextInput.html">Avoid Text Input</a></li>
-<li><a href="warning/BadCharacters.html">The XML encoding does not appear to match the characters used.</a></li>
-<li><a href="warning/CharacterData.html">Encode "&amp;" and "&lt;" in plain text using hexadecimal character references.</a></li>
-<li><a href="warning/CommentRSS.html"><code>wfw:commentRSS</code> should be <code>wfw:commentRss</code></a></li>
-<li><a href="warning/ContainsEmail.html"><code>name</code> should not contain email address</a></li>
-<li><a href="warning/ContainsHTML.html"><code>element</code> should not contain HTML</a></li>
-<li><a href="warning/ContainsRelRef.html"><code>element</code> should not contain relative URL references</a></li>
-<li><a href="warning/ContainsUndeclaredHTML.html"><code>foo</code> should not contain HTML unless declared in the type attribute</a></li>
-<li><a href="warning/CoordComma.html">Comma found in coordinate pair</a></li>
-<li><a href="warning/DangerousStyleAttr.html"><code>style</code> attribute contains potentially dangerous content</a></li>
-<li><a href="warning/Deprecated.html"><code>foo</code> has been superceded by <code>foo</code>.</a></li>
-<li><a href="warning/DeprecatedMediaAdult.html"><code>media:adult</code> is deprecated</a></li>
-<li><a href="warning/DeprecatedRootHref.html">root:// URLs have been superceded by full http:// URLs</a></li>
-<li><a href="warning/DuplicateDescriptionSemantics.html">Avoid <code>foo:bar</code></a></li>
-<li><a href="warning/DuplicateEnclosure.html"><code>item</code> contains more than one <code>enclosure</code></a></li>
-<li><a href="warning/DuplicateEntries.html">Two entries with the same id</a></li>
-<li><a href="warning/DuplicateItemSemantics.html">An <code>item</code> should not include both <code>foo</code> and <code>bar</code></a></li>
-<li><a href="warning/DuplicateSemantics.html">A <code>channel</code> should not include both <code>foo</code> and <code>bar</code></a></li>
-<li><a href="warning/DuplicateUpdated.html">Two entries with the same value for <code>atom:updated</code></a></li>
-<li><a href="warning/EmailFormat.html">Email address is not in the recommended format</a></li>
-<li><a href="warning/EncodingMismatch.html">Your feed appears to be encoded as &ldquo;<code>this</code>&rdquo;, but your server is reporting &ldquo;<code>that</code>&rdquo;</a></li>
-<li><a href="warning/FeedHistoryRelInEntry.html"><code>foo</code> link relation found in entry</a></li>
-<li><a href="warning/HtmlFragment.html">type <code>foo/bar</code> used for a document fragment</a></li>
-<li><a href="warning/ImageLinkDoesntMatch.html">Image link doesn't match channel link</a></li>
-<li><a href="warning/ImageTitleDoesntMatch.html">Image title doesn't match channel title</a></li>
-<li><a href="warning/ImageUrlFormat.html">Image not in required format</a></li>
-<li><a href="warning/ImplausibleDate.html">Implausible date: <code>foo</code></a></li>
-<li><a href="warning/InvalidAdultContent.html">Non-boolean value for <code>AdultContent</code>: <code>foo</code></a></li>
-<li><a href="warning/InvalidKeywords.html">Use commas to separate keywords</a></li>
-<li><a href="warning/InvalidKmlMediaType.html"><code>foo</code> is an invalid KML media type. Use application/vnd.google-earth.kml+xml or application/vnd.google-earth.kmz</a></li>
-<li><a href="warning/InvalidOutlineType.html">The type attribute on an &lt;outline&gt; element should be a known type.</a></li>
-<li><a href="warning/InvalidOutlineVersion.html">An &lt;outline&gt; element whose type is "rss" may have a version attribute, whose value must be RSS, RSS1, RSS2, or scriptingNews.</a></li>
-<li><a href="warning/MisplacedItem.html">Misplaced Item</a></li>
-<li><a href="warning/MisplacedXHTMLContent.html">Misplaced XHTML content</a></li>
-<li><a href="warning/MissingAtomSelfLink.html">Missing <code>atom:link</code> with <code>rel="self"</code></a></li>
-<li><a href="warning/MissingCurrentInArchive.html">current link not found in archive feed</a></li>
-<li><a href="warning/MissingEncoding.html">No character encoding was specified</a></li>
-<li><a href="warning/MissingGuid.html"><code>item</code> should contain a <code>guid</code> element</a></li>
-<li><a href="warning/MissingId.html">Placemark should contain a id attribute</a></li>
-<li><a href="warning/MissingItunesElement.html">Missing recommended iTunes <code>parent</code> element: <code>child</code></a></li>
-<li><a href="warning/MissingItunesEmail.html">The recommended <code>&lt;itunes:email&gt;</code> element is missing</a></li>
-<li><a href="warning/MissingOutlineType.html">An &lt;outline&gt; element with more than just a "text" attribute should have a "type" attribute indicating how the other attributes are to be interpreted.</a></li>
-<li><a href="warning/MissingRealName.html">Email address is missing real name</a></li>
-<li><a href="warning/MissingRecommendedAttribute.html">Missing recommended <code>element</code> attribute: <code>name</code></a></li>
-<li><a href="warning/MissingSelf.html">Missing <code>atom:link</code> with <code>rel="self"</code></a></li>
-<li><a href="warning/MissingSourceElement.html">Missing source element: <code>foo</code></a></li>
-<li><a href="warning/MissingTextualContent.html">Missing Textual Content</a></li>
-<li><a href="warning/MissingTitleAttr.html">Missing outline attribute: title</a></li>
-<li><a href="warning/MissingTypeAttr.html">Missing content attribute: type</a></li>
-<li><a href="warning/MissingUrlAttr.html">Missing outline attribute: url</a></li>
-<li><a href="warning/MissingXmlURL.html">An &lt;outline&gt; element whose type is "rss" must have an "xmlUrl" attribute.</a></li>
-<li><a href="warning/NeedDescriptionBeforeContent.html">Ensure <code>description</code> precedes <code>content:encoded</code></a></li>
-<li><a href="warning/NonCanonicalURI.html">Identifier &ldquo;foo&rdquo; is not in canonical form (the canonical form would be &ldquo;bar&rdquo;)</a></li>
-<li><a href="warning/NonSpecificMediaType.html">'<code>type/subtype</code>' media type is not specific enough</a></li>
-<li><a href="warning/NotBlank.html"><code>element</code> should not be blank</a></li>
-<li><a href="warning/NotHtml.html">Invalid HTML: <code>explanation</code></a></li>
-<li><a href="warning/NotInline.html"><code>foo</code> claims to be inline, but may contain HTML.</a></li>
-<li><a href="warning/NotSufficientlyUnique.html">The specified guid is not sufficiently unique.</a></li>
-<li><a href="warning/NotUTF8.html">iTunes elements should only be present in feeds encoded as UTF-8</a></li>
-<li><a href="warning/ObscureEncoding.html">Obscure XML character encoding: <i>foo</i></a></li>
-<li><a href="warning/ObsoleteItunesCategory.html"><code>foo</code> is an obsolete iTunes category or sub-category</a></li>
-<li><a href="warning/ObsoleteVersion.html">Feed is an obsolete version</a></li>
-<li><a href="warning/ObsoleteWikiNamespace.html">Obsolete Wiki Namespace</a></li>
-<li><a href="warning/ProblematicalRFC822Date.html">Problematical RFC 822 date-time value</a></li>
-<li><a href="warning/QuestionableUsage.html">Undocumented use of <code>element</code></a></li>
-<li><a href="warning/RelativeSelf.html">Relative <code>href</code> value on <code>self</code> link</a></li>
-<li><a href="warning/ReservedPrefix.html">The prefix <code>name</code> generally is associated with the namespace <code>http://some/other/namespace</code></a></li>
-<li><a href="warning/SameDocumentReference.html">Same-document reference</a></li>
-<li><a href="warning/SchemeNotIANARegistered.html">URI scheme not IANA registered: <code>foo</code></a></li>
-<li><a href="warning/SecurityRisk.html"><code>element</code> should not contain <code>script</code> tag</a></li>
-<li><a href="warning/SecurityRiskAttr.html"><code>element</code> should not contain <code>script</code> attribute</a></li>
-<li><a href="warning/SelfDoesntMatchLocation.html">Self reference doesn't match document location</a></li>
-<li><a href="warning/SelfNotAtom.html">"self" link references a non-Atom representation.</a></li>
-<li><a href="warning/ShouldIncludeExample.html"><code>OpenSearchDescription</code> should include an example <code>Query</code></a></li>
-<li><a href="warning/SlashDate.html">Ensure <code>lastBuildDate</code> is present when <code>slash:comments</code> is used</a></li>
-<li><a href="warning/UndefinedParam.html">Undefined media-range parameter</a></li>
-<li><a href="warning/UndeterminableVocabulary.html">Missing namespace for <code>foo</code></a></li>
-<li><a href="warning/UnexpectedContentType.html">Feeds should not be served with the '<code>type/subtype</code>' media type</a></li>
-<li><a href="warning/UnknownHost.html">Unknown host: <code>name</code></a></li>
-<li><a href="warning/UnknownNamespace.html">Use of unknown namespace: <code>http://namespace.uri/</code></a></li>
-<li><a href="warning/UnregisteredAtomLinkRel.html">Unregistered <code>link</code> relationship: <code>foo</code></a></li>
-<li><a href="warning/UnsupportedItunesFormat.html">Format <code>foo</code> is not supported by iTunes</a></li>
-<li><a href="warning/UnsupportedNamespace.html">Unable to validate namespace: <code>http://namespace.uri/</code>. See the <i>foo</i> specification at <code>http://namespace.uri/specification</code></a></li>
-<li><a href="warning/UseOfExtensionAttr.html">Use of extension attribute on RSS 2.0 core element: <code>(namespace,name)</code></a></li>
-<li><a href="warning/UseZeroForMidnight.html">Use zero for midnight</a></li>
+</section>
+<section class="fv-doc-tools-group">
+<h3>Утилиты</h3>
+<ul class="fv-doc-tools-list">
+<li><a href="../timestamp-converter.html">Timestamp Конвертер</a><span>Конвертер Unix Timestamp в дату и обратно: секунды, миллисекунды, часовые пояса</span></li>
+<li><a href="../color-tools.html">Color Инструменты</a><span>Конвертер цветов HEX, RGB, HSL, проверка контрастности WCAG и палитры</span></li>
+<li><a href="../cron-generator.html">Cron Генератор</a><span>Генератор и расшифровка cron-выражений с ближайшими запусками</span></li>
+<li><a href="../user-agent-parser.html">UA Парсер</a><span>Разбор строки User-Agent: браузер, движок, система, устройство и боты</span></li>
+<li><a href="../image-converter.html">Image Конвертер</a><span>Конвертер изображений онлайн: PNG, JPEG, WebP, изменение размера, всё в браузере</span></li>
+<li><a href="../fonts.html">Шрифты</a><span>Каталог шрифтов сайта, предпросмотр, примеры подключения через @font-face и локальная конвертация веб-шрифтов.</span></li>
+<li><a href="../image-compressor.html">Image Компрессор</a><span>Сжатие изображений онлайн: уменьшение веса JPEG, WebP и PNG без загрузки на сервер</span></li>
+<li><a href="../qr-code.html">QR Генератор</a><span>Генератор QR-кодов онлайн: текст, ссылки, Wi-Fi, скачивание PNG и SVG</span></li>
 </ul>
-
-<h3>Information</h3>
-<ul>
-<li><a href="info/NonstdEncoding.html">This encoding is not mandated by the XML specification: <i>foo</i></a></li>
-<li><a href="info/W3CDTFDateNonUTC.html">Date should be a UTC date</a></li>
+</section>
+<section class="fv-doc-tools-group">
+<h3>Инструменты NGCMS</h3>
+<ul class="fv-doc-tools-list">
+<li><a href="../bbcode-preview.html">BBCode Просмотр</a><span>Предпросмотр BBCode онлайн: основные теги, списки, ссылки, изображения, код и безопасное экранирование HTML</span></li>
+<li><a href="../sql-analyzer.html">SQL Анализатор</a><span>Анализ SQL онлайн: форматирование, подсветка, опасные запросы и рекомендации по оптимизации без подключения к базе</span></li>
+<li><a href="../twig-playground.html">Twig Песочница</a><span>Песочница Twig онлайн: шаблон, JSON-данные, предпросмотр результата и примеры конструкций</span></li>
+<li><a href="../template-checker.html">NGCMS Шаблоны</a><span>Проверка шаблонов NGCMS: незакрытые теги, конструкции Twig, переменные и номера строк</span></li>
+<li><a href="../plugin-checker.html">NGCMS Плагины</a><span>Анализ структуры плагина NGCMS: обязательные файлы, конфигурация, PHP-файлы и подозрительные конструкции</span></li>
+<li><a href="../php-compat-checker.html">PHP Совместимость</a><span>Проверка PHP-кода на совместимость с выбранной версией PHP: синтаксис (php -l), устаревшие и удалённые функции, новые конструкции</span></li>
 </ul>
+</section>
+			</section>
 
-</div><!--main-->
+			<section class="fv-doc-card" aria-labelledby="specs-title">
+				<h2 id="specs-title">Спецификации форматов</h2>
+				<p>Официальные спецификации приведены на языке оригинала.</p>
+				<ul class="fv-doc-links">
+					<li><a href="https://www.rfc-editor.org/rfc/rfc4287.html">Atom 1.0 — RFC 4287</a></li>
+					<li><a href="https://www.rssboard.org/rss-specification">RSS 2.0</a></li>
+					<li><a href="rss1.html">RSS 1.0 — сохранённый текст спецификации</a></li>
+				</ul>
+			</section>
 
-<div class="centered">
-<a name="startnavigation" id="startnavigation"></a>
-<div class="navbarWrapper">
-    <div class="navbarContent">
-        <img class="borderTL" src="../images/borderTL.gif" alt="" width="14" height="14" />
-        <img class="borderTR" src="../images/borderTR.gif" alt="" width="14" height="14" />
+			<section class="fv-doc-card" aria-labelledby="messages-title">
+				<h2 id="messages-title">Сообщения валидатора</h2>
+				<p>Ниже — справочник ошибок, предупреждений и информационных сообщений. Тексты исторических пояснений пока доступны на английском; названия сообщений оставлены без перевода, чтобы совпадать с отчётом и поиском.</p>
+				<p class="fv-doc-count">В справочнике 257 описаний. Названия сохранены в оригинале, как в отчёте валидатора, чтобы их было проще найти.</p>
+<label class="fv-doc-search-label" for="docs-search">Найти сообщение</label><input class="form-control fv-doc-search" id="docs-search" type="search" placeholder="Введите текст сообщения, например HTTP Error" autocomplete="off">
+<p id="docs-search-status" class="fv-doc-count" aria-live="polite"></p>
+<details class="fv-doc-details" id="docs-error" data-doc-section>
+<summary>Ошибки <span>(166)</span></summary>
+<ul class="fv-doc-message-list">
+<li data-doc-message data-search="atomlinknotempty foo should not have text (all data is in attributes)"><a href="error/AtomLinkNotEmpty.html">foo should not have text (all data is in attributes)</a></li>
+<li data-doc-message data-search="badxmlversion feeds must specify xml version 1.0"><a href="error/BadXmlVersion.html">Feeds must specify XML Version 1.0</a></li>
+<li data-doc-message data-search="conflictingcatattr categories can&#x27;t have both href and foo attributes"><a href="error/ConflictingCatAttr.html">Categories can&#x27;t have both href and foo attributes</a></li>
+<li data-doc-message data-search="conflictingcatchildren categories can&#x27;t have both href attributes and children"><a href="error/ConflictingCatChildren.html">Categories can&#x27;t have both href attributes and children</a></li>
+<li data-doc-message data-search="containssystementity feeds must not contain system entities"><a href="error/ContainsSystemEntity.html">Feeds must not contain SYSTEM entities</a></li>
+<li data-doc-message data-search="currentnotselfincompletefeed current not self in complete feed"><a href="error/CurrentNotSelfInCompleteFeed.html">Current not self in complete feed</a></li>
+<li data-doc-message data-search="deprecateddtd the use of this dtd has been deprecated by netscape"><a href="error/DeprecatedDTD.html">The use of this DTD has been deprecated by Netscape</a></li>
+<li data-doc-message data-search="duplicateatomlink duplicate alternate links with the same type and hreflang"><a href="error/DuplicateAtomLink.html">Duplicate alternate links with the same type and hreflang</a></li>
+<li data-doc-message data-search="duplicateelement foo contains more than one bar"><a href="error/DuplicateElement.html">foo contains more than one bar</a></li>
+<li data-doc-message data-search="duplicateids all entries have the same id"><a href="error/DuplicateIds.html">All entries have the same id</a></li>
+<li data-doc-message data-search="duplicatevalue element values must not be duplicated within a feed"><a href="error/DuplicateValue.html">element values must not be duplicated within a feed</a></li>
+<li data-doc-message data-search="eightdaysaweek skipdays can not contain more than 7 day elements"><a href="error/EightDaysAWeek.html">skipDays can not contain more than 7 day elements</a></li>
+<li data-doc-message data-search="feedrelincompletefeed foo link relation found in complete feed"><a href="error/FeedRelInCompleteFeed.html">foo link relation found in complete feed</a></li>
+<li data-doc-message data-search="httperror http error"><a href="error/HttpError.html">HTTP Error</a></li>
+<li data-doc-message data-search="httperrorwithpossiblefeed http error with content that looks like a feed"><a href="error/HttpErrorWithPossibleFeed.html">HTTP error with content that looks like a feed</a></li>
+<li data-doc-message data-search="httpprotocolerror http protocol error"><a href="error/HttpProtocolError.html">HTTP Protocol Error</a></li>
+<li data-doc-message data-search="incorrectdow incorrect day of week: foo"><a href="error/IncorrectDOW.html">Incorrect day of week: foo</a></li>
+<li data-doc-message data-search="integeroverflow attribute value too large"><a href="error/IntegerOverflow.html">attribute value too large</a></li>
+<li data-doc-message data-search="invalidaccessrestrictionrel invalid value for access:restriction: foo"><a href="error/InvalidAccessRestrictionRel.html">Invalid value for access:restriction: foo</a></li>
+<li data-doc-message data-search="invalidaddrspec foo must be an email address"><a href="error/InvalidAddrSpec.html">foo must be an email address</a></li>
+<li data-doc-message data-search="invalidalphanum foo must be alphanumeric"><a href="error/InvalidAlphanum.html">foo must be alphanumeric</a></li>
+<li data-doc-message data-search="invalidaltitudemode invalid altitudemode"><a href="error/InvalidAltitudeMode.html">Invalid altitudeMode</a></li>
+<li data-doc-message data-search="invalidangle foo must be between -360 and 360"><a href="error/InvalidAngle.html">foo must be between -360 and 360</a></li>
+<li data-doc-message data-search="invalidbooleanattribute foo attribute of bar must be &#x27;true&#x27; or &#x27;false&#x27;"><a href="error/InvalidBooleanAttribute.html">foo attribute of bar must be &#x27;true&#x27; or &#x27;false&#x27;</a></li>
+<li data-doc-message data-search="invalidcolor not a valid color"><a href="error/InvalidColor.html">Not a valid color</a></li>
+<li data-doc-message data-search="invalidcolormode invalid colormode."><a href="error/InvalidColorMode.html">Invalid colorMode.</a></li>
+<li data-doc-message data-search="invalidcommaseparatedintegers foo must be comma-separated integers"><a href="error/InvalidCommaSeparatedIntegers.html">foo must be comma-separated integers</a></li>
+<li data-doc-message data-search="invalidcontact invalid email address"><a href="error/InvalidContact.html">Invalid email address</a></li>
+<li data-doc-message data-search="invalidcontentmode foo is not a valid mode"><a href="error/InvalidContentMode.html">foo is not a valid mode</a></li>
+<li data-doc-message data-search="invalidcoord invalid coordinate"><a href="error/InvalidCoord.html">Invalid Coordinate</a></li>
+<li data-doc-message data-search="invalidcoordlist invalid coordinate"><a href="error/InvalidCoordList.html">Invalid Coordinate</a></li>
+<li data-doc-message data-search="invalidcountrycode invalid counry code: &quot;foo&quot;"><a href="error/InvalidCountryCode.html">Invalid counry code: &quot;foo&quot;</a></li>
+<li data-doc-message data-search="invalidcreditrole invalid credit role"><a href="error/InvalidCreditRole.html">Invalid Credit Role</a></li>
+<li data-doc-message data-search="invalidcurrencyunit invalid value for g:currency: &quot;foo&quot;"><a href="error/InvalidCurrencyUnit.html">Invalid value for g:currency: &quot;foo&quot;</a></li>
+<li data-doc-message data-search="invalidday foo must be monday, tuesday, wednesday, thursday, friday, saturday, or sunday"><a href="error/InvalidDay.html">foo must be Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, or Sunday</a></li>
+<li data-doc-message data-search="invaliddoctype this feed contains conflicting doctype and version information"><a href="error/InvalidDoctype.html">This feed contains conflicting DOCTYPE and version information</a></li>
+<li data-doc-message data-search="invalidduration invalid duration: &quot;foo&quot;"><a href="error/InvalidDuration.html">Invalid duration: &quot;foo&quot;</a></li>
+<li data-doc-message data-search="invalidencoding invalid character encoding: foo"><a href="error/InvalidEncoding.html">Invalid character encoding: foo</a></li>
+<li data-doc-message data-search="invalidexpansionstate &lt;expansionstate&gt; is a comma-separated list of line numbers."><a href="error/InvalidExpansionState.html">&lt;expansionState&gt; is a comma-separated list of line numbers.</a></li>
+<li data-doc-message data-search="invalidfloat invalid value for foo: &quot;bar&quot;"><a href="error/InvalidFloat.html">Invalid value for foo: &quot;bar&quot;</a></li>
+<li data-doc-message data-search="invalidfloatunit invalid value for foo: &quot;bar&quot;"><a href="error/InvalidFloatUnit.html">Invalid value for foo: &quot;bar&quot;</a></li>
+<li data-doc-message data-search="invalidformcomponentname invalid form component name"><a href="error/InvalidFormComponentName.html">Invalid form component name</a></li>
+<li data-doc-message data-search="invalidfulllink element must be a full uri"><a href="error/InvalidFullLink.html">element must be a full URI</a></li>
+<li data-doc-message data-search="invalidfulllocation invalid value for g:location: &quot;foo&quot;"><a href="error/InvalidFullLocation.html">Invalid value for g:location: &quot;foo&quot;</a></li>
+<li data-doc-message data-search="invalidgender invalid value for g:gender: &quot;foo&quot;"><a href="error/InvalidGender.html">Invalid value for g:gender: &quot;foo&quot;</a></li>
+<li data-doc-message data-search="invalidheight foo must be between 1 and 400"><a href="error/InvalidHeight.html">foo must be between 1 and 400</a></li>
+<li data-doc-message data-search="invalidhour foo must be between an integer 0 and 23"><a href="error/InvalidHour.html">foo must be between an integer 0 and 23</a></li>
+<li data-doc-message data-search="invalidhttpguid guid must be a full url, unless ispermalink attribute is false"><a href="error/InvalidHttpGUID.html">guid must be a full URL, unless isPermaLink attribute is false</a></li>
+<li data-doc-message data-search="invalidinteger foo must be an integer"><a href="error/InvalidInteger.html">foo must be an integer</a></li>
+<li data-doc-message data-search="invalidintegerattribute foo attribute of bar must be a positive integer"><a href="error/InvalidIntegerAttribute.html">foo attribute of bar must be a positive integer</a></li>
+<li data-doc-message data-search="invalidintunit invalid value for foo: &quot;bar&quot;"><a href="error/InvalidIntUnit.html">Invalid value for foo: &quot;bar&quot;</a></li>
+<li data-doc-message data-search="invalidiri foo must be a valid iri"><a href="error/InvalidIRI.html">foo must be a valid IRI</a></li>
+<li data-doc-message data-search="invalidiso8601date foo must be an iso-8601 date"><a href="error/InvalidISO8601Date.html">foo must be an ISO-8601 date</a></li>
+<li data-doc-message data-search="invalidiso8601datetime foo must be an iso-8601 date-time"><a href="error/InvalidISO8601DateTime.html">foo must be an ISO-8601 date-time</a></li>
+<li data-doc-message data-search="invaliditemiconstate invalid state for icon"><a href="error/InvalidItemIconState.html">Invalid state for Icon</a></li>
+<li data-doc-message data-search="invaliditunescategory foo is not one of the predefined itunes categories or sub-categories"><a href="error/InvalidItunesCategory.html">foo is not one of the predefined iTunes categories or sub-categories</a></li>
+<li data-doc-message data-search="invalidituneschanneltype foo is not one of the predefined itunes channel type"><a href="error/InvalidItunesChannelType.html">foo is not one of the predefined iTunes channel type</a></li>
+<li data-doc-message data-search="invaliditunesepisodetype foo is not one of the predefined itunes episode type"><a href="error/InvalidItunesEpisodeType.html">foo is not one of the predefined iTunes episode type</a></li>
+<li data-doc-message data-search="invalidkmlcoordlist invalid coordinate list. make sure that coordinates are of the form longitude,latitude or longitude,latitude,altitude and seperated by a single space. it is also a good idea to avoid line breaks or other extraneous white space"><a href="error/InvalidKmlCoordList.html">Invalid coordinate list. Make sure that coordinates are of the form longitude,latitude or longitude,latitude,altitude and seperated by a single space. It is also a good idea to avoid line breaks or other extraneous white space</a></li>
+<li data-doc-message data-search="invalidkmllatitude invalid latitude found within coordinates. latitudes have to be between -90 and 90."><a href="error/InvalidKmlLatitude.html">Invalid latitude found within coordinates. Latitudes have to be between -90 and 90.</a></li>
+<li data-doc-message data-search="invalidkmllongitude invalid longitude found within coordinates. longitudes have to be between -180 and 180."><a href="error/InvalidKmlLongitude.html">Invalid longitude found within coordinates. Longitudes have to be between -180 and 180.</a></li>
+<li data-doc-message data-search="invalidkmlunits invalid units."><a href="error/InvalidKmlUnits.html">Invalid units.</a></li>
+<li data-doc-message data-search="invalidlabel invalid value for g:label: &quot;foo&quot;"><a href="error/InvalidLabel.html">Invalid value for g:label: &quot;foo&quot;</a></li>
+<li data-doc-message data-search="invalidlanguage foo must be an iso-639 language code"><a href="error/InvalidLanguage.html">foo must be an ISO-639 language code</a></li>
+<li data-doc-message data-search="invalidlatitude foo must be between -90 and 90"><a href="error/InvalidLatitude.html">foo must be between -90 and 90</a></li>
+<li data-doc-message data-search="invalidlink foo must be a valid uri"><a href="error/InvalidLink.html">foo must be a valid URI</a></li>
+<li data-doc-message data-search="invalidlistitemtype invalid list item type"><a href="error/InvalidListItemType.html">Invalid list item type</a></li>
+<li data-doc-message data-search="invalidlocalparameter invalid local parameter name: foo"><a href="error/InvalidLocalParameter.html">Invalid local parameter name: foo</a></li>
+<li data-doc-message data-search="invalidlocalrole invalid local role: foo"><a href="error/InvalidLocalRole.html">Invalid local role: foo</a></li>
+<li data-doc-message data-search="invalidlocation invalid value for foo: &quot;bar&quot;"><a href="error/InvalidLocation.html">Invalid value for foo: &quot;bar&quot;</a></li>
+<li data-doc-message data-search="invalidlongitude foo must be between -180 and 180"><a href="error/InvalidLongitude.html">foo must be between -180 and 180</a></li>
+<li data-doc-message data-search="invalidmaritalstatus invalid value for g:marital_status: &quot;foo&quot;"><a href="error/InvalidMaritalStatus.html">Invalid value for g:marital_status: &quot;foo&quot;</a></li>
+<li data-doc-message data-search="invalidmediaexpression invalid content expression: &quot;foo&quot;"><a href="error/InvalidMediaExpression.html">Invalid content expression: &quot;foo&quot;</a></li>
+<li data-doc-message data-search="invalidmediahash invalid media hash"><a href="error/InvalidMediaHash.html">Invalid Media Hash</a></li>
+<li data-doc-message data-search="invalidmediamedium invalid content medium: &quot;foo&quot;"><a href="error/InvalidMediaMedium.html">Invalid content medium: &quot;foo&quot;</a></li>
+<li data-doc-message data-search="invalidmediarating invalid media rating"><a href="error/InvalidMediaRating.html">Invalid Media Rating</a></li>
+<li data-doc-message data-search="invalidmediarestriction media:restriction must be &#x27;all&#x27; or &#x27;none&#x27;"><a href="error/InvalidMediaRestriction.html">media:restriction must be &#x27;all&#x27; or &#x27;none&#x27;</a></li>
+<li data-doc-message data-search="invalidmediarestrictionrel relationship must be &#x27;allow&#x27; or &#x27;disallow&#x27;"><a href="error/InvalidMediaRestrictionRel.html">relationship must be &#x27;allow&#x27; or &#x27;disallow&#x27;</a></li>
+<li data-doc-message data-search="invalidmediarestrictiontype type must be &#x27;country&#x27; or &#x27;uri&#x27;"><a href="error/InvalidMediaRestrictionType.html">type must be &#x27;country&#x27; or &#x27;uri&#x27;</a></li>
+<li data-doc-message data-search="invalidmediatexttype type attribute must be &quot;plain&quot; or &quot;html&quot;"><a href="error/InvalidMediaTextType.html">type attribute must be &quot;plain&quot; or &quot;html&quot;</a></li>
+<li data-doc-message data-search="invalidmetacontent invalid value for content: &quot;foo&quot;"><a href="error/InvalidMetaContent.html">Invalid value for content: &quot;foo&quot;</a></li>
+<li data-doc-message data-search="invalidmetaname invalid value for name: &quot;foo&quot;"><a href="error/InvalidMetaName.html">Invalid value for name: &quot;foo&quot;</a></li>
+<li data-doc-message data-search="invalidmimeattribute foo attribute of bar must be a valid mime type"><a href="error/InvalidMIMEAttribute.html">foo attribute of bar must be a valid MIME type</a></li>
+<li data-doc-message data-search="invalidmimetype foo is not a valid mime type"><a href="error/InvalidMIMEType.html">foo is not a valid MIME type</a></li>
+<li data-doc-message data-search="invalidnamespace foo is in an invalid namespace"><a href="error/InvalidNamespace.html">foo is in an invalid namespace</a></li>
+<li data-doc-message data-search="invalidnonnegativeinteger foo must be a non-negative integer"><a href="error/InvalidNonNegativeInteger.html">foo must be a non-negative integer</a></li>
+<li data-doc-message data-search="invalidnpttime foo must be an npt-time"><a href="error/InvalidNPTTime.html">foo must be an NPT-time</a></li>
+<li data-doc-message data-search="invalidnss invalid namespace specific string: attribute"><a href="error/InvalidNSS.html">Invalid Namespace Specific String: attribute</a></li>
+<li data-doc-message data-search="invalidopmlversion the &quot;version&quot; attribute for the opml element must be 1.0, 1.1 or 2.0."><a href="error/InvalidOPMLVersion.html">The &quot;version&quot; attribute for the opml element must be 1.0, 1.1 or 2.0.</a></li>
+<li data-doc-message data-search="invalidpaymentmethod invalid value for g:payment_accepted: &quot;foo&quot;"><a href="error/InvalidPaymentMethod.html">Invalid value for g:payment_accepted: &quot;foo&quot;</a></li>
+<li data-doc-message data-search="invalidpercentage foo must be a percentage"><a href="error/InvalidPercentage.html">foo must be a percentage</a></li>
+<li data-doc-message data-search="invalidpermalink guid must be a full url, unless ispermalink attribute is false"><a href="error/InvalidPermalink.html">guid must be a full URL, unless isPermaLink attribute is false</a></li>
+<li data-doc-message data-search="invalidpositiveinteger foo must be a positive integer"><a href="error/InvalidPositiveInteger.html">foo must be a positive integer</a></li>
+<li data-doc-message data-search="invalidpricetype invalid value for g:price_type: &quot;foo&quot;"><a href="error/InvalidPriceType.html">Invalid value for g:price_type: &quot;foo&quot;</a></li>
+<li data-doc-message data-search="invalidratingtype invalid value for g:rating: &quot;foo&quot;"><a href="error/InvalidRatingType.html">Invalid value for g:rating: &quot;foo&quot;</a></li>
+<li data-doc-message data-search="invalidrdf rdf parsing error"><a href="error/InvalidRDF.html">RDF Parsing Error</a></li>
+<li data-doc-message data-search="invalidrefreshmode invalid refreshmode"><a href="error/InvalidRefreshMode.html">Invalid refreshMode</a></li>
+<li data-doc-message data-search="invalidreviewertype invalid value for g:reviewer_type: &quot;foo&quot;"><a href="error/InvalidReviewerType.html">Invalid value for g:reviewer_type: &quot;foo&quot;</a></li>
+<li data-doc-message data-search="invalidrfc2822date element must be an rfc-822 date-time"><a href="error/InvalidRFC2822Date.html">element must be an RFC-822 date-time</a></li>
+<li data-doc-message data-search="invalidrfc3339date foo must be an rfc 3339 date-time"><a href="error/InvalidRFC3339Date.html">foo must be an RFC 3339 date-time</a></li>
+<li data-doc-message data-search="invalidrssversion invalid rss version: x.y"><a href="error/InvalidRSSVersion.html">Invalid RSS Version: x.y</a></li>
+<li data-doc-message data-search="invalidsalarytype invalid value for g:salary_type: &quot;foo&quot;"><a href="error/InvalidSalaryType.html">Invalid value for g:salary_type: &quot;foo&quot;</a></li>
+<li data-doc-message data-search="invalidschemafieldtype invalid schema field type"><a href="error/InvalidSchemaFieldType.html">Invalid Schema field type</a></li>
+<li data-doc-message data-search="invalidservicetype invalid value for g:service: &quot;foo&quot;"><a href="error/InvalidServiceType.html">Invalid value for g:service: &quot;foo&quot;</a></li>
+<li data-doc-message data-search="invalidssetype invalid value for sx:related type"><a href="error/InvalidSseType.html">Invalid value for sx:related type</a></li>
+<li data-doc-message data-search="invalidstylestate invalid key for stylemap."><a href="error/InvalidStyleState.html">Invalid key for StyleMap.</a></li>
+<li data-doc-message data-search="invalidsyndicationright invalid value for syndicationright: foo"><a href="error/InvalidSyndicationRight.html">Invalid value for SyndicationRight: foo</a></li>
+<li data-doc-message data-search="invalidtag foo is not a valid tag"><a href="error/InvalidTAG.html">foo is not a valid TAG</a></li>
+<li data-doc-message data-search="invalidtexttype type attribute must be &quot;text&quot;, &quot;html&quot;, or &quot;xhtml&quot;"><a href="error/InvalidTextType.html">type attribute must be &quot;text&quot;, &quot;html&quot;, or &quot;xhtml&quot;</a></li>
+<li data-doc-message data-search="invalidtruefalse foo attribute of bar must be &#x27;true&#x27; or &#x27;false&#x27;"><a href="error/InvalidTrueFalse.html">foo attribute of bar must be &#x27;true&#x27; or &#x27;false&#x27;</a></li>
+<li data-doc-message data-search="invalidupdateperiod foo must be hourly, daily, weekly, monthly, or yearly"><a href="error/InvalidUpdatePeriod.html">foo must be hourly, daily, weekly, monthly, or yearly</a></li>
+<li data-doc-message data-search="invaliduri foo is not a valid uri"><a href="error/InvalidURI.html">foo is not a valid URI</a></li>
+<li data-doc-message data-search="invaliduriattribute foo attribute of bar must be a valid uri"><a href="error/InvalidURIAttribute.html">foo attribute of bar must be a valid URI</a></li>
+<li data-doc-message data-search="invalidurichar invalid character in a uri: c"><a href="error/InvalidUriChar.html">Invalid character in a URI: c</a></li>
+<li data-doc-message data-search="invalidurlattribute foo attribute of bar must be a full url"><a href="error/InvalidURLAttribute.html">foo attribute of bar must be a full URL</a></li>
+<li data-doc-message data-search="invalidurn foo is not a valid urn"><a href="error/InvalidURN.html">foo is not a valid URN</a></li>
+<li data-doc-message data-search="invaliduuid foo is not a valid uuid"><a href="error/InvalidUUID.html">foo is not a valid UUID</a></li>
+<li data-doc-message data-search="invalidvalue invalid value for foo: &quot;bar&quot;"><a href="error/InvalidValue.html">Invalid value for foo: &quot;bar&quot;</a></li>
+<li data-doc-message data-search="invalidviewrefreshmode invalid viewrefreshmode."><a href="error/InvalidViewRefreshMode.html">Invalid viewRefreshMode.</a></li>
+<li data-doc-message data-search="invalidw3cdtfdate foo must be an w3cdtf date"><a href="error/InvalidW3CDTFDate.html">foo must be an W3CDTF date</a></li>
+<li data-doc-message data-search="invalidwidth foo must be between 1 and 144"><a href="error/InvalidWidth.html">foo must be between 1 and 144</a></li>
+<li data-doc-message data-search="invalidyear invalid value for g:year: &quot;foo&quot;"><a href="error/InvalidYear.html">Invalid value for g:year: &quot;foo&quot;</a></li>
+<li data-doc-message data-search="invalidyesno foo attribute of bar must be &#x27;yes&#x27; or &#x27;no&#x27;"><a href="error/InvalidYesNo.html">foo attribute of bar must be &#x27;yes&#x27; or &#x27;no&#x27;</a></li>
+<li data-doc-message data-search="invalidyesnoclean foo attribute of bar must be &#x27;yes&#x27;, &#x27;no&#x27;, or &#x27;clean&#x27;"><a href="error/InvalidYesNoClean.html">foo attribute of bar must be &#x27;yes&#x27;, &#x27;no&#x27;, or &#x27;clean&#x27;</a></li>
+<li data-doc-message data-search="invalidzeroone invalid value. should be 0 or 1."><a href="error/InvalidZeroOne.html">Invalid value. Should be 0 or 1.</a></li>
+<li data-doc-message data-search="ioerror io error"><a href="error/IOError.html">IO Error</a></li>
+<li data-doc-message data-search="itemmustcontaintitleordescription item must contain either title or description"><a href="error/ItemMustContainTitleOrDescription.html">item must contain either title or description</a></li>
+<li data-doc-message data-search="linkpastend link past end of list"><a href="error/LinkPastEnd.html">Link past end of list</a></li>
+<li data-doc-message data-search="mediagroupwithoutalternatives media:group must have multiple media:content children"><a href="error/MediaGroupWithoutAlternatives.html">media:group must have multiple media:content children</a></li>
+<li data-doc-message data-search="mediarssnamespace missing trailing slash in mediarss namespace"><a href="error/MediaRssNamespace.html">Missing trailing slash in mediaRSS namespace</a></li>
+<li data-doc-message data-search="misplacedmetadata foo must appear before all entries"><a href="error/MisplacedMetadata.html">foo must appear before all entries</a></li>
+<li data-doc-message data-search="missingattribute missing element attribute: attribute-name"><a href="error/MissingAttribute.html">Missing element attribute: attribute-name</a></li>
+<li data-doc-message data-search="missingbyandwhenattrs missing by and when attributes"><a href="error/MissingByAndWhenAttrs.html">Missing by and when attributes</a></li>
+<li data-doc-message data-search="missingcontentoralternate missing content or alternate link"><a href="error/MissingContentOrAlternate.html">Missing content or alternate link</a></li>
+<li data-doc-message data-search="missingdescription missing foo element: description"><a href="error/MissingDescription.html">Missing foo element: description</a></li>
+<li data-doc-message data-search="missingelement missing parent element: child"><a href="error/MissingElement.html">Missing parent element: child</a></li>
+<li data-doc-message data-search="missinghref foo must have an href attribute"><a href="error/MissingHref.html">foo must have an href attribute</a></li>
+<li data-doc-message data-search="missinglink missing foo element: link"><a href="error/MissingLink.html">Missing foo element: link</a></li>
+<li data-doc-message data-search="missingnamespace missing namespace for foo"><a href="error/MissingNamespace.html">Missing namespace for foo</a></li>
+<li data-doc-message data-search="missingsummary missing summary"><a href="error/MissingSummary.html">Missing Summary</a></li>
+<li data-doc-message data-search="missingtitle missing foo element: title"><a href="error/MissingTitle.html">Missing foo element: title</a></li>
+<li data-doc-message data-search="missingxhtmldiv missing xhtml:div"><a href="error/MissingXhtmlDiv.html">Missing xhtml:div</a></li>
+<li data-doc-message data-search="noblink there is no blink element in rss"><a href="error/NoBlink.html">There is no blink element in RSS</a></li>
+<li data-doc-message data-search="notbase64 foo claims to be base64-encoded, but isn&#x27;t"><a href="error/NotBase64.html">foo claims to be base64-encoded, but isn&#x27;t</a></li>
+<li data-doc-message data-search="notenoughhoursintheday skiphours can not contain more than 24 hour elements"><a href="error/NotEnoughHoursInTheDay.html">skipHours can not contain more than 24 hour elements</a></li>
+<li data-doc-message data-search="notescaped foo claims to be escaped, but isn&#x27;t"><a href="error/NotEscaped.html">foo claims to be escaped, but isn&#x27;t</a></li>
+<li data-doc-message data-search="nothrwhen thr:when attribute obsolete; use thr:updated instead"><a href="error/NoThrWhen.html">thr:when attribute obsolete; use thr:updated instead</a></li>
+<li data-doc-message data-search="notinanamespace missing namespace for foo"><a href="error/NotInANamespace.html">Missing namespace for foo</a></li>
+<li data-doc-message data-search="noturlencoded searchterms must be url encoded"><a href="error/NotURLEncoded.html">searchTerms must be URL encoded</a></li>
+<li data-doc-message data-search="obsoletenamespace feed uses an obsolete namespace"><a href="error/ObsoleteNamespace.html">Feed uses an obsolete namespace</a></li>
+<li data-doc-message data-search="saxerror xml parsing error: syntax error"><a href="error/SAXError.html">XML Parsing error: syntax error</a></li>
+<li data-doc-message data-search="sinceafteruntil since after until"><a href="error/SinceAfterUntil.html">Since After until</a></li>
+<li data-doc-message data-search="toolong length of nnn exceeds the maximum allowable for foo of mmm"><a href="error/TooLong.html">length of nnn exceeds the maximum allowable for foo of mmm</a></li>
+<li data-doc-message data-search="toomany foo contains more than ten bar elements"><a href="error/TooMany.html">foo contains more than ten bar elements</a></li>
+<li data-doc-message data-search="undeclaredprefix undeclared foo prefix: bar"><a href="error/UndeclaredPrefix.html">Undeclared foo prefix: bar</a></li>
+<li data-doc-message data-search="undefinedelement undefined parent element: child"><a href="error/UndefinedElement.html">Undefined parent element: child</a></li>
+<li data-doc-message data-search="undefinednamedentity undefined named entity: foo"><a href="error/UndefinedNamedEntity.html">Undefined named entity: foo</a></li>
+<li data-doc-message data-search="unexpectedattribute unexpected foo attribute on bar element"><a href="error/UnexpectedAttribute.html">Unexpected foo attribute on bar element</a></li>
+<li data-doc-message data-search="unexpectedtext unexpected text"><a href="error/UnexpectedText.html">Unexpected text</a></li>
+<li data-doc-message data-search="unexpectedwhitespace whitespace not permitted here"><a href="error/UnexpectedWhitespace.html">Whitespace not permitted here</a></li>
+<li data-doc-message data-search="unicodeerror unicodeerror: decoding error, invalid data"><a href="error/UnicodeError.html">UnicodeError: decoding error, invalid data</a></li>
+<li data-doc-message data-search="unknownencoding unknown xml character encoding: foo"><a href="error/UnknownEncoding.html">Unknown XML character encoding: foo</a></li>
+<li data-doc-message data-search="urinotiri iri found where url expected"><a href="error/UriNotIri.html">IRI found where URL expected</a></li>
+<li data-doc-message data-search="usezeroforunknown use zero for unknown length"><a href="error/UseZeroForUnknown.html">Use zero for unknown length</a></li>
+<li data-doc-message data-search="validatorlimit unable to validate, due to hardcoded resource limits (limit)"><a href="error/ValidatorLimit.html">Unable to validate, due to hardcoded resource limits (limit)</a></li>
+<li data-doc-message data-search="wpblankline blank line before xml declaration (wordpress)"><a href="error/WPBlankLine.html">Blank line before XML declaration (WordPress)</a></li>
+</ul></details>
+<details class="fv-doc-details" id="docs-warning" data-doc-section>
+<summary>Предупреждения <span>(89)</span></summary>
+<ul class="fv-doc-message-list">
+<li data-doc-message data-search="archiveincomplete archive incomplete"><a href="warning/ArchiveIncomplete.html">Archive incomplete</a></li>
+<li data-doc-message data-search="atomlinknotempty foo should not have text (all data is in attributes)"><a href="warning/AtomLinkNotEmpty.html">foo should not have text (all data is in attributes)</a></li>
+<li data-doc-message data-search="attrnotblank foo attribute of bar should not be blank"><a href="warning/AttrNotBlank.html">foo attribute of bar should not be blank</a></li>
+<li data-doc-message data-search="avoidnamespaceprefix avoid namespace prefix: foo"><a href="warning/AvoidNamespacePrefix.html">Avoid Namespace Prefix: foo</a></li>
+<li data-doc-message data-search="avoidtextinput avoid text input"><a href="warning/AvoidTextInput.html">Avoid Text Input</a></li>
+<li data-doc-message data-search="badcharacters the xml encoding does not appear to match the characters used."><a href="warning/BadCharacters.html">The XML encoding does not appear to match the characters used.</a></li>
+<li data-doc-message data-search="characterdata encode &quot;&amp;&quot; and &quot;&lt;&quot; in plain text using hexadecimal character references."><a href="warning/CharacterData.html">Encode &quot;&amp;&quot; and &quot;&lt;&quot; in plain text using hexadecimal character references.</a></li>
+<li data-doc-message data-search="commentrss wfw:commentrss should be wfw:commentrss"><a href="warning/CommentRSS.html">wfw:commentRSS should be wfw:commentRss</a></li>
+<li data-doc-message data-search="containsemail name should not contain email address"><a href="warning/ContainsEmail.html">name should not contain email address</a></li>
+<li data-doc-message data-search="containshtml element should not contain html"><a href="warning/ContainsHTML.html">element should not contain HTML</a></li>
+<li data-doc-message data-search="containsrelref element should not contain relative url references"><a href="warning/ContainsRelRef.html">element should not contain relative URL references</a></li>
+<li data-doc-message data-search="containsundeclaredhtml foo should not contain html unless declared in the type attribute"><a href="warning/ContainsUndeclaredHTML.html">foo should not contain HTML unless declared in the type attribute</a></li>
+<li data-doc-message data-search="coordcomma comma found in coordinate pair"><a href="warning/CoordComma.html">Comma found in coordinate pair</a></li>
+<li data-doc-message data-search="dangerousstyleattr style attribute contains potentially dangerous content"><a href="warning/DangerousStyleAttr.html">style attribute contains potentially dangerous content</a></li>
+<li data-doc-message data-search="deprecated foo has been superceded by foo."><a href="warning/Deprecated.html">foo has been superceded by foo.</a></li>
+<li data-doc-message data-search="deprecatedmediaadult media:adult is deprecated"><a href="warning/DeprecatedMediaAdult.html">media:adult is deprecated</a></li>
+<li data-doc-message data-search="deprecatedroothref root:// urls have been superceded by full http:// urls"><a href="warning/DeprecatedRootHref.html">root:// URLs have been superceded by full http:// URLs</a></li>
+<li data-doc-message data-search="duplicatedescriptionsemantics avoid foo:bar"><a href="warning/DuplicateDescriptionSemantics.html">Avoid foo:bar</a></li>
+<li data-doc-message data-search="duplicateenclosure item contains more than one enclosure"><a href="warning/DuplicateEnclosure.html">item contains more than one enclosure</a></li>
+<li data-doc-message data-search="duplicateentries two entries with the same id"><a href="warning/DuplicateEntries.html">Two entries with the same id</a></li>
+<li data-doc-message data-search="duplicateitemsemantics an item should not include both foo and bar"><a href="warning/DuplicateItemSemantics.html">An item should not include both foo and bar</a></li>
+<li data-doc-message data-search="duplicatesemantics a channel should not include both foo and bar"><a href="warning/DuplicateSemantics.html">A channel should not include both foo and bar</a></li>
+<li data-doc-message data-search="duplicateupdated two entries with the same value for atom:updated"><a href="warning/DuplicateUpdated.html">Two entries with the same value for atom:updated</a></li>
+<li data-doc-message data-search="emailformat email address is not in the recommended format"><a href="warning/EmailFormat.html">Email address is not in the recommended format</a></li>
+<li data-doc-message data-search="encodingmismatch your feed appears to be encoded as “this”, but your server is reporting “that”"><a href="warning/EncodingMismatch.html">Your feed appears to be encoded as “this”, but your server is reporting “that”</a></li>
+<li data-doc-message data-search="feedhistoryrelinentry foo link relation found in entry"><a href="warning/FeedHistoryRelInEntry.html">foo link relation found in entry</a></li>
+<li data-doc-message data-search="htmlfragment type foo/bar used for a document fragment"><a href="warning/HtmlFragment.html">type foo/bar used for a document fragment</a></li>
+<li data-doc-message data-search="imagelinkdoesntmatch image link doesn&#x27;t match channel link"><a href="warning/ImageLinkDoesntMatch.html">Image link doesn&#x27;t match channel link</a></li>
+<li data-doc-message data-search="imagetitledoesntmatch image title doesn&#x27;t match channel title"><a href="warning/ImageTitleDoesntMatch.html">Image title doesn&#x27;t match channel title</a></li>
+<li data-doc-message data-search="imageurlformat image not in required format"><a href="warning/ImageUrlFormat.html">Image not in required format</a></li>
+<li data-doc-message data-search="implausibledate implausible date: foo"><a href="warning/ImplausibleDate.html">Implausible date: foo</a></li>
+<li data-doc-message data-search="invalidadultcontent non-boolean value for adultcontent: foo"><a href="warning/InvalidAdultContent.html">Non-boolean value for AdultContent: foo</a></li>
+<li data-doc-message data-search="invalidkeywords use commas to separate keywords"><a href="warning/InvalidKeywords.html">Use commas to separate keywords</a></li>
+<li data-doc-message data-search="invalidkmlmediatype foo is an invalid kml media type. use application/vnd.google-earth.kml+xml or application/vnd.google-earth.kmz"><a href="warning/InvalidKmlMediaType.html">foo is an invalid KML media type. Use application/vnd.google-earth.kml+xml or application/vnd.google-earth.kmz</a></li>
+<li data-doc-message data-search="invalidoutlinetype the type attribute on an &lt;outline&gt; element should be a known type."><a href="warning/InvalidOutlineType.html">The type attribute on an &lt;outline&gt; element should be a known type.</a></li>
+<li data-doc-message data-search="invalidoutlineversion an &lt;outline&gt; element whose type is &quot;rss&quot; may have a version attribute, whose value must be rss, rss1, rss2, or scriptingnews."><a href="warning/InvalidOutlineVersion.html">An &lt;outline&gt; element whose type is &quot;rss&quot; may have a version attribute, whose value must be RSS, RSS1, RSS2, or scriptingNews.</a></li>
+<li data-doc-message data-search="misplaceditem misplaced item"><a href="warning/MisplacedItem.html">Misplaced Item</a></li>
+<li data-doc-message data-search="misplacedxhtmlcontent misplaced xhtml content"><a href="warning/MisplacedXHTMLContent.html">Misplaced XHTML content</a></li>
+<li data-doc-message data-search="missingatomselflink missing atom:link with rel=&quot;self&quot;"><a href="warning/MissingAtomSelfLink.html">Missing atom:link with rel=&quot;self&quot;</a></li>
+<li data-doc-message data-search="missingcurrentinarchive current link not found in archive feed"><a href="warning/MissingCurrentInArchive.html">current link not found in archive feed</a></li>
+<li data-doc-message data-search="missingencoding no character encoding was specified"><a href="warning/MissingEncoding.html">No character encoding was specified</a></li>
+<li data-doc-message data-search="missingguid item should contain a guid element"><a href="warning/MissingGuid.html">item should contain a guid element</a></li>
+<li data-doc-message data-search="missingid placemark should contain a id attribute"><a href="warning/MissingId.html">Placemark should contain a id attribute</a></li>
+<li data-doc-message data-search="missingituneselement missing recommended itunes parent element: child"><a href="warning/MissingItunesElement.html">Missing recommended iTunes parent element: child</a></li>
+<li data-doc-message data-search="missingitunesemail the recommended &lt;itunes:email&gt; element is missing"><a href="warning/MissingItunesEmail.html">The recommended &lt;itunes:email&gt; element is missing</a></li>
+<li data-doc-message data-search="missingoutlinetype an &lt;outline&gt; element with more than just a &quot;text&quot; attribute should have a &quot;type&quot; attribute indicating how the other attributes are to be interpreted."><a href="warning/MissingOutlineType.html">An &lt;outline&gt; element with more than just a &quot;text&quot; attribute should have a &quot;type&quot; attribute indicating how the other attributes are to be interpreted.</a></li>
+<li data-doc-message data-search="missingrealname email address is missing real name"><a href="warning/MissingRealName.html">Email address is missing real name</a></li>
+<li data-doc-message data-search="missingrecommendedattribute missing recommended element attribute: name"><a href="warning/MissingRecommendedAttribute.html">Missing recommended element attribute: name</a></li>
+<li data-doc-message data-search="missingself missing atom:link with rel=&quot;self&quot;"><a href="warning/MissingSelf.html">Missing atom:link with rel=&quot;self&quot;</a></li>
+<li data-doc-message data-search="missingsourceelement missing source element: foo"><a href="warning/MissingSourceElement.html">Missing source element: foo</a></li>
+<li data-doc-message data-search="missingtextualcontent missing textual content"><a href="warning/MissingTextualContent.html">Missing Textual Content</a></li>
+<li data-doc-message data-search="missingtitleattr missing outline attribute: title"><a href="warning/MissingTitleAttr.html">Missing outline attribute: title</a></li>
+<li data-doc-message data-search="missingtypeattr missing content attribute: type"><a href="warning/MissingTypeAttr.html">Missing content attribute: type</a></li>
+<li data-doc-message data-search="missingurlattr missing outline attribute: url"><a href="warning/MissingUrlAttr.html">Missing outline attribute: url</a></li>
+<li data-doc-message data-search="missingxmlurl an &lt;outline&gt; element whose type is &quot;rss&quot; must have an &quot;xmlurl&quot; attribute."><a href="warning/MissingXmlURL.html">An &lt;outline&gt; element whose type is &quot;rss&quot; must have an &quot;xmlUrl&quot; attribute.</a></li>
+<li data-doc-message data-search="needdescriptionbeforecontent ensure description precedes content:encoded"><a href="warning/NeedDescriptionBeforeContent.html">Ensure description precedes content:encoded</a></li>
+<li data-doc-message data-search="noncanonicaluri identifier “foo” is not in canonical form (the canonical form would be “bar”)"><a href="warning/NonCanonicalURI.html">Identifier “foo” is not in canonical form (the canonical form would be “bar”)</a></li>
+<li data-doc-message data-search="nonspecificmediatype &#x27;type/subtype&#x27; media type is not specific enough"><a href="warning/NonSpecificMediaType.html">&#x27;type/subtype&#x27; media type is not specific enough</a></li>
+<li data-doc-message data-search="notblank element should not be blank"><a href="warning/NotBlank.html">element should not be blank</a></li>
+<li data-doc-message data-search="nothtml invalid html: explanation"><a href="warning/NotHtml.html">Invalid HTML: explanation</a></li>
+<li data-doc-message data-search="notinline foo claims to be inline, but may contain html."><a href="warning/NotInline.html">foo claims to be inline, but may contain HTML.</a></li>
+<li data-doc-message data-search="notsufficientlyunique the specified guid is not sufficiently unique."><a href="warning/NotSufficientlyUnique.html">The specified guid is not sufficiently unique.</a></li>
+<li data-doc-message data-search="notutf8 itunes elements should only be present in feeds encoded as utf-8"><a href="warning/NotUTF8.html">iTunes elements should only be present in feeds encoded as UTF-8</a></li>
+<li data-doc-message data-search="obscureencoding obscure xml character encoding: foo"><a href="warning/ObscureEncoding.html">Obscure XML character encoding: foo</a></li>
+<li data-doc-message data-search="obsoleteitunescategory foo is an obsolete itunes category or sub-category"><a href="warning/ObsoleteItunesCategory.html">foo is an obsolete iTunes category or sub-category</a></li>
+<li data-doc-message data-search="obsoleteversion feed is an obsolete version"><a href="warning/ObsoleteVersion.html">Feed is an obsolete version</a></li>
+<li data-doc-message data-search="obsoletewikinamespace obsolete wiki namespace"><a href="warning/ObsoleteWikiNamespace.html">Obsolete Wiki Namespace</a></li>
+<li data-doc-message data-search="problematicalrfc822date problematical rfc 822 date-time value"><a href="warning/ProblematicalRFC822Date.html">Problematical RFC 822 date-time value</a></li>
+<li data-doc-message data-search="questionableusage undocumented use of element"><a href="warning/QuestionableUsage.html">Undocumented use of element</a></li>
+<li data-doc-message data-search="relativeself relative href value on self link"><a href="warning/RelativeSelf.html">Relative href value on self link</a></li>
+<li data-doc-message data-search="reservedprefix the prefix name generally is associated with the namespace http://some/other/namespace"><a href="warning/ReservedPrefix.html">The prefix name generally is associated with the namespace http://some/other/namespace</a></li>
+<li data-doc-message data-search="samedocumentreference same-document reference"><a href="warning/SameDocumentReference.html">Same-document reference</a></li>
+<li data-doc-message data-search="schemenotianaregistered uri scheme not iana registered: foo"><a href="warning/SchemeNotIANARegistered.html">URI scheme not IANA registered: foo</a></li>
+<li data-doc-message data-search="securityrisk element should not contain script tag"><a href="warning/SecurityRisk.html">element should not contain script tag</a></li>
+<li data-doc-message data-search="securityriskattr element should not contain script attribute"><a href="warning/SecurityRiskAttr.html">element should not contain script attribute</a></li>
+<li data-doc-message data-search="selfdoesntmatchlocation self reference doesn&#x27;t match document location"><a href="warning/SelfDoesntMatchLocation.html">Self reference doesn&#x27;t match document location</a></li>
+<li data-doc-message data-search="selfnotatom &quot;self&quot; link references a non-atom representation."><a href="warning/SelfNotAtom.html">&quot;self&quot; link references a non-Atom representation.</a></li>
+<li data-doc-message data-search="shouldincludeexample opensearchdescription should include an example query"><a href="warning/ShouldIncludeExample.html">OpenSearchDescription should include an example Query</a></li>
+<li data-doc-message data-search="slashdate ensure lastbuilddate is present when slash:comments is used"><a href="warning/SlashDate.html">Ensure lastBuildDate is present when slash:comments is used</a></li>
+<li data-doc-message data-search="undefinedparam undefined media-range parameter"><a href="warning/UndefinedParam.html">Undefined media-range parameter</a></li>
+<li data-doc-message data-search="undeterminablevocabulary missing namespace for foo"><a href="warning/UndeterminableVocabulary.html">Missing namespace for foo</a></li>
+<li data-doc-message data-search="unexpectedcontenttype feeds should not be served with the &#x27;type/subtype&#x27; media type"><a href="warning/UnexpectedContentType.html">Feeds should not be served with the &#x27;type/subtype&#x27; media type</a></li>
+<li data-doc-message data-search="unknownhost unknown host: name"><a href="warning/UnknownHost.html">Unknown host: name</a></li>
+<li data-doc-message data-search="unknownnamespace use of unknown namespace: http://namespace.uri/"><a href="warning/UnknownNamespace.html">Use of unknown namespace: http://namespace.uri/</a></li>
+<li data-doc-message data-search="unregisteredatomlinkrel unregistered link relationship: foo"><a href="warning/UnregisteredAtomLinkRel.html">Unregistered link relationship: foo</a></li>
+<li data-doc-message data-search="unsupporteditunesformat format foo is not supported by itunes"><a href="warning/UnsupportedItunesFormat.html">Format foo is not supported by iTunes</a></li>
+<li data-doc-message data-search="unsupportednamespace unable to validate namespace: http://namespace.uri/. see the foo specification at http://namespace.uri/specification"><a href="warning/UnsupportedNamespace.html">Unable to validate namespace: http://namespace.uri/. See the foo specification at http://namespace.uri/specification</a></li>
+<li data-doc-message data-search="useofextensionattr use of extension attribute on rss 2.0 core element: (namespace,name)"><a href="warning/UseOfExtensionAttr.html">Use of extension attribute on RSS 2.0 core element: (namespace,name)</a></li>
+<li data-doc-message data-search="usezeroformidnight use zero for midnight"><a href="warning/UseZeroForMidnight.html">Use zero for midnight</a></li>
+</ul></details>
+<details class="fv-doc-details" id="docs-info" data-doc-section>
+<summary>Информация <span>(2)</span></summary>
+<ul class="fv-doc-message-list">
+<li data-doc-message data-search="nonstdencoding this encoding is not mandated by the xml specification: foo"><a href="info/NonstdEncoding.html">This encoding is not mandated by the XML specification: foo</a></li>
+<li data-doc-message data-search="w3cdtfdatenonutc date should be a utc date"><a href="info/W3CDTFDateNonUTC.html">Date should be a UTC date</a></li>
+</ul></details>
+<script src="../js/docs-search.js"></script>
+			</section>
 
-<p>
-<a href="../">Home</a> &middot;
-<a href="../about.html">About</a> &middot;
-<a href="../news/">News</a> &middot;
-<a href="../docs/">Docs</a> &middot;
-<a href="../terms.html">Terms</a>
-</p>
-
-        <div class="roundedCornerSpacer">&nbsp;</div>
-    </div><!-- .content -->
-    <div class="bottomCorners">
-        <img class="borderBL" src="../images/borderBL.gif" alt="" width="14" height="14" />
-        <img class="borderBR" src="../images/borderBR.gif" alt="" width="14" height="14" />
-    </div><!-- .bottomCorners -->
-</div><!-- .contentWrapper -->
-</div><!-- .centered -->
-
-<div class="centered">
-<address>Copyright &copy; 2002-3 <a href="http://diveintomark.org/">Mark Pilgrim</a> and <a href="http://www.intertwingly.net/blog/">Sam Ruby</a></address>
-</div>
-
+			<section class="fv-doc-card" aria-labelledby="project-title">
+				<h2 id="project-title">О проекте</h2>
+				<p>Сведения о принципах работы, обработке данных, ограничениях инструментов и лицензии — на странице <a href="../about.html">«О проекте»</a>. Инструкции по установке обновлены с учётом Python 3.12 и текущей конфигурации Apache CGI.</p>
+			</section>
+		</div>
+	</main>
+	<div class="footer-section section">
+		<div class="container">
+			<div class="row text-center">
+				<div class="col-md-12">
+					<!--fv:footer-nav-->
+					<ul class="footer-navigation inline-list">
+					<li><a href="../about.html">О проекте</a></li>
+					<li><a href="./">Документация</a></li>
+					<li><a href="../terms.html">Условия</a></li>
+					</ul>
+					<!--/fv:footer-nav-->
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="../assets/js/jquery.bundle.js"></script>
+	<script src="../assets/js/script.js"></script>
 </body>
 </html>

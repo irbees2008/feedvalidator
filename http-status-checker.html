@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ru" class="js">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>HTTP Status Checker онлайн — FEED Валидатор</title>
+	<meta name="description" content="Проверка HTTP-статуса, цепочки перенаправлений, заголовков и времени ответа любого публичного адреса.">
+	<meta name="robots" content="index,follow,max-image-preview:large">
+	<link rel="canonical" href="https://lab.ngcms.org/http-status-checker.html">
+	<meta name="theme-color" content="#1F65DB">
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="FEED Валидатор">
+	<meta property="og:locale" content="ru_RU">
+	<meta property="og:title" content="HTTP Status Checker онлайн — FEED Валидатор">
+	<meta property="og:description" content="Проверка HTTP-статуса, цепочки перенаправлений, заголовков и времени ответа любого публичного адреса.">
+	<meta property="og:url" content="https://lab.ngcms.org/http-status-checker.html">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="HTTP Status Checker онлайн — FEED Валидатор">
+	<meta name="twitter:description" content="Проверка HTTP-статуса, цепочки перенаправлений, заголовков и времени ответа любого публичного адреса.">
+	<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"HTTP Status Checker","url":"https://lab.ngcms.org/http-status-checker.html","applicationCategory":"DeveloperApplication","operatingSystem":"Any","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"FEED Валидатор","url":"https://lab.ngcms.org/"},"offers":{"@type":"Offer","price":"0","priceCurrency":"RUB"}}</script>
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="stylesheet" href="assets/css/vendor.bundle.css">
+	<link rel="stylesheet" href="assets/css/style.css?ver=131">
+	<link rel="stylesheet" href="assets/css/theme.css?ver=131">
+	<link rel="stylesheet" href="css/fv-theme.css">
+</head>
+<body>
+
+	<!--fv:navbar-->
+	<div id="home" class="header-section half-header section gradiant-background overflow-hidden">
+	<div id="particles-js" class="particles-container"></div>
+	<div id="navigation" class="navigation is-transparent" data-spy="affix" data-offset-top="5">
+	<nav class="navbar navbar-default" aria-label="Основная навигация">
+	<div class="container">
+	<div class="navbar-header">
+	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#site-collapse-nav" aria-expanded="false">
+	<span class="sr-only">Открыть меню</span>
+	<span class="icon-bar"></span>
+	<span class="icon-bar"></span>
+	<span class="icon-bar"></span>
+	</button>
+	<a class="navbar-brand" href="./">
+	<span class="logo logo-light"><span class="lg-hash">#</span> <span class="lg-f">H</span><span class="lg-e1">T</span><span class="lg-e2">T</span><span class="lg-d">P</span> Статус</span>
+	<span class="logo logo-color"><span class="lg-hash">#</span> <span class="lg-f">H</span><span class="lg-e1">T</span><span class="lg-e2">T</span><span class="lg-d">P</span> Статус</span>
+	</a>
+	</div>
+	<div class="collapse navbar-collapse font-secondary" id="site-collapse-nav">
+	<ul class="nav nav-list navbar-nav navbar-right">
+	<li class="dropdown active">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Проверить</a>
+	<ul class="dropdown-menu">
+	<li><a href="check.cgi">Проверить ленту</a></li>
+	<li><a href="open-graph.html">Open Graph</a></li>
+	<li><a href="meta-tags-analyzer.html">Meta-теги</a></li>
+	<li class="active"><a href="http-status-checker.html" aria-current="page">HTTP-статус</a></li>
+	<li><a href="robots-txt-validator.html">Robots.txt</a></li>
+	<li><a href="sitemap-validator.html">Sitemap</a></li>
+	<li><a href="dns-lookup.html">DNS</a></li>
+	<li><a href="security-headers-checker.html">Заголовки безопасности</a></li>
+	<li><a href="ssl-checker.html">SSL</a></li>
+	<li><a href="schema-validator.html">Schema.org</a></li>
+	</ul>
+	</li>
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Кодирование</a>
+	<ul class="dropdown-menu">
+	<li><a href="base64.html">Base64</a></li>
+	<li><a href="url-encoder.html">URL</a></li>
+	<li><a href="json-formatter.html">JSON</a></li>
+	<li><a href="jwt-decoder.html">JWT</a></li>
+	<li><a href="html-entities.html">HTML Entities</a></li>
+	</ul>
+	</li>
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Генераторы</a>
+	<ul class="dropdown-menu">
+	<li><a href="favicon-generator.html">Favicon</a></li>
+	<li><a href="markdown-editor.html">Markdown</a></li>
+	<li><a href="fancy-text.html">Красивый текст</a></li>
+	<li><a href="regex-tester.html">Regex</a></li>
+	<li><a href="pixel-art-maker.html">Пиксель-арт</a></li>
+	<li><a href="image-to-pixel-art.html">Фото в пиксель-арт</a></li>
+	<li><a href="image-animation.html">Создать анимацию</a></li>
+	</ul>
+	</li>
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Утилиты</a>
+	<ul class="dropdown-menu">
+	<li><a href="timestamp-converter.html">Timestamp</a></li>
+	<li><a href="color-tools.html">Цвета</a></li>
+	<li><a href="cron-generator.html">Cron</a></li>
+	<li><a href="user-agent-parser.html">User-Agent</a></li>
+	<li><a href="image-converter.html">Конвертер фото</a></li>
+	<li><a href="fonts.html">Шрифты</a></li>
+	<li><a href="image-compressor.html">Сжатие фото</a></li>
+	<li><a href="qr-code.html">QR-код</a></li>
+	</ul>
+	</li>
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">NGCMS</a>
+	<ul class="dropdown-menu">
+	<li><a href="bbcode-preview.html">BBCode</a></li>
+	<li><a href="sql-analyzer.html">SQL</a></li>
+	<li><a href="twig-playground.html">Twig</a></li>
+	<li><a href="template-checker.html">Шаблоны</a></li>
+	<li><a href="plugin-checker.html">Плагины</a></li>
+	<li><a href="php-compat-checker.html">PHP</a></li>
+	</ul>
+	</li>
+	</ul>
+	</div>
+	</div>
+	</nav>
+	</div>
+	<!--/fv:navbar-->
+
+		<div class="header-content">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 text-center">
+						<div class="header-texts">
+							<h1 class="wow fadeInUp" data-wow-duration=".5s">HTTP Status Checker</h1>
+							<p class="lead wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".3s">Проверка HTTP-статуса, цепочки перенаправлений, заголовков и времени ответа любого публичного адреса.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="feature-boxes fv-panel-wrap fv-tool">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<section class="fv-panel" id="http-status-checker-tool" aria-label="HTTP Status Checker">
+						<div class="fv-tab-content">
+							<div class="b64-field-head">
+								<label for="hs-url">Адрес (URL)</label>
+							</div>
+							<input type="text" id="hs-url" class="form-control" placeholder="https://example.com/" autocomplete="off" spellcheck="false">
+							<div class="b64-options" style="margin-top:12px">
+								<div class="b64-opt">
+									<span class="b64-opt-label" id="hs-method-label">Метод</span>
+									<div class="b64-seg" id="hs-method" role="group" aria-labelledby="hs-method-label">
+										<button type="button" class="b64-seg-btn active" data-method="GET" aria-pressed="true">GET</button>
+										<button type="button" class="b64-seg-btn" data-method="HEAD" aria-pressed="false">HEAD</button>
+									</div>
+								</div>
+							</div>
+							<div id="http-status-checker-error" class="fv-error" role="alert" hidden></div>
+
+							<div class="b64-toolbar">
+								<div class="b64-actions">
+									<button type="button" class="button" id="hs-run">Проверить</button>
+									<button type="button" class="button b64-secondary" id="hs-copy" disabled>Копировать результат</button>
+								</div>
+								<div class="b64-actions">
+									<button type="button" class="b64-link" id="hs-sample">Пример</button>
+								</div>
+							</div>
+
+							<div id="hs-result" hidden>
+								<div class="fv-result" id="hs-summary" role="status"></div>
+								<div class="b64-table-wrap">
+									<table class="table b64-table"><tbody id="hs-facts"></tbody></table>
+								</div>
+								<div id="hs-chain-wrap" hidden>
+									<div class="b64-field-head"><span class="b64-label-text">Цепочка перенаправлений</span></div>
+									<div class="b64-table-wrap">
+										<table class="table b64-table">
+											<thead><tr><th>#</th><th>Адрес</th><th>Код</th><th>Время</th></tr></thead>
+											<tbody id="hs-chain"></tbody>
+										</table>
+									</div>
+								</div>
+								<div class="b64-field-head"><span class="b64-label-text">Заголовки ответа</span></div>
+								<div class="b64-table-wrap">
+									<table class="table b64-table">
+										<thead><tr><th>Заголовок</th><th>Значение</th></tr></thead>
+										<tbody id="hs-headers"></tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</section>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="section grey-background fv-page b64-info">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-10 col-md-offset-1">
+					<article class="page-card">
+						<h2>Что делает HTTP Status Checker</h2>
+						<p>Сервис запрашивает адрес и показывает HTTP-статус, время ответа, цепочку перенаправлений, итоговый URL, тип содержимого, размер и заголовки. Это помогает находить битые ссылки, лишние редиректы и проблемы с HTTPS.</p>
+						<div class="b64-tldr">
+							<span class="b64-tldr-label">Кратко</span>
+							<span>Введите адрес и нажмите «Проверить». Запрос выполняет наш сервер, локальные и служебные адреса блокируются.</span>
+						</div>
+					</article>
+					<article class="page-card">
+						<h2>Коды ответа</h2>
+						<ul class="url-list">
+							<li><code>2xx</code> — успех, страница доступна.</li>
+							<li><code>301</code>, <code>308</code> — постоянное перенаправление, <code>302</code>, <code>307</code> — временное.</li>
+							<li><code>404</code> — страница не найдена, <code>403</code> — доступ запрещён, <code>429</code> — слишком много запросов.</li>
+							<li><code>5xx</code> — ошибка на стороне сервера.</li>
+						</ul>
+					</article>
+					<article class="page-card">
+						<h2>FAQ</h2>
+						<h3>Какие ограничения у проверки?</h3>
+						<p>Проверяются только адреса <code>http</code> и <code>https</code> на портах 80 и 443, максимум 5 перенаправлений, тело ответа читается не более 256 КБ.</p>
+						<h3>Чем отличаются GET и HEAD?</h3>
+						<p>HEAD запрашивает только заголовки и не показывает размер тела. Некоторые серверы отвечают на HEAD иначе, чем на GET.</p>
+					</article>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="footer-section section">
+		<div class="container">
+			<div class="row text-center">
+				<div class="col-md-12">
+					<!--fv:footer-nav-->
+					<ul class="footer-navigation inline-list">
+					<li><a href="about.html">О проекте</a></li>
+					<li><a href="docs/">Документация</a></li>
+					<li><a href="terms.html">Условия</a></li>
+					</ul>
+					<!--/fv:footer-nav-->
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="assets/js/jquery.bundle.js"></script>
+	<script src="assets/js/script.js"></script>
+	<script src="js/fv-common.js"></script>
+	<script src="js/http-status-checker.js"></script>
+</body>
+</html>

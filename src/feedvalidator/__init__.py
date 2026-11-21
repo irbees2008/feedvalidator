@@ -2,7 +2,11 @@ __author__ = "Sam Ruby <http://intertwingly.net/> and Mark Pilgrim <http://divei
 __version__ = "$Revision$"
 __copyright__ = "Copyright (c) 2002 Sam Ruby and Mark Pilgrim"
 
+import builtins
 import socket
+import ssl
+import time
+import certifi
 if hasattr(socket, 'setdefaulttimeout'):
   socket.setdefaulttimeout(10)
   Timeout = socket.timeout
@@ -11,7 +15,9 @@ else:
   timeoutsocket.setDefaultSocketTimeout(10)
   Timeout = timeoutsocket.Timeout
 
-import urllib2
+import urllib.request, urllib.error, urllib.parse
+import io
+SSL_CONTEXT = ssl.create_default_context(cafile=certifi.where())
 from . import logging
 from .logging import *
 from xml.sax import SAXException
@@ -19,9 +25,106 @@ from xml.sax.xmlreader import InputSource
 import re
 from . import xmlEncoding
 from . import mediaTypes
-from httplib import BadStatusLine
+from http.client import BadStatusLine
 
 MAXDATALENGTH = 2000000
+MAX_REDIRECTS = 5
+ALLOWED_PORTS = (80, 443, 8080, 8443)
+
+import ipaddress
+import http.client
+
+
+class UnsafeURLError(OSError):
+  """Raised when a URL points to a non-public address or uses a forbidden scheme."""
+
+
+def _checkAddress(addr):
+  ip = ipaddress.ip_address(addr.split('%', 1)[0])
+  mapped = getattr(ip, 'ipv4_mapped', None) or getattr(ip, 'sixtofour', None)
+  if mapped is not None:
+    ip = mapped
+  if not ip.is_global or ip.is_multicast:
+    raise UnsafeURLError('Access to non-public address %s is not allowed' % ip)
+  return str(ip)
+
+
+def _safeCreateConnection(address, timeout=socket._GLOBAL_DEFAULT_TIMEOUT, source_address=None):
+  """Resolve once, verify every address is public, then connect to the verified IP
+  (prevents DNS rebinding between the check and the connection)."""
+  host, port = address
+  try:
+    infos = socket.getaddrinfo(host, port, 0, socket.SOCK_STREAM)
+  except socket.gaierror as e:
+    raise UnsafeURLError('Cannot resolve host %s: %s' % (host, e.strerror or e))
+  if not infos:
+    raise UnsafeURLError('Cannot resolve host %s' % host)
+  verified = [(info[0], _checkAddress(info[4][0])) for info in infos]
+  error = None
+  for family, ip in verified:
+    try:
+      return socket.create_connection((ip, port), timeout, source_address)
+    except OSError as e:
+      error = e
+  raise error
+
+
+class _SafeHTTPConnection(http.client.HTTPConnection):
+  def __init__(self, *args, **kwargs):
+    http.client.HTTPConnection.__init__(self, *args, **kwargs)
+    self._create_connection = _safeCreateConnection
+
+
+class _SafeHTTPSConnection(http.client.HTTPSConnection):
+  def __init__(self, *args, **kwargs):
+    http.client.HTTPSConnection.__init__(self, *args, **kwargs)
+    self._create_connection = _safeCreateConnection
+
+
+class _SafeHTTPHandler(urllib.request.HTTPHandler):
+  def http_open(self, req):
+    return self.do_open(_SafeHTTPConnection, req)
+
+
+class _SafeHTTPSHandler(urllib.request.HTTPSHandler):
+  def https_open(self, req):
+    return self.do_open(_SafeHTTPSConnection, req, context=self._context)
+
+
+class _SafeRedirectHandler(urllib.request.HTTPRedirectHandler):
+  max_redirections = MAX_REDIRECTS
+
+  def redirect_request(self, req, fp, code, msg, headers, newurl):
+    _checkScheme(urllib.parse.urljoin(req.full_url, newurl))
+    return urllib.request.HTTPRedirectHandler.redirect_request(self, req, fp, code, msg, headers, newurl)
+
+
+def _checkScheme(url):
+  parts = urllib.parse.urlsplit(url)
+  if parts.scheme.lower() not in ('http', 'https'):
+    raise UnsafeURLError('Only http and https URLs are allowed')
+  if not parts.hostname:
+    raise UnsafeURLError('URL has no host name')
+  try:
+    port = parts.port or (443 if parts.scheme.lower() == 'https' else 80)
+  except ValueError:
+    raise UnsafeURLError('Invalid port')
+  if port not in ALLOWED_PORTS:
+    raise UnsafeURLError('Port %d is not allowed' % port)
+
+
+def _buildOpener():
+  # Only HTTP(S) handlers: no file:, ftp:, data: and no environment proxies.
+  opener = urllib.request.OpenerDirector()
+  for handler in (urllib.request.ProxyHandler({}),
+                  urllib.request.UnknownHandler(),
+                  _SafeHTTPHandler(),
+                  _SafeHTTPSHandler(context=SSL_CONTEXT),
+                  _SafeRedirectHandler(),
+                  urllib.request.HTTPDefaultErrorHandler(),
+                  urllib.request.HTTPErrorProcessor()):
+    opener.add_handler(handler)
+  return opener
 
 def sniffPossibleFeed(rawdata):
   """ Use wild heuristics to detect something that might be intended as a feed."""
@@ -41,9 +144,6 @@ def _validate(aString, firstOccurrenceOnly, loggedEvents, base, encoding, selfUR
   """validate RSS from string, returns validator object"""
   from xml.sax import make_parser, handler
   from .base import SAXDispatcher
-  from exceptions import UnicodeError
-  from cStringIO import StringIO
-
   if re.match("^\s+<\?xml",aString) and re.search("<generator.*wordpress.*</generator>",aString):
     lt = aString.find('<'); gt = aString.find('>')
     if lt > 0 and gt > 0 and lt < gt:
@@ -53,7 +153,7 @@ def _validate(aString, firstOccurrenceOnly, loggedEvents, base, encoding, selfUR
 
   # By now, aString should be Unicode
   source = InputSource()
-  source.setByteStream(StringIO(xmlEncoding.asUTF8(aString)))
+  source.setByteStream(io.BytesIO(xmlEncoding.asUTF8(aString)))
 
   validator = SAXDispatcher(base, selfURIs or [base], encoding)
   validator.setFirstOccurrenceOnly(firstOccurrenceOnly)
@@ -93,14 +193,13 @@ def _validate(aString, firstOccurrenceOnly, loggedEvents, base, encoding, selfUR
 
   def xmlvalidate(log):
     import libxml2
-    from StringIO import StringIO
     from random import random
 
     prefix="...%s..." % str(random()).replace('0.','')
     msg=[]
     libxml2.registerErrorHandler(lambda msg,str: msg.append(str), msg)
 
-    input = libxml2.inputBuffer(StringIO(xmlEncoding.asUTF8(aString)))
+    input = libxml2.inputBuffer(io.BytesIO(xmlEncoding.asUTF8(aString)))
     reader = input.newTextReader(prefix)
     reader.SetParserProp(libxml2.PARSER_VALIDATE, 1)
     ret = reader.Read()
@@ -115,7 +214,7 @@ def _validate(aString, firstOccurrenceOnly, loggedEvents, base, encoding, selfUR
     parser.parse(source)
   except SAXException:
     pass
-  except UnicodeError:
+  except builtins.UnicodeError:
     import sys
     exctype, value = sys.exc_info()[:2]
     validator.log(logging.UnicodeError({"exception":value}))
@@ -135,7 +234,7 @@ def _validate(aString, firstOccurrenceOnly, loggedEvents, base, encoding, selfUR
           self.dispatcher.log(InvalidRDF({"message": message}))
 
       source = InputSource()
-      source.setByteStream(StringIO(xmlEncoding.asUTF8(aString)))
+      source.setByteStream(io.BytesIO(xmlEncoding.asUTF8(aString)))
 
       parser.reset()
       parser.setContentHandler(Handler(parser.getContentHandler()))
@@ -170,7 +269,7 @@ def validateStream(aFile, firstOccurrenceOnly=0, contentType=None, base=""):
 
 def validateString(aString, firstOccurrenceOnly=0, fallback=None, base=""):
   loggedEvents = []
-  if type(aString) != unicode:
+  if type(aString) != str:
     encoding, aString = xmlEncoding.decode("", None, aString, loggedEvents, fallback)
   else:
     encoding = "utf-8" # setting a sane (?) default
@@ -184,35 +283,42 @@ def validateString(aString, firstOccurrenceOnly=0, fallback=None, base=""):
 def validateURL(url, firstOccurrenceOnly=1, wantRawData=0):
   """validate RSS from URL, returns events list, or (events, rawdata) tuple"""
   loggedEvents = []
-  request = urllib2.Request(url)
+  try:
+    _checkScheme(url)
+    request = urllib.request.Request(url)
+  except (UnsafeURLError, ValueError) as x:
+    raise ValidationFailure(logging.HttpError({'status': x}))
   request.add_header("Accept-encoding", "gzip, deflate")
   request.add_header("User-Agent", "FeedValidator/1.3")
   usock = None
+  requestStarted = time.perf_counter()
   try:
     try:
-      usock = urllib2.urlopen(request)
+      usock = _buildOpener().open(request, timeout=10)
       rawdata = usock.read(MAXDATALENGTH)
       if usock.read(1):
         raise ValidationFailure(logging.ValidatorLimit({'limit': 'feed length > ' + str(MAXDATALENGTH) + ' bytes'}))
 
       # check for temporary redirects
       if usock.geturl() != request.get_full_url():
-        from urlparse import urlsplit
+        from urllib.parse import urlsplit
         (scheme, netloc, path, query, fragment) = urlsplit(url)
         if scheme == 'http':
-          from httplib import HTTPConnection
           requestUri = (path or '/') + (query and '?' + query)
 
-          conn=HTTPConnection(netloc)
-          conn.request("GET", requestUri)
-          resp=conn.getresponse()
-          if resp.status != 301:
-            loggedEvents.append(TempRedirect({}))
+          conn = _SafeHTTPConnection(netloc, timeout=10)
+          try:
+            conn.request("GET", requestUri)
+            resp = conn.getresponse()
+            if resp.status != 301:
+              loggedEvents.append(TempRedirect({}))
+          finally:
+            conn.close()
 
     except BadStatusLine as status:
       raise ValidationFailure(logging.HttpError({'status': status.__class__}))
 
-    except urllib2.HTTPError as status:
+    except urllib.error.HTTPError as status:
       rawdata = status.read()
       if len(rawdata) < 512 or 'content-encoding' in status.headers:
         loggedEvents.append(logging.HttpError({'status': status}))
@@ -226,7 +332,7 @@ def validateURL(url, firstOccurrenceOnly=1, wantRawData=0):
           usock = status
         else:
           raise ValidationFailure(logging.HttpError({'status': status}))
-    except urllib2.URLError as x:
+    except urllib.error.URLError as x:
       raise ValidationFailure(logging.HttpError({'status': x.reason}))
     except Timeout as x:
       raise ValidationFailure(logging.IOError({"message": 'Server timed out', "exception":x}))
@@ -234,28 +340,46 @@ def validateURL(url, firstOccurrenceOnly=1, wantRawData=0):
       raise ValidationFailure(logging.IOError({"message": x.__class__.__name__,
         "exception":x}))
 
+    httpInfo = {
+      'status': usock.getcode(),
+      'reason': str(getattr(usock, 'reason', '') or ''),
+      'durationMs': round((time.perf_counter() - requestStarted) * 1000),
+      'downloadedBytes': len(rawdata),
+      'requestedURL': request.get_full_url(),
+      'finalURL': usock.geturl(),
+      'contentType': usock.headers.get('content-type', ''),
+      'contentEncoding': usock.headers.get('content-encoding', ''),
+      'etag': usock.headers.get('etag', ''),
+      'lastModified': usock.headers.get('last-modified', ''),
+      'contentLength': usock.headers.get('content-length', '')
+    }
+
     if usock.headers.get('content-encoding', None) == None:
       loggedEvents.append(Uncompressed({}))
 
     if usock.headers.get('content-encoding', None) == 'gzip':
-      import gzip, StringIO
+      import gzip, io
       try:
-        rawdata = gzip.GzipFile(fileobj=StringIO.StringIO(rawdata)).read()
+        rawdata = gzip.GzipFile(fileobj=io.BytesIO(rawdata)).read(MAXDATALENGTH + 1)
       except:
         import sys
         exctype, value = sys.exc_info()[:2]
         event=logging.IOError({"message": 'Server response declares Content-Encoding: gzip', "exception":value})
         raise ValidationFailure(event)
+      if len(rawdata) > MAXDATALENGTH:
+        raise ValidationFailure(logging.ValidatorLimit({'limit': 'decompressed feed length > ' + str(MAXDATALENGTH) + ' bytes'}))
 
     if usock.headers.get('content-encoding', None) == 'deflate':
       import zlib
       try:
-        rawdata = zlib.decompress(rawdata, -zlib.MAX_WBITS)
+        rawdata = zlib.decompressobj(-zlib.MAX_WBITS).decompress(rawdata, MAXDATALENGTH + 1)
       except:
         import sys
         exctype, value = sys.exc_info()[:2]
         event=logging.IOError({"message": 'Server response declares Content-Encoding: deflate', "exception":value})
         raise ValidationFailure(event)
+      if len(rawdata) > MAXDATALENGTH:
+        raise ValidationFailure(logging.ValidatorLimit({'limit': 'decompressed feed length > ' + str(MAXDATALENGTH) + ' bytes'}))
 
     if usock.headers.get('content-type', None) == 'application/vnd.google-earth.kmz':
       import tempfile, zipfile, os
@@ -285,7 +409,7 @@ def validateURL(url, firstOccurrenceOnly=1, wantRawData=0):
       (mediaType, charset) = mediaTypes.checkValid(contentType, loggedEvents)
 
     # Check for malformed HTTP headers
-    for (h, v) in usock.headers.items():
+    for (h, v) in list(usock.headers.items()):
       if (h.find(' ') >= 0):
         loggedEvents.append(HttpProtocolError({'header': h}))
 
@@ -295,10 +419,10 @@ def validateURL(url, firstOccurrenceOnly=1, wantRawData=0):
 
     # Get baseURI from content-location and/or redirect information
     if usock.headers.get('content-location', None):
-      from urlparse import urljoin
+      from urllib.parse import urljoin
       baseURI=urljoin(baseURI,usock.headers.get('content-location', ""))
     elif usock.headers.get('location', None):
-      from urlparse import urljoin
+      from urllib.parse import urljoin
       baseURI=urljoin(baseURI,usock.headers.get('location', ""))
 
     if not baseURI in selfURIs: selfURIs.append(baseURI)
@@ -319,7 +443,7 @@ def validateURL(url, firstOccurrenceOnly=1, wantRawData=0):
     if mediaType and validator.feedType:
       mediaTypes.checkAgainstFeedType(mediaType, validator.feedType, validator.loggedEvents)
 
-    params = {"feedType":validator.feedType, "loggedEvents":validator.loggedEvents}
+    params = {"feedType":validator.feedType, "loggedEvents":validator.loggedEvents, "httpInfo":httpInfo}
     if wantRawData:
       params['rawdata'] = rawdata
     return params

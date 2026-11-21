@@ -1,70 +1,200 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru" class="js">
 <head>
-<meta charset="utf-8">
-<title>Feed Validator Terms of Use</title>
-<style media="screen">@import "css/common.css";
-@import "css/documentation.css";</style>
-<script><!-- --></script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Условия использования — FEED Валидатор</title>
+	<meta name="description" content="Условия использования сервиса FEED Валидатор: правила проверки лент, ограничения и ответственность.">
+	<meta name="robots" content="index,follow">
+	<link rel="canonical" href="https://lab.ngcms.org/terms.html">
+	<meta name="theme-color" content="#1F65DB">
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="FEED Валидатор">
+	<meta property="og:locale" content="ru_RU">
+	<meta property="og:title" content="Условия использования — FEED Валидатор">
+	<meta property="og:description" content="Условия использования сервиса FEED Валидатор: правила проверки лент, ограничения и ответственность.">
+	<meta property="og:url" content="https://lab.ngcms.org/terms.html">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Условия использования — FEED Валидатор">
+	<meta name="twitter:description" content="Условия использования сервиса FEED Валидатор.">
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="stylesheet" href="assets/css/vendor.bundle.css">
+	<link rel="stylesheet" href="assets/css/style.css?ver=131">
+	<link rel="stylesheet" href="assets/css/theme.css?ver=131">
+	<link rel="stylesheet" href="css/fv-theme.css">
 </head>
 <body>
 
-<div id="logo">
-<h1><span id="feed"><span id="f">F</span><span id="e1">E</span><span id="e2">E</span></span><span id="d">D</span> Validator</h1>
-<p>Terms of use</p>
-<a class="skip" href="#startnavigation">Jump to navigation</a>
-</div> <!--logo-->
+	<!--fv:navbar-->
+	<div id="home" class="header-section half-header section gradiant-background overflow-hidden">
+	<div id="particles-js" class="particles-container"></div>
+	<div id="navigation" class="navigation is-transparent" data-spy="affix" data-offset-top="5">
+	<nav class="navbar navbar-default" aria-label="Основная навигация">
+	<div class="container">
+	<div class="navbar-header">
+	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#site-collapse-nav" aria-expanded="false">
+	<span class="sr-only">Открыть меню</span>
+	<span class="icon-bar"></span>
+	<span class="icon-bar"></span>
+	<span class="icon-bar"></span>
+	</button>
+	<a class="navbar-brand" href="./">
+	<span class="logo logo-light"><span class="lg-hash">#</span> <span class="lg-f">F</span><span class="lg-e1">E</span><span class="lg-e2">E</span><span class="lg-d">D</span> Валидатор</span>
+	<span class="logo logo-color"><span class="lg-hash">#</span> <span class="lg-f">F</span><span class="lg-e1">E</span><span class="lg-e2">E</span><span class="lg-d">D</span> Валидатор</span>
+	</a>
+	</div>
+	<div class="collapse navbar-collapse font-secondary" id="site-collapse-nav">
+	<ul class="nav nav-list navbar-nav navbar-right">
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Проверить</a>
+	<ul class="dropdown-menu">
+	<li><a href="check.cgi">Проверить ленту</a></li>
+	<li><a href="open-graph.html">Open Graph</a></li>
+	<li><a href="meta-tags-analyzer.html">Meta-теги</a></li>
+	<li><a href="http-status-checker.html">HTTP-статус</a></li>
+	<li><a href="robots-txt-validator.html">Robots.txt</a></li>
+	<li><a href="sitemap-validator.html">Sitemap</a></li>
+	<li><a href="dns-lookup.html">DNS</a></li>
+	<li><a href="security-headers-checker.html">Заголовки безопасности</a></li>
+	<li><a href="ssl-checker.html">SSL</a></li>
+	<li><a href="schema-validator.html">Schema.org</a></li>
+	</ul>
+	</li>
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Кодирование</a>
+	<ul class="dropdown-menu">
+	<li><a href="base64.html">Base64</a></li>
+	<li><a href="url-encoder.html">URL</a></li>
+	<li><a href="json-formatter.html">JSON</a></li>
+	<li><a href="jwt-decoder.html">JWT</a></li>
+	<li><a href="html-entities.html">HTML Entities</a></li>
+	</ul>
+	</li>
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Генераторы</a>
+	<ul class="dropdown-menu">
+	<li><a href="favicon-generator.html">Favicon</a></li>
+	<li><a href="markdown-editor.html">Markdown</a></li>
+	<li><a href="fancy-text.html">Красивый текст</a></li>
+	<li><a href="regex-tester.html">Regex</a></li>
+	<li><a href="pixel-art-maker.html">Пиксель-арт</a></li>
+	<li><a href="image-to-pixel-art.html">Фото в пиксель-арт</a></li>
+	<li><a href="image-animation.html">Создать анимацию</a></li>
+	</ul>
+	</li>
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Утилиты</a>
+	<ul class="dropdown-menu">
+	<li><a href="timestamp-converter.html">Timestamp</a></li>
+	<li><a href="color-tools.html">Цвета</a></li>
+	<li><a href="cron-generator.html">Cron</a></li>
+	<li><a href="user-agent-parser.html">User-Agent</a></li>
+	<li><a href="image-converter.html">Конвертер фото</a></li>
+	<li><a href="fonts.html">Шрифты</a></li>
+	<li><a href="image-compressor.html">Сжатие фото</a></li>
+	<li><a href="qr-code.html">QR-код</a></li>
+	</ul>
+	</li>
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">NGCMS</a>
+	<ul class="dropdown-menu">
+	<li><a href="bbcode-preview.html">BBCode</a></li>
+	<li><a href="sql-analyzer.html">SQL</a></li>
+	<li><a href="twig-playground.html">Twig</a></li>
+	<li><a href="template-checker.html">Шаблоны</a></li>
+	<li><a href="plugin-checker.html">Плагины</a></li>
+	<li><a href="php-compat-checker.html">PHP</a></li>
+	</ul>
+	</li>
+	</ul>
+	</div>
+	</div>
+	</nav>
+	</div>
+	<!--/fv:navbar-->
 
-<div id="main">
+		<div class="header-content">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 text-center">
+						<div class="header-texts">
+							<h1 class="wow fadeInUp" data-wow-duration=".5s">Условия использования</h1>
+							<p class="lead wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".3s">Как пользоваться сервисом, чтобы он оставался бесплатным для всех.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<p>This validator is a free service.  Please help keep it free by using it appropriately.</p>
+	<div class="section grey-background fv-page">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-10 col-md-offset-1">
+					<article class="page-card">
+						<p>Этот валидатор - бесплатный сервис. Пожалуйста, помогите сохранить его бесплатным, используя по назначению.</p>
 
-<h2>Do-s</h2>
+						<h2>Дозволено</h2>
 
-<ul>
-<li><p>You may use this service interactively to validate your own, or anyone else's, syndicated feed.</p></li>
-<li><p>You may use this service interactively to validate test feeds in the course of building software that produces syndicated feeds. In fact, you are encouraged to do this.  Validate as often as it takes to get your feeds right.  Please.</p></li>
-<li><p>You may provide a direct link on your own site to the results of validating your own feed.  The results page will give you this link, once your feed validates.  You are encouraged to provide this link to show that you care enough about standards to produce a valid feed, and to encourage others to do the same.</p></li>
-</ul>
+						<ul>
+							<li>
+								<p>Вы можете использовать этот сервис интерактивно для проверки своей или чужой RSS-ленты.</p>
+							</li>
+							<li>
+								<p>Вы можете использовать этот сервис интерактивно для проверки тестовых лент в процессе разработки программного обеспечения, генерирующего RSS-ленты. Более того, мы поощряем это. Проверяйте столько, сколько нужно, чтобы сделать ленты правильными.</p>
+							</li>
+							<li>
+								<p>Вы можете разместить на своем сайте прямую ссылку на результаты проверки вашей ленты. Страница результатов предоставит вам эту ссылку, когда лента пройдет валидацию. Мы поощряем это, чтобы показать, что вы заботитесь о стандартах и создаете валидную ленту.</p>
+							</li>
+						</ul>
 
-<h2>Don't-s</h2>
+						<h2>Запрещено</h2>
 
-<ul>
-<li><p>You may not build a frontend on this service that takes the results and passes them off as your own.</p></li>
-<li><p>You may not "frame" this service by putting it in a frame of your own site.</p></li>
-<li><p>You may not use this service to implement denial of service attacks on other sites.</p></li>
-<li><p>You may not send automated queries to this service.  For example, you might want to build a program that includes feed validation, so you might try to write a script that queries the online validator and scrapes the resulting HTML.  This is not allowed.  The validator itself is open source; please <a href="about.html#opensource">download it</a> and use it locally.</p></li>
-</ul>
+						<ul>
+							<li>
+								<p>Вы не можете создавать интерфейс поверх этого сервиса, выдавая результаты за свои.</p>
+							</li>
+							<li>
+								<p>Вы не можете вставлять этот сервис в фрейм своего сайта.</p>
+							</li>
+							<li>
+								<p>Вы не можете использовать этот сервис для DDoS-атак на другие сайты.</p>
+							</li>
+							<li>
+								<p>Вы не можете отправлять автоматические запросы к этому сервису. Например, если вы хотите создать программу с валидацией лент, не пишите скрипт, который отправляет запросы к онлайн-валидатору. Валидатор с открытым кодом - пожалуйста,
+									<a href="about.html#opensource">скачайте его</a>
+									и используйте локально.</p>
+							</li>
+						</ul>
+					</article>
+				</div>
+			</div>
+		</div>
+	</div>
 
-</div><!--main-->
+	<div class="footer-section section">
+		<div class="container">
+			<div class="row text-center">
+				<div class="col-md-12">
+					<!--fv:footer-nav-->
+					<ul class="footer-navigation inline-list">
+					<li><a href="about.html">О проекте</a></li>
+					<li><a href="docs/">Документация</a></li>
+					<li><a href="terms.html">Условия</a></li>
+					</ul>
+					<!--/fv:footer-nav-->
+					<ul class="footer-links inline-list">
+						<li>Copyright &copy; 2002
+							<a href="http://diveintomark.org/">Mark Pilgrim</a>
+							и
+							<a href="http://www.intertwingly.net/blog/">Sam Ruby</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<div class="centered">
-<a name="startnavigation" id="startnavigation"></a>
-<div class="navbarWrapper">
-    <div class="navbarContent">
-        <img class="borderTL" src="/images/borderTL.gif" alt="" width="14" height="14" />
-        <img class="borderTR" src="/images/borderTR.gif" alt="" width="14" height="14" />
-
-<p>
-<a href="./">Home</a> &middot;
-<a href="./about.html">About</a> &middot;
-<a href="./news/">News</a> &middot;
-<a href="./docs/">Docs</a> &middot;
-<a href="./terms.html">Terms</a>
-</p>
-
-        <div class="roundedCornerSpacer">&nbsp;</div>
-    </div><!-- .content -->
-    <div class="bottomCorners">
-        <img class="borderBL" src="/images/borderBL.gif" alt="" width="14" height="14" />
-        <img class="borderBR" src="/images/borderBR.gif" alt="" width="14" height="14" />
-    </div><!-- .bottomCorners -->
-</div><!-- .contentWrapper -->
-</div><!-- .centered -->
-
-<div class="centered">
-<address>Copyright &copy; 2002 <a href="http://diveintomark.org/">Mark Pilgrim</a> and <a href="http://www.intertwingly.net/blog/">Sam Ruby</a></address>
-</div>
-
+	<script src="assets/js/jquery.bundle.js"></script>
+	<script src="assets/js/script.js"></script>
 </body>
 </html>

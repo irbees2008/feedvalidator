@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Проверяйте Open Graph и Twitter Card по ссылке, создавайте метатеги и смотрите предпросмотр карточек социальных сетей.">
+	<title>Open Graph — проверка и генератор — FEED Валидатор</title>
+	<meta name="robots" content="index,follow,max-image-preview:large">
+	<link rel="canonical" href="https://lab.ngcms.org/open-graph.html">
+	<meta name="theme-color" content="#1F65DB">
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="FEED Валидатор">
+	<meta property="og:locale" content="ru_RU">
+	<meta property="og:title" content="Open Graph — проверка и генератор — FEED Валидатор">
+	<meta property="og:description" content="Проверяйте Open Graph и Twitter Card по ссылке, создавайте метатеги и смотрите предпросмотр карточек социальных сетей.">
+	<meta property="og:url" content="https://lab.ngcms.org/open-graph.html">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Open Graph — проверка и генератор — FEED Валидатор">
+	<meta name="twitter:description" content="Проверяйте Open Graph и Twitter Card по ссылке, создавайте метатеги и смотрите предпросмотр карточек.">
+	<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Open Graph: проверка и генератор","url":"https://lab.ngcms.org/open-graph.html","applicationCategory":"DeveloperApplication","operatingSystem":"Any","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"FEED Валидатор","url":"https://lab.ngcms.org/"},"offers":{"@type":"Offer","price":"0","priceCurrency":"RUB"}}</script>
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="stylesheet" href="assets/css/vendor.bundle.css">
+	<link rel="stylesheet" href="assets/css/style.css?ver=131">
+	<link rel="stylesheet" href="assets/css/theme.css?ver=131">
+	<link rel="stylesheet" href="css/fv-theme.css">
+</head>
+<body>
+	<!--fv:navbar-->
+	<div id="home" class="header-section half-header section gradiant-background overflow-hidden">
+	<div id="particles-js" class="particles-container"></div>
+	<div id="navigation" class="navigation is-transparent" data-spy="affix" data-offset-top="5">
+	<nav class="navbar navbar-default" aria-label="Основная навигация">
+	<div class="container">
+	<div class="navbar-header">
+	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#site-collapse-nav" aria-expanded="false">
+	<span class="sr-only">Открыть меню</span>
+	<span class="icon-bar"></span>
+	<span class="icon-bar"></span>
+	<span class="icon-bar"></span>
+	</button>
+	<a class="navbar-brand" href="./">
+	<span class="logo logo-light"><span class="lg-hash">#</span> <span class="lg-f">Ope</span><span class="lg-e1">nG</span><span class="lg-e2">ra</span><span class="lg-d">ph</span> Чекер</span>
+	<span class="logo logo-color"><span class="lg-hash">#</span> <span class="lg-f">Ope</span><span class="lg-e1">nG</span><span class="lg-e2">ra</span><span class="lg-d">ph</span> Чекер</span>
+	</a>
+	</div>
+	<div class="collapse navbar-collapse font-secondary" id="site-collapse-nav">
+	<ul class="nav nav-list navbar-nav navbar-right">
+	<li class="dropdown active">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Проверить</a>
+	<ul class="dropdown-menu">
+	<li><a href="check.cgi">Проверить ленту</a></li>
+	<li class="active"><a href="open-graph.html" aria-current="page">Open Graph</a></li>
+	<li><a href="meta-tags-analyzer.html">Meta-теги</a></li>
+	<li><a href="http-status-checker.html">HTTP-статус</a></li>
+	<li><a href="robots-txt-validator.html">Robots.txt</a></li>
+	<li><a href="sitemap-validator.html">Sitemap</a></li>
+	<li><a href="dns-lookup.html">DNS</a></li>
+	<li><a href="security-headers-checker.html">Заголовки безопасности</a></li>
+	<li><a href="ssl-checker.html">SSL</a></li>
+	<li><a href="schema-validator.html">Schema.org</a></li>
+	</ul>
+	</li>
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Кодирование</a>
+	<ul class="dropdown-menu">
+	<li><a href="base64.html">Base64</a></li>
+	<li><a href="url-encoder.html">URL</a></li>
+	<li><a href="json-formatter.html">JSON</a></li>
+	<li><a href="jwt-decoder.html">JWT</a></li>
+	<li><a href="html-entities.html">HTML Entities</a></li>
+	</ul>
+	</li>
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Генераторы</a>
+	<ul class="dropdown-menu">
+	<li><a href="favicon-generator.html">Favicon</a></li>
+	<li><a href="markdown-editor.html">Markdown</a></li>
+	<li><a href="fancy-text.html">Красивый текст</a></li>
+	<li><a href="regex-tester.html">Regex</a></li>
+	<li><a href="pixel-art-maker.html">Пиксель-арт</a></li>
+	<li><a href="image-to-pixel-art.html">Фото в пиксель-арт</a></li>
+	<li><a href="image-animation.html">Создать анимацию</a></li>
+	</ul>
+	</li>
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Утилиты</a>
+	<ul class="dropdown-menu">
+	<li><a href="timestamp-converter.html">Timestamp</a></li>
+	<li><a href="color-tools.html">Цвета</a></li>
+	<li><a href="cron-generator.html">Cron</a></li>
+	<li><a href="user-agent-parser.html">User-Agent</a></li>
+	<li><a href="image-converter.html">Конвертер фото</a></li>
+	<li><a href="fonts.html">Шрифты</a></li>
+	<li><a href="image-compressor.html">Сжатие фото</a></li>
+	<li><a href="qr-code.html">QR-код</a></li>
+	</ul>
+	</li>
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">NGCMS</a>
+	<ul class="dropdown-menu">
+	<li><a href="bbcode-preview.html">BBCode</a></li>
+	<li><a href="sql-analyzer.html">SQL</a></li>
+	<li><a href="twig-playground.html">Twig</a></li>
+	<li><a href="template-checker.html">Шаблоны</a></li>
+	<li><a href="plugin-checker.html">Плагины</a></li>
+	<li><a href="php-compat-checker.html">PHP</a></li>
+	</ul>
+	</li>
+	</ul>
+	</div>
+	</div>
+	</nav>
+	</div>
+	<!--/fv:navbar-->
+		<div class="header-content">
+			<div class="container">
+				<div class="row"><div class="col-md-8 col-md-offset-2 text-center">
+					<div class="header-texts">
+						<h1 class="wow fadeInUp" data-wow-duration=".5s">Open Graph: проверка и генератор</h1>
+						<p class="lead wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".3s">Проверьте метатеги сайта по ссылке или соберите свои с живым предпросмотром для социальных сетей.</p>
+					</div>
+				</div></div>
+			</div>
+		</div>
+	</div>
+
+	<main class="feature-boxes fv-panel-wrap og-page">
+		<div class="container">
+			<div class="row"><div class="col-md-10 col-md-offset-1">
+				<section class="fv-panel og-scanner" aria-labelledby="og-scan-title">
+					<div class="og-panel-heading">
+						<div><h2 id="og-scan-title">Проверить Open Graph по ссылке</h2>
+							<p>Загрузим HTML-страницу и проверим основные метатеги, дубли и рекомендации.</p></div>
+					</div>
+					<form id="og-scan-form" novalidate>
+						<div class="form-group">
+							<label for="og-scan-url">Адрес страницы</label>
+							<div class="og-scan-row">
+								<input id="og-scan-url" class="form-control" type="url" placeholder="https://example.com/page" required>
+								<button class="button" type="submit" id="og-scan-submit">Проверить</button>
+							</div>
+						</div>
+					</form>
+					<p class="og-privacy">Проверка выполняется сервером. Запросы ограничены публичными HTTP(S)-сайтами; локальные адреса, нестандартные порты и большие страницы блокируются. URL не сохраняется. Если найдено изображение, браузер загрузит его для предпросмотра.</p>
+					<div id="og-scan-message" class="og-message" role="status" aria-live="polite" hidden></div>
+					<div id="og-scan-result" class="og-scan-result" hidden>
+						<div class="og-result-summary">
+							<div><h3 id="og-result-title"></h3><p id="og-result-description"></p><a id="og-result-url" href="" target="_blank" rel="noopener noreferrer"></a></div>
+							<img id="og-result-image" alt="" hidden>
+						</div>
+						<h3>Результат проверки</h3>
+						<ul id="og-issues" class="og-issues"></ul>
+						<div class="og-extracted">
+							<h3>Найденные теги</h3>
+							<dl id="og-tags"></dl>
+						</div>
+					</div>
+				</section>
+
+				<section class="fv-panel og-generator" aria-labelledby="og-generator-title">
+					<div class="og-panel-heading">
+						<div><h2 id="og-generator-title">Создать метатеги</h2>
+							<p>Заполните поля — код и карточка предпросмотра обновятся автоматически.</p></div>
+						<button type="button" class="b64-link" id="og-reset">Сбросить к примеру</button>
+					</div>
+					<div class="row">
+						<div class="col-sm-6 og-fields">
+							<div class="form-group">
+								<div class="og-field-head"><label for="og-title">Заголовок</label><span id="og-title-count">0 / 60</span></div>
+								<input id="og-title" class="form-control" type="text" maxlength="200" placeholder="Заголовок карточки">
+							</div>
+							<div class="form-group">
+								<div class="og-field-head"><label for="og-description">Описание</label><span id="og-description-count">0 / 155</span></div>
+								<textarea id="og-description" class="form-control" rows="3" maxlength="500" placeholder="Краткое описание страницы"></textarea>
+							</div>
+							<div class="form-group">
+								<label for="og-url">Канонический URL</label>
+								<input id="og-url" class="form-control" type="url" placeholder="https://example.com/page">
+							</div>
+							<div class="form-group">
+								<label for="og-image">URL изображения</label>
+								<input id="og-image" class="form-control" type="url" placeholder="https://example.com/og-image.jpg">
+								<p class="help-block">Используйте абсолютный HTTPS-адрес и изображение примерно 1200 × 630 пикселей.</p>
+							</div>
+							<div class="form-group">
+								<label for="og-image-alt">Описание изображения</label>
+								<input id="og-image-alt" class="form-control" type="text" placeholder="Что изображено на картинке">
+							</div>
+							<div class="form-group">
+								<label for="og-site-name">Название сайта</label>
+								<input id="og-site-name" class="form-control" type="text" placeholder="Название сайта">
+							</div>
+							<div class="row">
+								<div class="col-xs-6 form-group">
+									<label for="og-type">og:type</label>
+									<select id="og-type" class="form-control"><option value="website">website</option><option value="article">article</option><option value="product">product</option><option value="profile">profile</option><option value="video.other">video.other</option></select>
+								</div>
+								<div class="col-xs-6 form-group">
+									<label for="twitter-card">Twitter Card</label>
+									<select id="twitter-card" class="form-control"><option value="summary_large_image">summary_large_image</option><option value="summary">summary</option></select>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-6 form-group"><label for="twitter-site">twitter:site</label><input id="twitter-site" class="form-control" type="text" placeholder="@yourbrand"></div>
+								<div class="col-xs-6 form-group"><label for="twitter-creator">twitter:creator</label><input id="twitter-creator" class="form-control" type="text" placeholder="@author"></div>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="og-preview-card">
+								<div class="og-field-head"><strong>Предпросмотр карточки</strong></div>
+								<div class="og-network-tabs" role="group" aria-label="Социальная сеть">
+									<button type="button" class="active" data-network="facebook" aria-pressed="true">Facebook</button>
+									<button type="button" data-network="x" aria-pressed="false">X / Twitter</button>
+									<button type="button" data-network="linkedin" aria-pressed="false">LinkedIn</button>
+									<button type="button" data-network="discord" aria-pressed="false">Discord / Slack</button>
+								</div>
+								<div id="og-preview" class="og-preview og-preview-facebook">
+									<img id="og-preview-image" alt="" hidden>
+									<div class="og-preview-meta"><span id="og-preview-domain"></span><h3 id="og-preview-title"></h3><p id="og-preview-description"></p></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="og-code-panel">
+						<div class="og-field-head"><strong>Сгенерированные &lt;head&gt;-теги</strong><button type="button" class="b64-link" id="og-copy">Копировать</button></div>
+						<pre id="og-code" dir="ltr"></pre>
+						<div id="og-copy-message" class="og-copy-message" role="status" aria-live="polite"></div>
+					</div>
+				</section>
+
+				<section class="page-card og-guide">
+					<h2>Какие теги нужны для Open Graph</h2>
+					<p>Open Graph помогает социальным сетям сформировать карточку ссылки с заголовком, описанием и изображением. Основные свойства задаются в секции <code>&lt;head&gt;</code> страницы.</p>
+					<div class="b64-table-wrap"><table class="table b64-table">
+						<thead><tr><th>Тег</th><th>Рекомендация</th><th>Для чего нужен</th></tr></thead>
+						<tbody>
+							<tr><td><code>og:title</code></td><td>Краткий заголовок, около 60 символов</td><td>Заголовок карточки</td></tr>
+							<tr><td><code>og:description</code></td><td>Одно-два предложения, около 155 символов</td><td>Текст под заголовком</td></tr>
+							<tr><td><code>og:type</code></td><td><code>website</code> или <code>article</code></td><td>Тип страницы</td></tr>
+							<tr><td><code>og:url</code></td><td>Канонический абсолютный HTTPS URL</td><td>Адрес страницы для карточки</td></tr>
+							<tr><td><code>og:image</code></td><td>Абсолютный URL; часто используют 1200 × 630</td><td>Изображение карточки</td></tr>
+							<tr><td><code>og:image:alt</code></td><td>Кратко опишите изображение</td><td>Доступность и альтернативный текст</td></tr>
+							<tr><td><code>og:site_name</code></td><td>Название проекта или сайта</td><td>Атрибуция источника</td></tr>
+							<tr><td><code>twitter:card</code></td><td><code>summary_large_image</code></td><td>Формат карточки в X</td></tr>
+						</tbody>
+					</table></div>
+					<h3>Как пользоваться проверкой</h3>
+					<ol>
+						<li>Введите полный адрес общедоступной страницы с <code>http://</code> или <code>https://</code>.</li>
+						<li>Проверка найдёт Open Graph и Twitter Card, отметит отсутствующие или повторяющиеся значения и покажет рекомендации.</li>
+						<li>В генераторе заполните поля, выберите тип карточки и скопируйте готовый HTML в секцию <code>&lt;head&gt;</code>.</li>
+					</ol>
+					<p>Изменения метатегов не всегда сразу видны в соцсетях: платформы могут кэшировать карточку. После публикации проверьте URL инструментами отладки соответствующей социальной сети.</p>
+					<p class="og-privacy-note"><strong>Конфиденциальность:</strong> при проверке ссылка передаётся серверу сайта, который загружает HTML-страницу. Запрос не сохраняется и ограничен по адресу, времени и размеру ответа. Изображения карточек загружаются браузером с исходного сайта для предпросмотра. Не вводите URL с приватными данными в адресе.</p>
+				</section>
+
+				<section class="page-card og-guide">
+					<h2>FAQ по Open Graph</h2>
+					<div class="b64-faq">
+						<details open>
+							<summary>Что такое Open Graph?</summary>
+							<p>Open Graph — протокол, опубликованный Facebook в 2010 году. Он позволяет странице описать себя набором <code>&lt;meta&gt;</code>-тегов: заголовок, описание, картинка, тип и другие. Сегодня его читают все крупные соцсети и мессенджеры, поэтому он стал де-факто стандартом метаданных для карточек ссылок.</p>
+						</details>
+						<details open>
+							<summary>Нужны ли и Twitter Cards, и Open Graph?</summary>
+							<p>Лучше указывать оба набора. При отсутствии своих <code>twitter:</code>-тегов X использует соответствующие <code>og:</code>-теги, так что технически можно обойтись одним Open Graph. Но <code>twitter:card</code>, <code>twitter:site</code> и <code>twitter:creator</code> дают больше контроля над отображением карточки в X.</p>
+						</details>
+						<details open>
+							<summary>Каким должен быть размер og:image?</summary>
+							<p>Самый безопасный размер — 1200×630 пикселей (соотношение 1,91:1): Facebook, LinkedIn и X хорошо его показывают. Держите файл в пределах нескольких мегабайт и указывайте абсолютный HTTPS-адрес: относительные пути не работают, когда страницу запрашивают чужие серверы.</p>
+						</details>
+						<details open>
+							<summary>Почему превью в соцсети не обновляется?</summary>
+							<p>Соцсети кэшируют карточки. После изменения метатегов проверьте адрес в отладчиках: <a href="https://developers.facebook.com/tools/debug/" target="_blank" rel="noopener noreferrer">Facebook Sharing Debugger</a> (кнопка «Scrape Again»), Card Validator для X и Post Inspector для LinkedIn.</p>
+						</details>
+						<details open>
+							<summary>Использует ли Google теги Open Graph?</summary>
+							<p>Для ранжирования — нет: Google анализирует содержимое страницы, <code>&lt;title&gt;</code> и <code>meta description</code>. Иногда <code>og:image</code> попадает в поиск по картинкам и Discover, но сигналом ранжирования это не является.</p>
+						</details>
+						<details open>
+							<summary>Можно ли создавать изображение для каждой страницы автоматически?</summary>
+							<p>Да. Многие фреймворки умеют генерировать Open Graph-изображения на лету, например Next.js, SvelteKit и Astro. Создавайте картинку по запросу и кэшируйте её: краулеры соцсетей быстро прекращают ждать ответ.</p>
+						</details>
+					</div>
+				</section>
+			</div></div>
+		</div>
+	</main>
+
+	<div class="footer-section section">
+		<div class="container"><div class="row text-center"><div class="col-md-12">
+			<!--fv:footer-nav-->
+			<ul class="footer-navigation inline-list">
+			<li><a href="about.html">О проекте</a></li>
+			<li><a href="docs/">Документация</a></li>
+			<li><a href="terms.html">Условия</a></li>
+			</ul>
+			<!--/fv:footer-nav-->
+			<ul class="footer-links inline-list"><li>Copyright &copy; 2002-9 <a href="https://www.intertwingly.net/blog/">Sam Ruby</a>, Mark Pilgrim, <a href="https://kafsemo.org/">Joseph Walton</a> и <a href="http://weblog.philringnalda.com/">Phil Ringnalda</a></li></ul>
+		</div></div></div>
+	</div>
+	<script src="assets/js/jquery.bundle.js"></script>
+	<script src="assets/js/script.js"></script>
+	<script src="js/open-graph.js"></script>
+</body>
+</html>

@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="ru" class="js">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Онлайн-кодировщик и декодировщик Base64: текст и файлы, URL-safe, data URI, выбор кодировки, предпросмотр картинок. Всё работает в браузере.">
+	<title>Кодировщик / декодировщик Base64 — FEED Валидатор</title>
+	<meta name="robots" content="index,follow,max-image-preview:large">
+	<link rel="canonical" href="https://lab.ngcms.org/base64.html">
+	<meta name="theme-color" content="#1F65DB">
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="FEED Валидатор">
+	<meta property="og:locale" content="ru_RU">
+	<meta property="og:title" content="Кодировщик / декодировщик Base64 — FEED Валидатор">
+	<meta property="og:description" content="Онлайн-кодировщик и декодировщик Base64: текст и файлы, URL-safe, data URI, выбор кодировки, предпросмотр картинок. Всё работает в браузере.">
+	<meta property="og:url" content="https://lab.ngcms.org/base64.html">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Кодировщик / декодировщик Base64 — FEED Валидатор">
+	<meta name="twitter:description" content="Онлайн-кодировщик и декодировщик Base64: текст и файлы, URL-safe, data URI, выбор кодировки, предпросмотр картинок.">
+	<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Кодировщик / декодировщик Base64","url":"https://lab.ngcms.org/base64.html","applicationCategory":"DeveloperApplication","operatingSystem":"Any","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"FEED Валидатор","url":"https://lab.ngcms.org/"},"offers":{"@type":"Offer","price":"0","priceCurrency":"RUB"}}</script>
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="stylesheet" href="assets/css/vendor.bundle.css">
+	<link rel="stylesheet" href="assets/css/style.css?ver=131">
+	<link rel="stylesheet" href="assets/css/theme.css?ver=131">
+	<link rel="stylesheet" href="css/fv-theme.css">
+</head>
+<body>
+
+	<!--fv:navbar-->
+	<div id="home" class="header-section half-header section gradiant-background overflow-hidden">
+	<div id="particles-js" class="particles-container"></div>
+	<div id="navigation" class="navigation is-transparent" data-spy="affix" data-offset-top="5">
+	<nav class="navbar navbar-default" aria-label="Основная навигация">
+	<div class="container">
+	<div class="navbar-header">
+	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#site-collapse-nav" aria-expanded="false">
+	<span class="sr-only">Открыть меню</span>
+	<span class="icon-bar"></span>
+	<span class="icon-bar"></span>
+	<span class="icon-bar"></span>
+	</button>
+	<a class="navbar-brand" href="./">
+	<span class="logo logo-light"><span class="lg-hash">#</span> <span class="lg-f">Ba</span><span class="lg-e1">se</span><span class="lg-e2">6</span><span class="lg-d">4</span> Кодировщик</span>
+	<span class="logo logo-color"><span class="lg-hash">#</span> <span class="lg-f">Ba</span><span class="lg-e1">se</span><span class="lg-e2">6</span><span class="lg-d">4</span> Кодировщик</span>
+	</a>
+	</div>
+	<div class="collapse navbar-collapse font-secondary" id="site-collapse-nav">
+	<ul class="nav nav-list navbar-nav navbar-right">
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Проверить</a>
+	<ul class="dropdown-menu">
+	<li><a href="check.cgi">Проверить ленту</a></li>
+	<li><a href="open-graph.html">Open Graph</a></li>
+	<li><a href="meta-tags-analyzer.html">Meta-теги</a></li>
+	<li><a href="http-status-checker.html">HTTP-статус</a></li>
+	<li><a href="robots-txt-validator.html">Robots.txt</a></li>
+	<li><a href="sitemap-validator.html">Sitemap</a></li>
+	<li><a href="dns-lookup.html">DNS</a></li>
+	<li><a href="security-headers-checker.html">Заголовки безопасности</a></li>
+	<li><a href="ssl-checker.html">SSL</a></li>
+	<li><a href="schema-validator.html">Schema.org</a></li>
+	</ul>
+	</li>
+	<li class="dropdown active">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Кодирование</a>
+	<ul class="dropdown-menu">
+	<li class="active"><a href="base64.html" aria-current="page">Base64</a></li>
+	<li><a href="url-encoder.html">URL</a></li>
+	<li><a href="json-formatter.html">JSON</a></li>
+	<li><a href="jwt-decoder.html">JWT</a></li>
+	<li><a href="html-entities.html">HTML Entities</a></li>
+	</ul>
+	</li>
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Генераторы</a>
+	<ul class="dropdown-menu">
+	<li><a href="favicon-generator.html">Favicon</a></li>
+	<li><a href="markdown-editor.html">Markdown</a></li>
+	<li><a href="fancy-text.html">Красивый текст</a></li>
+	<li><a href="regex-tester.html">Regex</a></li>
+	<li><a href="pixel-art-maker.html">Пиксель-арт</a></li>
+	<li><a href="image-to-pixel-art.html">Фото в пиксель-арт</a></li>
+	<li><a href="image-animation.html">Создать анимацию</a></li>
+	</ul>
+	</li>
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Утилиты</a>
+	<ul class="dropdown-menu">
+	<li><a href="timestamp-converter.html">Timestamp</a></li>
+	<li><a href="color-tools.html">Цвета</a></li>
+	<li><a href="cron-generator.html">Cron</a></li>
+	<li><a href="user-agent-parser.html">User-Agent</a></li>
+	<li><a href="image-converter.html">Конвертер фото</a></li>
+	<li><a href="fonts.html">Шрифты</a></li>
+	<li><a href="image-compressor.html">Сжатие фото</a></li>
+	<li><a href="qr-code.html">QR-код</a></li>
+	</ul>
+	</li>
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">NGCMS</a>
+	<ul class="dropdown-menu">
+	<li><a href="bbcode-preview.html">BBCode</a></li>
+	<li><a href="sql-analyzer.html">SQL</a></li>
+	<li><a href="twig-playground.html">Twig</a></li>
+	<li><a href="template-checker.html">Шаблоны</a></li>
+	<li><a href="plugin-checker.html">Плагины</a></li>
+	<li><a href="php-compat-checker.html">PHP</a></li>
+	</ul>
+	</li>
+	</ul>
+	</div>
+	</div>
+	</nav>
+	</div>
+	<!--/fv:navbar-->
+
+		<div class="header-content">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 text-center">
+						<div class="header-texts">
+							<h1 class="wow fadeInUp" data-wow-duration=".5s">Кодировщик / декодировщик Base64</h1>
+							<p class="lead wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".3s">Мгновенно кодируйте и декодируйте строки и файлы Base64 — прямо в браузере.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="feature-boxes fv-panel-wrap b64-page">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-10 col-md-offset-1">
+					<section class="fv-panel" id="b64-tool" aria-label="Кодировщик Base64">
+						<ul class="nav nav-tabs fv-tabs" role="tablist" id="b64-modes">
+							<li role="presentation" class="active">
+								<a href="#" role="tab" data-mode="encode" aria-selected="true">Кодировать</a>
+							</li>
+							<li role="presentation">
+								<a href="#" role="tab" data-mode="decode" aria-selected="false">Декодировать</a>
+							</li>
+						</ul>
+
+						<div class="fv-tab-content">
+							<div class="b64-options">
+								<div class="b64-opt b64-only-encode">
+									<span class="b64-opt-label" id="b64-source-label">Источник</span>
+									<div class="b64-seg" id="b64-sources" role="group" aria-labelledby="b64-source-label">
+										<button type="button" class="b64-seg-btn active" data-source="text" aria-pressed="true">Текст</button>
+										<button type="button" class="b64-seg-btn" data-source="file" aria-pressed="false">Файл</button>
+									</div>
+								</div>
+								<div class="b64-opt" id="b64-charset-wrap">
+									<label class="b64-opt-label" for="b64-charset">Кодировка текста</label>
+									<select id="b64-charset" class="form-control">
+										<option value="utf-8">UTF-8</option>
+										<option value="utf-16le">UTF-16 LE</option>
+										<option value="windows-1251">Windows-1251 (кириллица)</option>
+										<option value="windows-1252">Windows-1252 / Latin-1</option>
+									</select>
+								</div>
+								<div class="b64-opt b64-only-encode">
+									<label class="b64-opt-label" for="b64-wrap">Перенос строк</label>
+									<select id="b64-wrap" class="form-control">
+										<option value="0">Без переносов</option>
+										<option value="64">Каждые 64 символа (PEM)</option>
+										<option value="76">Каждые 76 символов (MIME)</option>
+									</select>
+								</div>
+								<div class="b64-opt b64-opt-checks b64-only-encode">
+									<label class="b64-check"><input type="checkbox" id="b64-urlsafe"> URL-safe: <code>-</code> и <code>_</code>, без <code>=</code></label>
+									<label class="b64-check"><input type="checkbox" id="b64-datauri"> Добавить префикс <code>data:</code></label>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="form-group b64-input-text" id="b64-input-group">
+										<div class="b64-field-head">
+											<label for="b64-input" id="b64-input-label">Текст</label>
+											<button type="button" class="b64-link b64-only-decode" id="b64-load-btn">Загрузить из файла</button>
+										</div>
+										<textarea id="b64-input" class="form-control" rows="11" spellcheck="false" placeholder="Введите или вставьте текст для кодирования…"></textarea>
+									</div>
+									<div class="form-group b64-input-file" id="b64-file-group" hidden>
+										<div class="b64-field-head">
+											<span class="b64-label-text">Файл</span>
+										</div>
+										<label class="b64-drop" id="b64-dropzone" for="b64-file">
+											<span class="b64-drop-icon ti ti-upload" aria-hidden="true"></span>
+											<span class="b64-drop-title">Перетащите файл сюда</span>
+											<span class="b64-drop-sub">или нажмите, чтобы выбрать (до 10 МБ)</span>
+											<span class="b64-drop-file" id="b64-fileinfo"></span>
+										</label>
+										<input type="file" id="b64-file" class="sr-only">
+									</div>
+									<input type="file" id="b64-load" class="sr-only" accept=".txt,.b64,.base64,text/plain" tabindex="-1">
+								</div>
+								<div class="col-sm-6">
+									<div class="form-group">
+										<div class="b64-field-head">
+											<label for="b64-output" id="b64-output-label">Результат Base64</label>
+											<span class="b64-badge" id="b64-badge" hidden></span>
+										</div>
+										<textarea id="b64-output" class="form-control" rows="11" spellcheck="false" readonly placeholder="Закодированный или декодированный результат появится здесь — всё выполняется локально."></textarea>
+									</div>
+								</div>
+							</div>
+
+							<div class="b64-filebox" id="b64-filebox" hidden>
+								<img id="b64-preview" alt="Предпросмотр декодированного изображения" hidden>
+								<dl class="b64-fileinfo">
+									<dt>Тип</dt><dd id="b64-file-type"></dd>
+									<dt>Размер</dt><dd id="b64-file-size"></dd>
+								</dl>
+							</div>
+
+							<div id="b64-error" class="b64-error" role="alert" hidden></div>
+
+							<div class="b64-toolbar">
+								<div class="b64-actions">
+									<button type="button" class="button" id="b64-copy" disabled>Копировать</button>
+									<button type="button" class="button b64-secondary" id="b64-download" disabled>Скачать</button>
+									<button type="button" class="button b64-secondary" id="b64-swap">Поменять ⇄</button>
+								</div>
+								<div class="b64-actions">
+									<button type="button" class="b64-link" id="b64-sample">Загрузить пример</button>
+									<button type="button" class="b64-link" id="b64-clear">Очистить</button>
+								</div>
+							</div>
+
+							<p class="b64-stats" id="b64-stats" aria-live="polite"></p>
+						</div>
+					</section>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="section grey-background fv-page b64-info">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-10 col-md-offset-1">
+
+					<article class="page-card">
+						<h2>Что такое Base64?</h2>
+						<p>Base64 — это схема кодирования, которая представляет бинарные данные с помощью 64 печатаемых символов. Её берут всегда, когда чисто текстовый канал должен переносить байты: маленькие картинки, встроенные прямо в HTML, токены, вложения email, data-URL, а также поля JSON, где лежат бинарные блоки.</p>
+						<p>Base64 — это <strong>кодирование, а не шифрование</strong>. Декодировать строку Base64 можно мгновенно и получить исходное содержимое, поэтому полагаться на неё как на защиту нельзя. Всё, что лежит внутри Base64, фактически открыто — если только данные не были зашифрованы <em>до</em> кодирования.</p>
+						<p>Под капотом Base64 берёт 3 байта (24 бита) и переписывает их 4 символами из фиксированного алфавита из 64 знаков (<code>A</code>–<code>Z</code>, <code>a</code>–<code>z</code>, <code>0</code>–<code>9</code>, <code>+</code>, <code>/</code>). Если длина входа не кратна 3, кодировщик добавляет один или два символа <code>=</code> в конце — это padding. Именно поэтому строки Base64 часто заканчиваются на <code>=</code>.</p>
+						<div class="b64-tldr">
+							<span class="b64-tldr-label">Кратко</span>
+							<span>Base64 превращает бинарные данные в безопасный для копирования текст. В таком виде данные встречаются внутри JWT, в data-URL и во вложениях писем. Это не шифрование.</span>
+						</div>
+					</article>
+
+					<article class="page-card">
+						<h2>Что вы поймёте, поработав с Base64</h2>
+						<ul>
+							<li>Кодирование меняет только представление данных — оно их не прячет и не защищает: декодировать может кто угодно.</li>
+							<li>Длина результата примерно в 4/3 раза больше исходных байт — удобно, но неэкономно по объёму.</li>
+							<li>Символы <code>=</code> дополняют последнюю четвёрку — это нормальная часть многих строк Base64, а не ошибка.</li>
+							<li>Существуют две родственные разновидности: стандартный Base64 (с <code>+</code> и <code>/</code>) и Base64URL (с <code>-</code> и <code>_</code>, чтобы безопасно жить в URL и JWT).</li>
+						</ul>
+					</article>
+
+					<article class="page-card">
+						<h2>Как закодировать и раскодировать Base64 шаг за шагом</h2>
+						<ol class="b64-steps">
+							<li>
+								<span class="b64-step-num" aria-hidden="true">1</span>
+								<div>
+									<h3>Выберите направление</h3>
+									<p>Выберите «Кодировать», если у вас обычный текст или файл и вам нужен Base64 на выходе. «Декодировать» — если у вас уже есть строка Base64 и вы хотите получить исходное содержимое.</p>
+								</div>
+							</li>
+							<li>
+								<span class="b64-step-num" aria-hidden="true">2</span>
+								<div>
+									<h3>Вставьте текст или перетащите файл</h3>
+									<p>Вставьте строку в текстовое поле или перетащите файл (картинку, PDF, что угодно) в зону загрузки. Файлы кодируются как есть — байт в байт. Если включить опцию <code>data:</code>, результат превращается в data-URL, готовый к встраиванию в HTML или CSS.</p>
+								</div>
+							</li>
+							<li>
+								<span class="b64-step-num" aria-hidden="true">3</span>
+								<div>
+									<h3>Посмотрите результат</h3>
+									<p>При кодировании вы получите строку Base64. При декодировании — исходный текст, а если внутри был файл, то его тип, размер и предпросмотр (для картинок), а также кнопку скачивания.</p>
+								</div>
+							</li>
+							<li>
+								<span class="b64-step-num" aria-hidden="true">4</span>
+								<div>
+									<h3>Скопируйте или скачайте результат</h3>
+									<p>Нажмите «Копировать», чтобы поместить результат в буфер обмена, или «Скачать», чтобы сохранить его файлом. Всё работает прямо в браузере — данные никуда не уходят с вашего компьютера.</p>
+								</div>
+							</li>
+						</ol>
+					</article>
+
+					<article class="page-card">
+						<h2>Как это устроено: наглядный пример</h2>
+						<p>Возьмём слово <code>Man</code>. Три байта (24 бита) разбиваются на четыре группы по 6 бит, и каждая группа заменяется символом алфавита:</p>
+						<div class="b64-table-wrap">
+							<table class="table b64-table">
+								<thead>
+									<tr><th>Символ</th><th>M</th><th>a</th><th>n</th></tr>
+								</thead>
+								<tbody>
+									<tr><td>Байт (ASCII)</td><td>77</td><td>97</td><td>110</td></tr>
+									<tr><td>Биты</td><td><code>01001101</code></td><td><code>01100001</code></td><td><code>01101110</code></td></tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="b64-table-wrap">
+							<table class="table b64-table">
+								<thead>
+									<tr><th>6-битные группы</th><th><code>010011</code></th><th><code>010110</code></th><th><code>000101</code></th><th><code>101110</code></th></tr>
+								</thead>
+								<tbody>
+									<tr><td>Число</td><td>19</td><td>22</td><td>5</td><td>46</td></tr>
+									<tr><td>Символ Base64</td><td><strong>T</strong></td><td><strong>W</strong></td><td><strong>F</strong></td><td><strong>u</strong></td></tr>
+								</tbody>
+							</table>
+						</div>
+						<p>Получилось <code>TWFu</code>. Если не хватает байтов до тройки, остаток добавляется нулевыми битами, а в конец ставится padding: <code>Ma</code> → <code>TWE=</code>, <code>M</code> → <code>TQ==</code>.</p>
+					</article>
+
+					<article class="page-card">
+						<h2>Краткий справочник по Base64</h2>
+						<p>То, с чем вы будете сталкиваться постоянно, как только начнёте работать с Base64, описано в <a href="https://datatracker.ietf.org/doc/html/rfc4648" target="_blank" rel="noopener noreferrer">RFC 4648</a>.</p>
+						<div class="b64-table-wrap">
+							<table class="table b64-table b64-cheat">
+								<thead>
+									<tr><th>Элемент</th><th>Что это</th><th>Пример</th></tr>
+								</thead>
+								<tbody>
+									<tr><td>Алфавит</td><td>64 символа стандартного Base64</td><td><code>A–Z</code>, <code>a–z</code>, <code>0–9</code>, <code>+</code>, <code>/</code></td></tr>
+									<tr><td>URL-safe алфавит</td><td>Используется в JWT и URL</td><td><code>A–Z</code>, <code>a–z</code>, <code>0–9</code>, <code>-</code>, <code>_</code></td></tr>
+									<tr><td>Padding</td><td>Дополняет последнюю группу, если длина не кратна 3</td><td><code>=</code> или <code>==</code></td></tr>
+									<tr><td>Размер группы</td><td>Байт на блок → символов на выходе</td><td>3 байта → 4 символа</td></tr>
+									<tr><td>Рост длины</td><td>Результат примерно на 33% длиннее входа</td><td>100 Б → 136 символов</td></tr>
+									<tr><td>Перенос строк</td><td>MIME (письма) — по 76 символов, PEM — по 64</td><td>строки с <code>\r\n</code></td></tr>
+									<tr><td>Data URL</td><td>Встраивание файла прямо в HTML/CSS</td><td><code>data:image/png;base64,...</code></td></tr>
+								</tbody>
+							</table>
+						</div>
+					</article>
+
+					<article class="page-card">
+						<h2>Примеры Base64, которые стоит попробовать</h2>
+						<div class="row b64-examples">
+							<div class="col-sm-6">
+								<section class="b64-example">
+									<h3>Декодируем простое слово</h3>
+									<p class="b64-ex-label">Закодировано</p>
+									<p class="b64-ex-code">SGVsbG8gV29ybGQ=</p>
+									<p class="b64-ex-label">Раскодировано</p>
+									<p class="b64-ex-code">Hello World</p>
+									<p>Завершающий <code>=</code> — это padding: <code>Hello World</code> занимает 11 байт, что не кратно 3. Декодер всегда корректно его убирает.</p>
+									<button type="button" class="b64-link" data-example="hello">Попробовать в инструменте →</button>
+								</section>
+							</div>
+							<div class="col-sm-6">
+								<section class="b64-example">
+									<h3>Кодируем небольшой JSON</h3>
+									<p class="b64-ex-label">Исходник</p>
+									<p class="b64-ex-code">{"role":"student","active":true}</p>
+									<p class="b64-ex-label">Base64</p>
+									<p class="b64-ex-code">eyJyb2xlIjoic3R1ZGVudCIsImFjdGl2ZSI6dHJ1ZX0=</p>
+									<p>Строка Base64 от JSON часто начинается с <code>eyJ</code>: это Base64-форма <code>{"</code>.</p>
+									<button type="button" class="b64-link" data-example="json">Попробовать в инструменте →</button>
+								</section>
+							</div>
+							<div class="col-sm-6">
+								<section class="b64-example">
+									<h3>Распознаём data-URL</h3>
+									<p class="b64-ex-label">Data URL</p>
+									<p class="b64-ex-code">data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNgAAIAAAUAAen8GVAAAAAASUVORK5CYII=</p>
+									<p>Префикс задаёт MIME-тип (<code>image/png</code>) и тип кодирования (<code>base64</code>). После запятой идёт само содержимое файла. Удобно для крошечных картинок, которые подгружаются вместе со страницей.</p>
+									<button type="button" class="b64-link" data-example="dataurl">Попробовать в инструменте →</button>
+								</section>
+							</div>
+							<div class="col-sm-6">
+								<section class="b64-example">
+									<h3>Стандартный и URL-safe алфавиты</h3>
+									<p class="b64-ex-label">Стандартный</p>
+									<p class="b64-ex-code">Pj4/Pyc+Pg==</p>
+									<p class="b64-ex-label">URL-safe</p>
+									<p class="b64-ex-code">Pj4_Pyc-Pg</p>
+									<p>URL-safe Base64 заменяет <code>+</code> на <code>-</code> и <code>/</code> на <code>_</code>, чтобы значение можно было вставлять прямо в URL без экранирования. JWT использует именно этот вариант.</p>
+									<button type="button" class="b64-link" data-example="urlsafe">Попробовать в инструменте →</button>
+								</section>
+							</div>
+						</div>
+					</article>
+
+					<article class="page-card">
+						<h2>Base64 в лентах Atom</h2>
+						<p>В Atom (<a href="http://www.ietf.org/rfc/rfc4287">RFC 4287</a>) Base64 встречается в элементе <code>atom:content</code>: если у него указан <code>type</code> с медиатипом, который не относится к тексту, HTML, XHTML или XML (например, <code>image/png</code>), содержимое обязано быть закодировано в Base64. Если валидатор ругается на такое содержимое, закодируйте файл здесь и вставьте результат в ленту.</p>
+					</article>
+
+					<article class="page-card">
+						<h2>Типичные ошибки при работе с Base64</h2>
+						<ul>
+							<li>Называть Base64 «зашифрованным». Декодировать его может кто угодно — без пароля и без ключа.</li>
+							<li>Забывать, что Unicode-текст нужно сначала перевести в байты UTF-8 <em>до</em> кодирования в Base64, иначе не-ASCII символы вернутся в искажённом виде. Если при декодировании получились «кракозябры», выберите другую кодировку текста.</li>
+							<li>Вручную обрезать <code>=</code> и скармливать результат строгому декодеру, который ждёт padding. (URL-safe декодеры обычно прощают отсутствие padding, стандартные — далеко не всегда.)</li>
+							<li>Встраивать большие картинки как Base64 прямо в CSS или HTML, когда обычный URL на файл будет короче, быстрее загрузится и нормально закэшируется.</li>
+						</ul>
+					</article>
+
+					<article class="page-card">
+						<h2>FAQ по Base64</h2>
+						<div class="b64-faq">
+							<details open>
+								<summary>Что такое кодирование Base64?</summary>
+								<p>Base64 — это кодирование, которое представляет бинарные данные печатаемым текстом с помощью алфавита из 64 символов. Используется везде, где байтам нужно пройти через чисто текстовый канал: API, JSON, JWT, email, data-URL.</p>
+							</details>
+							<details open>
+								<summary>Как работает Base64?</summary>
+								<p>Base64 берёт 3 входных байта (24 бита) и делит их на четыре группы по 6 бит. Каждая 6-битная группа отображается в один из 64 символов. Если длина входа не кратна 3 байтам, в конец добавляется один или два символа <code>=</code> как padding.</p>
+							</details>
+							<details open>
+								<summary>Как раскодировать строку Base64?</summary>
+								<p>Вставьте строку в декодер выше — на выходе получите исходный текст или файл. В коде почти везде есть встроенные средства: <code>atob()</code> в браузере, <code>Buffer.from(str, 'base64')</code> в Node.js, <code>base64.b64decode()</code> в Python.</p>
+							</details>
+							<details open>
+								<summary>Безопасен ли Base64?</summary>
+								<p>Нет. Base64 — это кодирование, а не шифрование. Он создан для представления и передачи данных, а не для секретности. Если вам нужна конфиденциальность, сначала зашифруйте данные, а уже потом кодируйте получившийся шифртекст в Base64.</p>
+							</details>
+							<details open>
+								<summary>Почему Base64 иногда заканчивается на <code>=</code>?</summary>
+								<p><code>=</code> — это padding. На каждые 3 байта входа Base64 выдаёт 4 символа. Когда длина входа не кратна 3, в конец добавляется один или два <code>=</code>, чтобы итоговая длина оставалась кратной 4.</p>
+							</details>
+							<details open>
+								<summary>Можно ли кодировать в Base64 картинки?</summary>
+								<p>Да. Байты картинки можно закодировать в Base64 и положить в URL вида <code>data:image/png;base64,...</code> — изображение встроится прямо в HTML, CSS или JSON, без отдельного сетевого запроса. В этом инструменте перетащите картинку на вкладку «Файл» и включите опцию <code>data:</code>.</p>
+							</details>
+							<details open>
+								<summary>Отправляются ли мои данные на сервер?</summary>
+								<p>Нет. Кодирование и декодирование выполняются целиком в вашем браузере, на сервер ничего не передаётся. Размер файла ограничен 10 МБ.</p>
+							</details>
+						</div>
+					</article>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="footer-section section">
+		<div class="container">
+			<div class="row text-center">
+				<div class="col-md-12">
+					<!--fv:footer-nav-->
+					<ul class="footer-navigation inline-list">
+					<li><a href="about.html">О проекте</a></li>
+					<li><a href="docs/">Документация</a></li>
+					<li><a href="terms.html">Условия</a></li>
+					</ul>
+					<!--/fv:footer-nav-->
+					<ul class="footer-links inline-list">
+						<li>Данные обрабатываются в вашем браузере и не отправляются на сервер.</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="assets/js/jquery.bundle.js"></script>
+	<script src="assets/js/script.js"></script>
+	<script src="js/base64.js"></script>
+</body>
+</html>

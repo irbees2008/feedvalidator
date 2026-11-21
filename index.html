@@ -1,0 +1,435 @@
+﻿<!DOCTYPE html>
+<html lang="ru" class="js">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>FEED Валидатор — онлайн-инструменты для веб-мастера</title>
+	<meta name="description" content="Бесплатные онлайн-инструменты: проверка RSS и Atom, Open Graph, SEO, DNS, SSL, Schema.org, кодирование Base64, URL, JWT, генераторы Favicon и Markdown.">
+	<meta name="robots" content="index,follow,max-image-preview:large">
+	<link rel="canonical" href="https://lab.ngcms.org/">
+	<meta name="theme-color" content="#1F65DB">
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="FEED Валидатор">
+	<meta property="og:locale" content="ru_RU">
+	<meta property="og:title" content="FEED Валидатор — онлайн-инструменты для веб-мастера">
+	<meta property="og:description" content="Проверка лент, SEO и безопасности сайта, кодирование данных и генераторы — всё в одном месте.">
+	<meta property="og:url" content="https://lab.ngcms.org/">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="FEED Валидатор — онлайн-инструменты для веб-мастера">
+	<meta name="twitter:description" content="Проверка лент, SEO и безопасности сайта, кодирование данных и генераторы — всё в одном месте.">
+	<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"FEED Валидатор","url":"https://lab.ngcms.org/","inLanguage":"ru"}</script>
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="stylesheet" href="assets/css/vendor.bundle.css">
+	<link rel="stylesheet" href="assets/css/style.css?ver=131">
+	<link rel="stylesheet" href="assets/css/theme.css?ver=131">
+	<link rel="stylesheet" href="css/fv-theme.css">
+</head>
+<body>
+
+	<!--fv:navbar-->
+	<div id="home" class="header-section half-header section gradiant-background overflow-hidden">
+	<div id="particles-js" class="particles-container"></div>
+	<div id="navigation" class="navigation is-transparent" data-spy="affix" data-offset-top="5">
+	<nav class="navbar navbar-default" aria-label="Основная навигация">
+	<div class="container">
+	<div class="navbar-header">
+	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#site-collapse-nav" aria-expanded="false">
+	<span class="sr-only">Открыть меню</span>
+	<span class="icon-bar"></span>
+	<span class="icon-bar"></span>
+	<span class="icon-bar"></span>
+	</button>
+	<a class="navbar-brand" href="./">
+	<span class="logo logo-light"><span class="lg-hash">#</span> <span class="lg-f">Lab</span><span class="lg-e1">.N</span><span class="lg-e2">Gc</span><span class="lg-d">ms</span></span>
+	<span class="logo logo-color"><span class="lg-hash">#</span> <span class="lg-f">Lab</span><span class="lg-e1">.N</span><span class="lg-e2">Gc</span><span class="lg-d">ms</span></span>
+	</a>
+	</div>
+	<div class="collapse navbar-collapse font-secondary" id="site-collapse-nav">
+	<ul class="nav nav-list navbar-nav navbar-right">
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Проверить</a>
+	<ul class="dropdown-menu">
+	<li><a href="check.cgi">Проверить ленту</a></li>
+	<li><a href="open-graph.html">Open Graph</a></li>
+	<li><a href="meta-tags-analyzer.html">Meta-теги</a></li>
+	<li><a href="http-status-checker.html">HTTP-статус</a></li>
+	<li><a href="robots-txt-validator.html">Robots.txt</a></li>
+	<li><a href="sitemap-validator.html">Sitemap</a></li>
+	<li><a href="dns-lookup.html">DNS</a></li>
+	<li><a href="security-headers-checker.html">Заголовки безопасности</a></li>
+	<li><a href="ssl-checker.html">SSL</a></li>
+	<li><a href="schema-validator.html">Schema.org</a></li>
+	</ul>
+	</li>
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Кодирование</a>
+	<ul class="dropdown-menu">
+	<li><a href="base64.html">Base64</a></li>
+	<li><a href="url-encoder.html">URL</a></li>
+	<li><a href="json-formatter.html">JSON</a></li>
+	<li><a href="jwt-decoder.html">JWT</a></li>
+	<li><a href="html-entities.html">HTML Entities</a></li>
+	</ul>
+	</li>
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Генераторы</a>
+	<ul class="dropdown-menu">
+	<li><a href="favicon-generator.html">Favicon</a></li>
+	<li><a href="markdown-editor.html">Markdown</a></li>
+	<li><a href="fancy-text.html">Красивый текст</a></li>
+	<li><a href="regex-tester.html">Regex</a></li>
+	<li><a href="pixel-art-maker.html">Пиксель-арт</a></li>
+	<li><a href="image-to-pixel-art.html">Фото в пиксель-арт</a></li>
+	<li><a href="image-animation.html">Создать анимацию</a></li>
+	</ul>
+	</li>
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Утилиты</a>
+	<ul class="dropdown-menu">
+	<li><a href="timestamp-converter.html">Timestamp</a></li>
+	<li><a href="color-tools.html">Цвета</a></li>
+	<li><a href="cron-generator.html">Cron</a></li>
+	<li><a href="user-agent-parser.html">User-Agent</a></li>
+	<li><a href="image-converter.html">Конвертер фото</a></li>
+	<li><a href="fonts.html">Шрифты</a></li>
+	<li><a href="image-compressor.html">Сжатие фото</a></li>
+	<li><a href="qr-code.html">QR-код</a></li>
+	</ul>
+	</li>
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">NGCMS</a>
+	<ul class="dropdown-menu">
+	<li><a href="bbcode-preview.html">BBCode</a></li>
+	<li><a href="sql-analyzer.html">SQL</a></li>
+	<li><a href="twig-playground.html">Twig</a></li>
+	<li><a href="template-checker.html">Шаблоны</a></li>
+	<li><a href="plugin-checker.html">Плагины</a></li>
+	<li><a href="php-compat-checker.html">PHP</a></li>
+	</ul>
+	</li>
+	</ul>
+	</div>
+	</div>
+	</nav>
+	</div>
+	<!--/fv:navbar-->
+
+		<div class="header-content">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 text-center">
+						<div class="header-texts">
+							<h1 class="wow fadeInUp" data-wow-duration=".5s">Инструменты для веб-мастера</h1>
+							<p class="lead wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".3s">Проверка лент, SEO и безопасности сайта, кодирование данных и генераторы — бесплатно и без регистрации.</p>
+							<a class="fv-btn fv-btn-light wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".5s" href="check.cgi">Проверить ленту</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="section grey-background fv-page fv-catalog">
+		<div class="container">
+			<!--fv:tools-->
+			<div class="fv-catalog-group">
+			<div class="fv-catalog-head"><h2><i class="fa fa-check-circle" aria-hidden="true"></i> Проверить</h2><p>Валидаторы и проверки сайта: ленты, SEO, сеть, безопасность и структурированные данные.</p></div>
+			<div class="row fv-catalog-row">
+			<div class="col-md-4 col-sm-6">
+			<article class="fv-tool-card">
+			<h3><a href="check.cgi">FEED Валидатор</a></h3>
+			<p>Проверка RSS, Atom и KML по ссылке, XML-коду или файлу: ошибки, предупреждения и предпросмотр записей.</p>
+			<a class="fv-btn" href="check.cgi">Открыть</a>
+			</article>
+			</div>
+			<div class="col-md-4 col-sm-6">
+			<article class="fv-tool-card">
+			<h3><a href="open-graph.html">OpenGraph Чекер</a></h3>
+			<p>Теги Open Graph и Twitter Card страницы и предпросмотр карточки для соцсетей и мессенджеров.</p>
+			<a class="fv-btn" href="open-graph.html">Открыть</a>
+			</article>
+			</div>
+			<div class="col-md-4 col-sm-6">
+			<article class="fv-tool-card">
+			<h3><a href="meta-tags-analyzer.html">Meta Анализатор</a></h3>
+			<p>Разбор title, description, robots, canonical и других мета-тегов в вставленном HTML.</p>
+			<a class="fv-btn" href="meta-tags-analyzer.html">Открыть</a>
+			</article>
+			</div>
+			<div class="col-md-4 col-sm-6">
+			<article class="fv-tool-card">
+			<h3><a href="http-status-checker.html">HTTP Статус</a></h3>
+			<p>Код ответа, цепочка редиректов, заголовки и время ответа любого адреса.</p>
+			<a class="fv-btn" href="http-status-checker.html">Открыть</a>
+			</article>
+			</div>
+			<div class="col-md-4 col-sm-6">
+			<article class="fv-tool-card">
+			<h3><a href="robots-txt-validator.html">Robots Валидатор</a></h3>
+			<p>Проверка синтаксиса robots.txt, правил для ботов и ссылок на карту сайта.</p>
+			<a class="fv-btn" href="robots-txt-validator.html">Открыть</a>
+			</article>
+			</div>
+			<div class="col-md-4 col-sm-6">
+			<article class="fv-tool-card">
+			<h3><a href="sitemap-validator.html">Sitemap Валидатор</a></h3>
+			<p>Проверка sitemap.xml и Sitemap Index: структура, даты, лимиты и доступность адресов.</p>
+			<a class="fv-btn" href="sitemap-validator.html">Открыть</a>
+			</article>
+			</div>
+			<div class="col-md-4 col-sm-6">
+			<article class="fv-tool-card">
+			<h3><a href="dns-lookup.html">DNS Проверка</a></h3>
+			<p>DNS-записи домена: A, AAAA, CNAME, MX, NS, TXT, SOA, CAA и обратный PTR.</p>
+			<a class="fv-btn" href="dns-lookup.html">Открыть</a>
+			</article>
+			</div>
+			<div class="col-md-4 col-sm-6">
+			<article class="fv-tool-card">
+			<h3><a href="security-headers-checker.html">Headers Чекер</a></h3>
+			<p>CSP, HSTS, X-Frame-Options и другие заголовки безопасности с оценкой и советами.</p>
+			<a class="fv-btn" href="security-headers-checker.html">Открыть</a>
+			</article>
+			</div>
+			<div class="col-md-4 col-sm-6">
+			<article class="fv-tool-card">
+			<h3><a href="ssl-checker.html">SSL Чекер</a></h3>
+			<p>SSL-сертификат сайта: срок действия, издатель, домены, версия TLS и HTTP/2.</p>
+			<a class="fv-btn" href="ssl-checker.html">Открыть</a>
+			</article>
+			</div>
+			<div class="col-md-4 col-sm-6">
+			<article class="fv-tool-card">
+			<h3><a href="schema-validator.html">Schema Валидатор</a></h3>
+			<p>Структурированные данные JSON-LD, Microdata и RDFa: обязательные поля и рекомендации.</p>
+			<a class="fv-btn" href="schema-validator.html">Открыть</a>
+			</article>
+			</div>
+			</div>
+			</div>
+			<div class="fv-catalog-group">
+			<div class="fv-catalog-head"><h2><i class="fa fa-exchange" aria-hidden="true"></i> Кодирование</h2><p>Кодирование, декодирование и форматирование данных без отправки на сервер.</p></div>
+			<div class="row fv-catalog-row">
+			<div class="col-md-4 col-sm-6">
+			<article class="fv-tool-card">
+			<h3><a href="base64.html">Base64 Кодировщик</a></h3>
+			<p>Кодирование и декодирование Base64 для текста и файлов, включая Base64URL.</p>
+			<a class="fv-btn" href="base64.html">Открыть</a>
+			</article>
+			</div>
+			<div class="col-md-4 col-sm-6">
+			<article class="fv-tool-card">
+			<h3><a href="url-encoder.html">URL Кодировщик</a></h3>
+			<p>Процентное кодирование и разбор адресов, параметров запроса и кириллических ссылок.</p>
+			<a class="fv-btn" href="url-encoder.html">Открыть</a>
+			</article>
+			</div>
+			<div class="col-md-4 col-sm-6">
+			<article class="fv-tool-card">
+			<h3><a href="json-formatter.html">JSON Форматтер</a></h3>
+			<p>Форматирование, минификация и проверка JSON с указанием места ошибки.</p>
+			<a class="fv-btn" href="json-formatter.html">Открыть</a>
+			</article>
+			</div>
+			<div class="col-md-4 col-sm-6">
+			<article class="fv-tool-card">
+			<h3><a href="jwt-decoder.html">JWT Декодер</a></h3>
+			<p>Расшифровка JWT-токена: заголовок, содержимое и сроки действия прямо в браузере.</p>
+			<a class="fv-btn" href="jwt-decoder.html">Открыть</a>
+			</article>
+			</div>
+			<div class="col-md-4 col-sm-6">
+			<article class="fv-tool-card">
+			<h3><a href="html-entities.html">HTML Сущности</a></h3>
+			<p>Кодирование и декодирование HTML-сущностей: именованных и числовых.</p>
+			<a class="fv-btn" href="html-entities.html">Открыть</a>
+			</article>
+			</div>
+			</div>
+			</div>
+			<div class="fv-catalog-group">
+			<div class="fv-catalog-head"><h2><i class="fa fa-magic" aria-hidden="true"></i> Генераторы</h2><p>Генераторы и редакторы для   сайта и текстов.</p></div>
+			<div class="row fv-catalog-row">
+			<div class="col-md-4 col-sm-6">
+			<article class="fv-tool-card">
+			<h3><a href="favicon-generator.html">Favicon Генератор</a></h3>
+			<p>Набор favicon из изображения: PNG, ICO и код для подключения, поддерживается GIF.</p>
+			<a class="fv-btn" href="favicon-generator.html">Открыть</a>
+			</article>
+			</div>
+			<div class="col-md-4 col-sm-6">
+			<article class="fv-tool-card">
+			<h3><a href="markdown-editor.html">Markdown Редактор</a></h3>
+			<p>Редактор Markdown с живым предпросмотром и экспортом в HTML.</p>
+			<a class="fv-btn" href="markdown-editor.html">Открыть</a>
+			</article>
+			</div>
+			<div class="col-md-4 col-sm-6">
+			<article class="fv-tool-card">
+			<h3><a href="fancy-text.html">Fancy Генератор</a></h3>
+			<p>Необычные шрифты и стили Unicode для ников, подписей и постов.</p>
+			<a class="fv-btn" href="fancy-text.html">Открыть</a>
+			</article>
+			</div>
+			<div class="col-md-4 col-sm-6">
+			<article class="fv-tool-card">
+			<h3><a href="regex-tester.html">Regex Тестер</a></h3>
+			<p>Проверка регулярных выражений JavaScript: совпадения, группы, замена.</p>
+			<a class="fv-btn" href="regex-tester.html">Открыть</a>
+			</article>
+			</div>
+			<div class="col-md-4 col-sm-6">
+			<article class="fv-tool-card">
+			<h3><a href="pixel-art-maker.html">Пиксель-арт</a></h3>
+			<p>Рисуйте пиксель-арт по сетке, анимируйте кадры и экспортируйте PNG, GIF, спрайт-лист или код. Всё работает в браузере.</p>
+			<a class="fv-btn" href="pixel-art-maker.html">Открыть</a>
+			</article>
+			</div>
+			<div class="col-md-4 col-sm-6">
+			<article class="fv-tool-card">
+			<h3><a href="image-to-pixel-art.html">Фото в пиксель-арт</a></h3>
+			<p>Преобразуйте фото в пиксель-арт с настройкой размера, палитры и дизеринга. Обработка выполняется локально в браузере.</p>
+			<a class="fv-btn" href="image-to-pixel-art.html">Открыть</a>
+			</article>
+			</div>
+			<div class="col-md-4 col-sm-6">
+			<article class="fv-tool-card">
+			<h3><a href="image-animation.html">GIF Анимация</a></h3>
+			<p>Создание анимированного GIF из изображения: шесть эффектов, предпросмотр и экспорт прямо в браузере.</p>
+			<a class="fv-btn" href="image-animation.html">Открыть</a>
+			</article>
+			</div>
+			</div>
+			</div>
+			<div class="fv-catalog-group">
+			<div class="fv-catalog-head"><h2><i class="fa fa-wrench" aria-hidden="true"></i> Утилиты</h2><p>Конвертеры и помощники для ежедневных задач разработчика.</p></div>
+			<div class="row fv-catalog-row">
+			<div class="col-md-4 col-sm-6">
+			<article class="fv-tool-card">
+			<h3><a href="timestamp-converter.html">Timestamp Конвертер</a></h3>
+			<p>Конвертер Unix Timestamp в дату и обратно: секунды, миллисекунды, часовые пояса</p>
+			<a class="fv-btn" href="timestamp-converter.html">Открыть</a>
+			</article>
+			</div>
+			<div class="col-md-4 col-sm-6">
+			<article class="fv-tool-card">
+			<h3><a href="color-tools.html">Color Инструменты</a></h3>
+			<p>Конвертер цветов HEX, RGB, HSL, проверка контрастности WCAG и палитры</p>
+			<a class="fv-btn" href="color-tools.html">Открыть</a>
+			</article>
+			</div>
+			<div class="col-md-4 col-sm-6">
+			<article class="fv-tool-card">
+			<h3><a href="cron-generator.html">Cron Генератор</a></h3>
+			<p>Генератор и расшифровка cron-выражений с ближайшими запусками</p>
+			<a class="fv-btn" href="cron-generator.html">Открыть</a>
+			</article>
+			</div>
+			<div class="col-md-4 col-sm-6">
+			<article class="fv-tool-card">
+			<h3><a href="user-agent-parser.html">UA Парсер</a></h3>
+			<p>Разбор строки User-Agent: браузер, движок, система, устройство и боты</p>
+			<a class="fv-btn" href="user-agent-parser.html">Открыть</a>
+			</article>
+			</div>
+			<div class="col-md-4 col-sm-6">
+			<article class="fv-tool-card">
+			<h3><a href="image-converter.html">Image Конвертер</a></h3>
+			<p>Конвертер изображений онлайн: PNG, JPEG, WebP, изменение размера, всё в браузере</p>
+			<a class="fv-btn" href="image-converter.html">Открыть</a>
+			</article>
+			</div>
+			<div class="col-md-4 col-sm-6">
+			<article class="fv-tool-card">
+			<h3><a href="fonts.html">Шрифты</a></h3>
+			<p>Каталог шрифтов сайта, предпросмотр, примеры подключения через @font-face и локальная конвертация веб-шрифтов.</p>
+			<a class="fv-btn" href="fonts.html">Открыть</a>
+			</article>
+			</div>
+			<div class="col-md-4 col-sm-6">
+			<article class="fv-tool-card">
+			<h3><a href="image-compressor.html">Image Компрессор</a></h3>
+			<p>Сжатие изображений онлайн: уменьшение веса JPEG, WebP и PNG без загрузки на сервер</p>
+			<a class="fv-btn" href="image-compressor.html">Открыть</a>
+			</article>
+			</div>
+			<div class="col-md-4 col-sm-6">
+			<article class="fv-tool-card">
+			<h3><a href="qr-code.html">QR Генератор</a></h3>
+			<p>Генератор QR-кодов онлайн: текст, ссылки, Wi-Fi, скачивание PNG и SVG</p>
+			<a class="fv-btn" href="qr-code.html">Открыть</a>
+			</article>
+			</div>
+			</div>
+			</div>
+			<div class="fv-catalog-group">
+			<div class="fv-catalog-head"><h2><i class="fa fa-puzzle-piece" aria-hidden="true"></i> NGCMS</h2><p>Инструменты для разработчиков и администраторов NGCMS: шаблоны, плагины, Twig, SQL и BBCode.</p></div>
+			<div class="row fv-catalog-row">
+			<div class="col-md-4 col-sm-6">
+			<article class="fv-tool-card">
+			<h3><a href="bbcode-preview.html">BBCode Просмотр</a></h3>
+			<p>Предпросмотр BBCode онлайн: основные теги, списки, ссылки, изображения, код и безопасное экранирование HTML</p>
+			<a class="fv-btn" href="bbcode-preview.html">Открыть</a>
+			</article>
+			</div>
+			<div class="col-md-4 col-sm-6">
+			<article class="fv-tool-card">
+			<h3><a href="sql-analyzer.html">SQL Анализатор</a></h3>
+			<p>Анализ SQL онлайн: форматирование, подсветка, опасные запросы и рекомендации по оптимизации без подключения к базе</p>
+			<a class="fv-btn" href="sql-analyzer.html">Открыть</a>
+			</article>
+			</div>
+			<div class="col-md-4 col-sm-6">
+			<article class="fv-tool-card">
+			<h3><a href="twig-playground.html">Twig Песочница</a></h3>
+			<p>Песочница Twig онлайн: шаблон, JSON-данные, предпросмотр результата и примеры конструкций</p>
+			<a class="fv-btn" href="twig-playground.html">Открыть</a>
+			</article>
+			</div>
+			<div class="col-md-4 col-sm-6">
+			<article class="fv-tool-card">
+			<h3><a href="template-checker.html">NGCMS Шаблоны</a></h3>
+			<p>Проверка шаблонов NGCMS: незакрытые теги, конструкции Twig, переменные и номера строк</p>
+			<a class="fv-btn" href="template-checker.html">Открыть</a>
+			</article>
+			</div>
+			<div class="col-md-4 col-sm-6">
+			<article class="fv-tool-card">
+			<h3><a href="plugin-checker.html">NGCMS Плагины</a></h3>
+			<p>Анализ структуры плагина NGCMS: обязательные файлы, конфигурация, PHP-файлы и подозрительные конструкции</p>
+			<a class="fv-btn" href="plugin-checker.html">Открыть</a>
+			</article>
+			</div>
+			<div class="col-md-4 col-sm-6">
+			<article class="fv-tool-card">
+			<h3><a href="php-compat-checker.html">PHP Совместимость</a></h3>
+			<p>Проверка PHP-кода на совместимость с выбранной версией PHP: синтаксис (php -l), устаревшие и удалённые функции, новые конструкции</p>
+			<a class="fv-btn" href="php-compat-checker.html">Открыть</a>
+			</article>
+			</div>
+			</div>
+			</div>
+			<!--/fv:tools-->
+		</div>
+	</div>
+
+	<div class="footer-section section">
+		<div class="container">
+			<div class="row text-center">
+				<div class="col-md-12">
+					<!--fv:footer-nav-->
+					<ul class="footer-navigation inline-list">
+					<li><a href="about.html">О проекте</a></li>
+					<li><a href="docs/">Документация</a></li>
+					<li><a href="terms.html">Условия</a></li>
+					</ul>
+					<!--/fv:footer-nav-->
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="assets/js/jquery.bundle.js"></script>
+	<script src="assets/js/script.js"></script>
+</body>
+</html>

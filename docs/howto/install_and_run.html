@@ -1,177 +1,170 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru" class="js">
 <head>
-<meta charset="utf-8">
-<title>How do I install and run the Feed Validator?</title>
-<style media="screen">@import "../../css/common.css";
-@import "../../css/documentation.css";</style>
-<script><!-- --></script>
-<link rel="start" href="http://feedvalidator.org/docs/" title="Home" />
-<link rel="canonical" href="https://www.feedvalidator.org/docs/howto/install_and_run.html" />
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Установка и локальный запуск — Документация FEED Валидатор</title>
+	<meta name="description" content="Актуальные требования и краткие инструкции по запуску FEED Валидатор в OSPanel или на VPS с Apache.">
+	<meta name="robots" content="index,follow">
+	<link rel="canonical" href="https://lab.ngcms.org/docs/howto/install_and_run.html">
+	<meta name="theme-color" content="#1F65DB">
+	<link rel="shortcut icon" href="../../favicon.ico">
+	<link rel="stylesheet" href="../../assets/css/vendor.bundle.css">
+	<link rel="stylesheet" href="../../assets/css/style.css?ver=131">
+	<link rel="stylesheet" href="../../assets/css/theme.css?ver=131">
+	<link rel="stylesheet" href="../../css/fv-theme.css">
 </head>
 <body>
-<div id="logo">
-<h1><a href="/"><span id="feed"><span id="f">F</span><span id="e1">E</span><span id="e2">E</span></span><span id="d">D</span> Validator</a></h1>
-<p>Documentation</p>
-<a class="skip" href="#startnavigation">Jump to navigation</a>
-</div> <!--logo-->
+	<!--fv:navbar-->
+	<div id="home" class="header-section half-header section gradiant-background overflow-hidden">
+	<div id="particles-js" class="particles-container"></div>
+	<div id="navigation" class="navigation is-transparent" data-spy="affix" data-offset-top="5">
+	<nav class="navbar navbar-default" aria-label="Основная навигация">
+	<div class="container">
+	<div class="navbar-header">
+	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#site-collapse-nav" aria-expanded="false">
+	<span class="sr-only">Открыть меню</span>
+	<span class="icon-bar"></span>
+	<span class="icon-bar"></span>
+	<span class="icon-bar"></span>
+	</button>
+	<a class="navbar-brand" href="../../">
+	<span class="logo logo-light"><span class="lg-hash">#</span> <span class="lg-f">F</span><span class="lg-e1">E</span><span class="lg-e2">E</span><span class="lg-d">D</span> Валидатор</span>
+	<span class="logo logo-color"><span class="lg-hash">#</span> <span class="lg-f">F</span><span class="lg-e1">E</span><span class="lg-e2">E</span><span class="lg-d">D</span> Валидатор</span>
+	</a>
+	</div>
+	<div class="collapse navbar-collapse font-secondary" id="site-collapse-nav">
+	<ul class="nav nav-list navbar-nav navbar-right">
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Проверить</a>
+	<ul class="dropdown-menu">
+	<li><a href="../../check.cgi">Проверить ленту</a></li>
+	<li><a href="../../open-graph.html">Open Graph</a></li>
+	<li><a href="../../meta-tags-analyzer.html">Meta-теги</a></li>
+	<li><a href="../../http-status-checker.html">HTTP-статус</a></li>
+	<li><a href="../../robots-txt-validator.html">Robots.txt</a></li>
+	<li><a href="../../sitemap-validator.html">Sitemap</a></li>
+	<li><a href="../../dns-lookup.html">DNS</a></li>
+	<li><a href="../../security-headers-checker.html">Заголовки безопасности</a></li>
+	<li><a href="../../ssl-checker.html">SSL</a></li>
+	<li><a href="../../schema-validator.html">Schema.org</a></li>
+	</ul>
+	</li>
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Кодирование</a>
+	<ul class="dropdown-menu">
+	<li><a href="../../base64.html">Base64</a></li>
+	<li><a href="../../url-encoder.html">URL</a></li>
+	<li><a href="../../json-formatter.html">JSON</a></li>
+	<li><a href="../../jwt-decoder.html">JWT</a></li>
+	<li><a href="../../html-entities.html">HTML Entities</a></li>
+	</ul>
+	</li>
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Генераторы</a>
+	<ul class="dropdown-menu">
+	<li><a href="../../favicon-generator.html">Favicon</a></li>
+	<li><a href="../../markdown-editor.html">Markdown</a></li>
+	<li><a href="../../fancy-text.html">Красивый текст</a></li>
+	<li><a href="../../regex-tester.html">Regex</a></li>
+	<li><a href="../../pixel-art-maker.html">Пиксель-арт</a></li>
+	<li><a href="../../image-to-pixel-art.html">Фото в пиксель-арт</a></li>
+	<li><a href="../../image-animation.html">Создать анимацию</a></li>
+	</ul>
+	</li>
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Утилиты</a>
+	<ul class="dropdown-menu">
+	<li><a href="../../timestamp-converter.html">Timestamp</a></li>
+	<li><a href="../../color-tools.html">Цвета</a></li>
+	<li><a href="../../cron-generator.html">Cron</a></li>
+	<li><a href="../../user-agent-parser.html">User-Agent</a></li>
+	<li><a href="../../image-converter.html">Конвертер фото</a></li>
+	<li><a href="../../fonts.html">Шрифты</a></li>
+	<li><a href="../../image-compressor.html">Сжатие фото</a></li>
+	<li><a href="../../qr-code.html">QR-код</a></li>
+	</ul>
+	</li>
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">NGCMS</a>
+	<ul class="dropdown-menu">
+	<li><a href="../../bbcode-preview.html">BBCode</a></li>
+	<li><a href="../../sql-analyzer.html">SQL</a></li>
+	<li><a href="../../twig-playground.html">Twig</a></li>
+	<li><a href="../../template-checker.html">Шаблоны</a></li>
+	<li><a href="../../plugin-checker.html">Плагины</a></li>
+	<li><a href="../../php-compat-checker.html">PHP</a></li>
+	</ul>
+	</li>
+	</ul>
+	</div>
+	</div>
+	</nav>
+	</div>
+	<!--/fv:navbar-->
+		<div class="header-content">
+			<div class="container">
+				<div class="row"><div class="col-md-8 col-md-offset-2 text-center">
+					<div class="header-texts">
+						<h1>Установка и локальный запуск</h1>
+						<p class="lead">Актуальные требования для запуска проекта, а не исторические инструкции Feed Validator.</p>
+					</div>
+				</div></div>
+			</div>
+		</div>
+	</div>
 
-<div id="main">
+	<main class="section grey-background fv-page fv-docs">
+		<div class="container">
+			<article class="fv-doc-card fv-doc-message-page">
+				<p><a href="../">← К документации</a></p>
+				<h2>Требования</h2>
+				<ul>
+					<li>Python 3.12.x. Проект использует стандартный модуль <code>cgi</code>, удалённый в Python 3.13.</li>
+					<li>Apache с CGI (<code>mod_cgi</code> или <code>mod_cgid</code>) и поддержкой правил <code>.htaccess</code>.</li>
+					<li>Пакеты из корневого <code>requirements.txt</code>.</li>
+					<li>Для PHP Compatibility Checker дополнительно нужен CLI PHP с расширением <code>tokenizer</code>.</li>
+				</ul>
 
-<p>Here&#8217;s a simple starter for hacking on the Feed Validator,
-either to make fixes, or simply to use it for non-public feeds.</p>
+				<h2>OSPanel на Windows</h2>
+				<ol>
+					<li>Установите Python 3.12 в <code>C:\OSPanell\modules\python\</code> и проверьте наличие <code>python.exe</code>.</li>
+					<li>Установите зависимости командой:
+						<pre><code>C:\OSPanell\modules\python\python.exe -m pip install -r C:\OSPanell\home\feedvalidator.ru\requirements.txt</code></pre>
+					</li>
+					<li>Включите CGI для Apache в настройках OSPanel и настройте домен на каталог проекта <code>C:\OSPanell\home\feedvalidator.ru</code>.</li>
+					<li>Убедитесь, что первая строка CGI-файлов указывает на используемый Python, перезапустите Apache и откройте локальный домен.</li>
+				</ol>
 
-<p>(This is for Linux &#8211; tips for Windows or other environments
-are welcome!)</p>
+				<h2>VPS с Linux и Apache</h2>
+				<ol>
+					<li>Установите Python 3.12, Apache и зависимости проекта в виртуальное окружение вне каталога сайта.</li>
+					<li>Настройте виртуальный хост, включите CGI и Rewrite, разрешите необходимые правила <code>.htaccess</code>.</li>
+					<li>В CGI-файлах укажите путь к интерпретатору виртуального окружения; разрешите запуск CGI и проверьте владельца файлов.</li>
+					<li>Настройте HTTPS и проверьте журналы Apache, если CGI возвращает ошибку 500.</li>
+				</ol>
 
-<h3>Get the code</h3>
-
-<div class="docbody">
-<p>The Feed Validator doesn&#8217;t make official releases,
-but it&#8217;s regularly updated and a current snapshot is almost always stable.
-Choose a local directory to store the validator in &#8211; say,
-<code>~/feedvalidator</code>.</p>
-
-<h4>Download a snapshot</h4>
-<p>Snapshots are available from
-<a href="https://github.com/rubys/feedvalidator/archives/master" title="Downloads for rubys/feedvalidator">https://github.com/rubys/feedvalidator/archives/master</a>.</p>
-
-<h4>Or, use Git</h4>
-<p><a href="http://git-scm.com/" title="Git - Fast Version Control System">Git</a> is slightly more complicated to get working, but then you can
-keep current.</p>
-
-<blockquote>
-<pre>git clone git://github.com/rubys/feedvalidator.git</pre>
-</blockquote>
-
-<p>Later, to get the latest code, call <code>git pull</code> from inside the
-feedvalidator directory. See the
-<a href="http://git-scm.com/documentation">Git documentation</a> for more information.</p>
-</div>
-
-<h3>Run it from the command line</h3>
-
-<div class="docbody">
-<p>There's a command-line interface:</p>
-
-<blockquote>
-<pre>python src/demo.py <i>&lt;feed url&gt;</i></pre>
-</blockquote>
-
-<p>(Or, hack that script to work how you want.)</p>
-</div>
-
-<h3>Set it up for your web server</h3>
-
-<div class="docbody">
-<p>First install a web server, Python and additional
-character encoding support. Under Debian:</p>
-
-<blockquote>
-<pre>apt-get install apache2-mpm-worker python2.3 python2.3-iconvcodec</pre>
-</blockquote>
-
-<h4>Standard Method</h4>
-
-<p>For simplicity, it&#8217;s easiest to run the validator out of a regular
-user account. That means you don't need to be root.</p>
-
-<p>To do this, simply unpack or check out the Feed Validator into your
-<code>public_html</code> directory.  Now open a browser to
-<code>http://localhost/~<i>&lt;your usercode&gt;</i>/feedvalidator/check.cgi</code>
-and we&#8217;re, hopefully, done.</p>
-
-<h4>Do you have special requirements?</h4>
-
-<p>If you have special requirements for things like where directories are
-to be placed, you may want to tweak the <a href="../../config.py">config.py</a>
-file.  For example, if you want to separate the code, the cgi, the docs, and
-css files, you copy/link to only the files you need:</p>
-
-<blockquote>
-<pre>FVDIR=<i>&lt;location of the feedvalidator directory&gt;</i>
-cd ~/public_html
-ln -s "$FVDIR/css" fv-css
-ln -s "$FVDIR/docs" fv-docs
-mkdir -p cgi-bin/fv
-cp "$FVDIR/check.cgi" "$FVDIR/config.py" cgi-bin/fv/</pre>
-</blockquote>
-
-<p>Now, tweak <code>config.py</code> to point to the other directories:</p>
-
-<blockquote>
-<pre><del>WEBDIR = '/'.join(os.environ['SCRIPT_FILENAME'].split('/')[0:-1])</del>
-<ins>WEBDIR = '/home/<i>&lt;your usercode&gt;</i>/feedvalidator'</ins>
-
-<del>DOCSURL='docs'</del>
-<del>CSSURL='css'</del>
-<ins>DOCSURL='../../fv-docs'</ins>
-<ins>CSSURL='../../fv-css'</ins></pre>
-</blockquote>
-
-<p>Great!</p>
-
-<p>Now open a browser to <code>http://localhost/~<i>&lt;your usercode&gt;</i>/cgi-bin/fv/check.cgi</code>.</p>
-
-
-</div>
-
-<h3>Running tests</h3>
-
-<div class="docbody">
-<p>I don&#8217;t think it&#8217;s any disrespect to say that that the
-<a href="../../testcases/">test cases</a>
-are the Validator&#8217;s
-most valuable asset &#8211; currently over fourteen hundred separate cases
-of valid, and invalid, feeds, along with the precise errors. When you find a
-bug, or any other misfeature, a simple test case is the best way to get
-your point across.</p>
-
-<p>To check the existing cases, run <code>python src/validtest.py</code>.
-This will check everything below the &#8216;testcases&#8217; directory (you
-can also specify a single test by filename).</p>
-
-</div>
-
-<h2>Not clear? Suggestions or improvements?</h2>
-<div class="docbody">
-<p>Let us know on the <a href="http://groups.google.com/group/feedvalidator-users">feedvalidator-users</a> discussion list!</p>
-</div>
-
-<p class="meta">This documentation page was last updated on July 9, 2011.</p>
-</div><!--main-->
-<div class="centered">
-<a name="startnavigation" id="startnavigation"></a>
-<div class="navbarWrapper">
-    <div class="navbarContent">
-        <img class="borderTL" src="../../images/borderTL.gif" alt="" width="14" height="14" />
-        <img class="borderTR" src="../../images/borderTR.gif" alt="" width="14" height="14" />
-
-<p>
-<a href="../../">Home</a> &middot;
-<a href="../../about.html">About</a> &middot;
-<a href="../../news/">News</a> &middot;
-<a href="../../docs/">Docs</a> &middot;
-<a href="../../terms.html">Terms</a>
-</p>
-
-        <div class="roundedCornerSpacer">&nbsp;</div>
-    </div><!-- .content -->
-    <div class="bottomCorners">
-        <img class="borderBL" src="../../images/borderBL.gif" alt="" width="14" height="14" />
-        <img class="borderBR" src="../../images/borderBR.gif" alt="" width="14" height="14" />
-    </div><!-- .bottomCorners -->
-</div><!-- .contentWrapper -->
-</div><!-- .centered -->
-
-<div class="centered">
-<address>Copyright © 2002-6
-<a href="http://www.intertwingly.net/blog/">Sam Ruby</a>,
-<a href="http://diveintomark.org/">Mark Pilgrim</a>,
-<a href="http://www.kafsemo.org/">Joseph Walton</a>, and
-<a href="http://philringnalda.com/">Phil Ringnalda</a>
-</address>
-</div>
-
+				<h2>Проверка</h2>
+				<p>Для тестов используйте Python 3.12 из корня проекта:</p>
+				<pre><code>C:\OSPanell\modules\python\python.exe runtest.py</code></pre>
+				<p>В текущем наборе часть старых сценариев валидатора остаётся известной регрессией; успешный запуск команды не означает, что все тесты прошли. Точные актуальные шаги настройки Apache и разбор ошибок описаны в документации проекта.</p>
+				<p>Новые сетевые CGI-инструменты используют ограниченные запросы только к публичным адресам; перед публикацией проверьте настройки CGI и права доступа на целевом сервере.</p>
+				<p><a href="../../about.html">О проекте</a> · <a href="../">Все разделы документации</a> · <a href="../../">Каталог инструментов</a></p>
+			</article>
+		</div>
+	</main>
+	<div class="footer-section section">
+		<div class="container"><div class="row text-center"><div class="col-md-12">
+			<!--fv:footer-nav-->
+			<ul class="footer-navigation inline-list">
+			<li><a href="../../about.html">О проекте</a></li>
+			<li><a href="../">Документация</a></li>
+			<li><a href="../../terms.html">Условия</a></li>
+			</ul>
+			<!--/fv:footer-nav-->
+		</div></div></div>
+	</div>
+	<script src="../../assets/js/jquery.bundle.js"></script>
+	<script src="../../assets/js/script.js"></script>
 </body>
 </html>

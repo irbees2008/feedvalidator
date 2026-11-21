@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ru" class="js">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Robots.txt Validator онлайн — FEED Валидатор</title>
+	<meta name="description" content="Проверка robots.txt: синтаксис, User-agent, Allow и Disallow, Sitemap. Загрузка по адресу сайта или вставка текста.">
+	<meta name="robots" content="index,follow,max-image-preview:large">
+	<link rel="canonical" href="https://lab.ngcms.org/robots-txt-validator.html">
+	<meta name="theme-color" content="#1F65DB">
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="FEED Валидатор">
+	<meta property="og:locale" content="ru_RU">
+	<meta property="og:title" content="Robots.txt Validator онлайн — FEED Валидатор">
+	<meta property="og:description" content="Проверка robots.txt: синтаксис, User-agent, Allow и Disallow, Sitemap. Загрузка по адресу сайта или вставка текста.">
+	<meta property="og:url" content="https://lab.ngcms.org/robots-txt-validator.html">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Robots.txt Validator онлайн — FEED Валидатор">
+	<meta name="twitter:description" content="Проверка robots.txt: синтаксис, User-agent, Allow и Disallow, Sitemap. Загрузка по адресу сайта или вставка текста.">
+	<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Robots.txt Validator","url":"https://lab.ngcms.org/robots-txt-validator.html","applicationCategory":"DeveloperApplication","operatingSystem":"Any","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"FEED Валидатор","url":"https://lab.ngcms.org/"},"offers":{"@type":"Offer","price":"0","priceCurrency":"RUB"}}</script>
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="stylesheet" href="assets/css/vendor.bundle.css">
+	<link rel="stylesheet" href="assets/css/style.css?ver=131">
+	<link rel="stylesheet" href="assets/css/theme.css?ver=131">
+	<link rel="stylesheet" href="css/fv-theme.css">
+</head>
+<body>
+
+	<!--fv:navbar-->
+	<div id="home" class="header-section half-header section gradiant-background overflow-hidden">
+	<div id="particles-js" class="particles-container"></div>
+	<div id="navigation" class="navigation is-transparent" data-spy="affix" data-offset-top="5">
+	<nav class="navbar navbar-default" aria-label="Основная навигация">
+	<div class="container">
+	<div class="navbar-header">
+	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#site-collapse-nav" aria-expanded="false">
+	<span class="sr-only">Открыть меню</span>
+	<span class="icon-bar"></span>
+	<span class="icon-bar"></span>
+	<span class="icon-bar"></span>
+	</button>
+	<a class="navbar-brand" href="./">
+	<span class="logo logo-light"><span class="lg-hash">#</span> <span class="lg-f">Ro</span><span class="lg-e1">bo</span><span class="lg-e2">t</span><span class="lg-d">s</span> Валидатор</span>
+	<span class="logo logo-color"><span class="lg-hash">#</span> <span class="lg-f">Ro</span><span class="lg-e1">bo</span><span class="lg-e2">t</span><span class="lg-d">s</span> Валидатор</span>
+	</a>
+	</div>
+	<div class="collapse navbar-collapse font-secondary" id="site-collapse-nav">
+	<ul class="nav nav-list navbar-nav navbar-right">
+	<li class="dropdown active">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Проверить</a>
+	<ul class="dropdown-menu">
+	<li><a href="check.cgi">Проверить ленту</a></li>
+	<li><a href="open-graph.html">Open Graph</a></li>
+	<li><a href="meta-tags-analyzer.html">Meta-теги</a></li>
+	<li><a href="http-status-checker.html">HTTP-статус</a></li>
+	<li class="active"><a href="robots-txt-validator.html" aria-current="page">Robots.txt</a></li>
+	<li><a href="sitemap-validator.html">Sitemap</a></li>
+	<li><a href="dns-lookup.html">DNS</a></li>
+	<li><a href="security-headers-checker.html">Заголовки безопасности</a></li>
+	<li><a href="ssl-checker.html">SSL</a></li>
+	<li><a href="schema-validator.html">Schema.org</a></li>
+	</ul>
+	</li>
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Кодирование</a>
+	<ul class="dropdown-menu">
+	<li><a href="base64.html">Base64</a></li>
+	<li><a href="url-encoder.html">URL</a></li>
+	<li><a href="json-formatter.html">JSON</a></li>
+	<li><a href="jwt-decoder.html">JWT</a></li>
+	<li><a href="html-entities.html">HTML Entities</a></li>
+	</ul>
+	</li>
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Генераторы</a>
+	<ul class="dropdown-menu">
+	<li><a href="favicon-generator.html">Favicon</a></li>
+	<li><a href="markdown-editor.html">Markdown</a></li>
+	<li><a href="fancy-text.html">Красивый текст</a></li>
+	<li><a href="regex-tester.html">Regex</a></li>
+	<li><a href="pixel-art-maker.html">Пиксель-арт</a></li>
+	<li><a href="image-to-pixel-art.html">Фото в пиксель-арт</a></li>
+	<li><a href="image-animation.html">Создать анимацию</a></li>
+	</ul>
+	</li>
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Утилиты</a>
+	<ul class="dropdown-menu">
+	<li><a href="timestamp-converter.html">Timestamp</a></li>
+	<li><a href="color-tools.html">Цвета</a></li>
+	<li><a href="cron-generator.html">Cron</a></li>
+	<li><a href="user-agent-parser.html">User-Agent</a></li>
+	<li><a href="image-converter.html">Конвертер фото</a></li>
+	<li><a href="fonts.html">Шрифты</a></li>
+	<li><a href="image-compressor.html">Сжатие фото</a></li>
+	<li><a href="qr-code.html">QR-код</a></li>
+	</ul>
+	</li>
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">NGCMS</a>
+	<ul class="dropdown-menu">
+	<li><a href="bbcode-preview.html">BBCode</a></li>
+	<li><a href="sql-analyzer.html">SQL</a></li>
+	<li><a href="twig-playground.html">Twig</a></li>
+	<li><a href="template-checker.html">Шаблоны</a></li>
+	<li><a href="plugin-checker.html">Плагины</a></li>
+	<li><a href="php-compat-checker.html">PHP</a></li>
+	</ul>
+	</li>
+	</ul>
+	</div>
+	</div>
+	</nav>
+	</div>
+	<!--/fv:navbar-->
+
+		<div class="header-content">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 text-center">
+						<div class="header-texts">
+							<h1 class="wow fadeInUp" data-wow-duration=".5s">Robots.txt Validator</h1>
+							<p class="lead wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".3s">Проверка robots.txt: синтаксис, User-agent, Allow и Disallow, Sitemap. Загрузка по адресу сайта или вставка текста.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="feature-boxes fv-panel-wrap fv-tool">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<section class="fv-panel" id="robots-txt-validator-tool" aria-label="Robots.txt Validator">
+						<div class="fv-tab-content">
+							<div class="b64-field-head">
+								<label for="rb-url">Адрес сайта или robots.txt</label>
+							</div>
+							<div class="b64-actions" style="flex-wrap:nowrap">
+								<input type="text" id="rb-url" class="form-control" placeholder="https://example.com" autocomplete="off" spellcheck="false">
+								<button type="button" class="button b64-secondary" id="rb-load">Загрузить</button>
+							</div>
+							<div class="b64-field-head" style="margin-top:14px">
+								<label for="rb-input">Содержимое robots.txt</label>
+								<span class="b64-badge" id="rb-count"></span>
+							</div>
+							<textarea id="rb-input" class="form-control" rows="12" spellcheck="false" placeholder="Вставьте robots.txt или загрузите его по адресу выше…"></textarea>
+							<div id="robots-txt-validator-error" class="fv-error" role="alert" hidden></div>
+
+							<div class="b64-toolbar">
+								<div class="b64-actions">
+									<button type="button" class="button" id="rb-run">Проверить</button>
+								</div>
+								<div class="b64-actions">
+									<button type="button" class="b64-link" id="rb-sample">Пример</button>
+									<button type="button" class="b64-link" id="rb-clear">Очистить</button>
+								</div>
+							</div>
+
+							<div id="rb-result" hidden>
+								<div class="fv-result" id="rb-summary" role="status"></div>
+								<div class="b64-field-head"><span class="b64-label-text">Найденные проблемы</span></div>
+								<div class="b64-table-wrap">
+									<table class="table b64-table">
+										<thead><tr><th>Строка</th><th>Уровень</th><th>Описание</th></tr></thead>
+										<tbody id="rb-issues"></tbody>
+									</table>
+								</div>
+								<div class="b64-field-head"><span class="b64-label-text">Группы User-agent</span></div>
+								<div class="b64-table-wrap">
+									<table class="table b64-table">
+										<thead><tr><th>User-agent</th><th>Disallow</th><th>Allow</th><th>Прочее</th></tr></thead>
+										<tbody id="rb-groups"></tbody>
+									</table>
+								</div>
+								<div class="b64-field-head"><span class="b64-label-text">Sitemap</span></div>
+								<ul class="url-list" id="rb-sitemaps"></ul>
+							</div>
+						</div>
+					</section>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="section grey-background fv-page b64-info">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-10 col-md-offset-1">
+					<article class="page-card">
+						<h2>Что проверяет валидатор</h2>
+						<p>Инструмент разбирает robots.txt построчно и находит синтаксические ошибки: директивы без <code>User-agent</code>, неизвестные директивы, пути без ведущего <code>/</code>, относительные адреса Sitemap, дубли групп и полное закрытие сайта. Для каждого User-agent показываются правила Allow и Disallow, а также найденные Sitemap.</p>
+						<div class="b64-tldr">
+							<span class="b64-tldr-label">Кратко</span>
+							<span>Загрузите файл по адресу сайта или вставьте его текст и нажмите «Проверить». Разбор выполняется в браузере.</span>
+						</div>
+					</article>
+					<article class="page-card">
+						<h2>Основные директивы</h2>
+						<ul class="url-list">
+							<li><code>User-agent</code> — робот, для которого действует группа правил, <code>*</code> — все роботы.</li>
+							<li><code>Disallow</code> — запретить обход пути, пустое значение ничего не запрещает.</li>
+							<li><code>Allow</code> — разрешить путь внутри запрещённого раздела.</li>
+							<li><code>Sitemap</code> — полный адрес карты сайта.</li>
+							<li><code>Crawl-delay</code> — пауза между запросами, поддерживается не всеми роботами.</li>
+						</ul>
+					</article>
+					<article class="page-card">
+						<h2>FAQ</h2>
+						<h3>Закрывает ли robots.txt страницу от индексации?</h3>
+						<p>Нет, он запрещает обход. Чтобы исключить страницу из выдачи, используйте мета-тег <code>noindex</code>.</p>
+						<h3>Откуда загружается файл?</h3>
+						<p>Сервер запрашивает <code>/robots.txt</code> на указанном сайте. Локальные адреса блокируются, размер ограничен 512 КБ.</p>
+					</article>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="footer-section section">
+		<div class="container">
+			<div class="row text-center">
+				<div class="col-md-12">
+					<!--fv:footer-nav-->
+					<ul class="footer-navigation inline-list">
+					<li><a href="about.html">О проекте</a></li>
+					<li><a href="docs/">Документация</a></li>
+					<li><a href="terms.html">Условия</a></li>
+					</ul>
+					<!--/fv:footer-nav-->
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="assets/js/jquery.bundle.js"></script>
+	<script src="assets/js/script.js"></script>
+	<script src="js/fv-common.js"></script>
+	<script src="js/robots-txt-validator.js"></script>
+</body>
+</html>

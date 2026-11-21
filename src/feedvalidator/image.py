@@ -11,9 +11,9 @@ from .extension import extension_everywhere
 #
 class image(validatorBase, extension_everywhere):
   def getExpectedAttrNames(self):
-    return [(u'http://www.w3.org/1999/02/22-rdf-syntax-ns#', u'resource'),
-            (u'http://www.w3.org/1999/02/22-rdf-syntax-ns#', u'about'),
-            (u'http://www.w3.org/1999/02/22-rdf-syntax-ns#', u'parseType')]
+    return [('http://www.w3.org/1999/02/22-rdf-syntax-ns#', 'resource'),
+            ('http://www.w3.org/1999/02/22-rdf-syntax-ns#', 'about'),
+            ('http://www.w3.org/1999/02/22-rdf-syntax-ns#', 'parseType')]
   def validate(self):
     if self.value.strip():
       self.log(UnexpectedText({"parent":self.parent.name, "element":"image"}))
@@ -74,6 +74,7 @@ class url(rfc2396_full):
       self.log(ImageUrlFormat({"parent":self.parent.name, "element":self.name}))
 
 class title(nonhtml, noduplicates):
+  characters = validatorBase.characters
   def validate(self):
     if not self.value.strip():
       self.log(NotBlank({"parent":self.parent.name, "element":self.name}))
@@ -86,6 +87,7 @@ class title(nonhtml, noduplicates):
       self.log(ImageTitleDoesntMatch({"parent":self.parent.name, "element":self.name}))
 
 class width(text, noduplicates):
+  characters = validatorBase.characters
   def validate(self):
     try:
       w = int(self.value)
@@ -97,6 +99,7 @@ class width(text, noduplicates):
       self.log(InvalidWidth({"parent":self.parent.name, "element":self.name, "value":self.value}))
 
 class height(text, noduplicates):
+  characters = validatorBase.characters
   def validate(self):
     try:
       h = int(self.value)

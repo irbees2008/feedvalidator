@@ -9,8 +9,8 @@ SOURCES=$(wildcard error/*.xml warning/*.xml info/*.xml)
 
 docs: $(patsubst %.xml, ../docs/%.html, $(SOURCES))
 
-../docs/%.html: %.xml template.html
-	./build-html-docs.py template.html ../docs $<
+../docs/%.html: %.xml template.html build-html-docs.py
+	python build-html-docs.py template.html ../docs $<
 
-../docs/index.html: docs-index-header.html error/*.xml warning/*.xml info/*.xml docs-index-footer.html build-docs-index.py
-	./build-docs-index.py
+../docs/index.html: docs-index-header.html error/*.xml warning/*.xml info/*.xml docs-index-footer.html build-docs-index.py ../templates/partials/menu.json
+	python build-docs-index.py

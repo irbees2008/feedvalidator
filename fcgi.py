@@ -1133,9 +1133,10 @@ class Server(object):
         Called by Request if an exception occurs within the handler. May and
         should be overridden.
         """
-        import cgitb
-        req.stdout.write('Content-Type: text/html\r\n\r\n' +
-                         cgitb.html(sys.exc_info()))
+        import traceback
+        traceback.print_exc(file=sys.stderr)
+        req.stdout.write('Status: 500 Internal Server Error\r\nContent-Type: text/plain\r\n\r\n'
+                         'Internal server error')
 
 class WSGIServer(Server):
     """

@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+Disallow: /check
+Disallow: /check.cgi
+Disallow: /open-graph.cgi
+Disallow: /status.cgi
+Disallow: /time.cgi
+Disallow: /src/
+Disallow: /testcases/
+Disallow: /templates/
+
+Sitemap: https://lab.ngcms.org/sitemap.xml

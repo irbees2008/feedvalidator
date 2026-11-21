@@ -7,7 +7,6 @@ modules = [
     'testHowtoNs',
     'testValidators',
     'validtest',
-    'mkmsgs',
 ]
 
 if __name__ == '__main__':
@@ -23,6 +22,7 @@ if __name__ == '__main__':
     suite = unittest.TestSuite()
     for module in modules:
         suite.addTest(__import__(module).buildTestSuite())
+    suite.addTests(unittest.defaultTestLoader.loadTestsFromModule(__import__('testOpenGraph')))
     ttr = unittest.TextTestRunner().run(suite)
     if not ttr.wasSuccessful():
         sys.exit(10)

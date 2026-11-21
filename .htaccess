@@ -1,4 +1,4 @@
-Options +ExecCGI -MultiViews
+Options +ExecCGI -MultiViews -Indexes
 AddHandler cgi-script .cgi
 AddType image/x-icon ico
 
@@ -8,6 +8,12 @@ DirectoryIndex index.html check.cgi
 
 # MAP - bad bots are killing the server (everybody links to their validation results and the bots dutifully crawl it)
 RewriteEngine on
+# Redirect HTTP to HTTPS while keeping the original host and request path.
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L,NE]
+
+# Служебные каталоги недоступны по HTTP (серверные скрипты читают их напрямую с диска)
+RewriteRule ^(src|templates|docs-xml|__pycache__|\.osp|\.git)(/|$) - [F,L]
 RewriteCond %{HTTP_USER_AGENT} BecomeBot [OR]
 RewriteCond %{HTTP_USER_AGENT} Crawler [OR]
 RewriteCond %{HTTP_USER_AGENT} FatBot [OR]
@@ -48,5 +54,25 @@ Deny from vanadium.sabren.com
 <Files config.py>
 ForceType text/plain
 </Files>
+
+# Служебные скрипты, исходники и сборочные файлы не должны отдаваться посетителям
+<IfModule mod_authz_core.c>
+<FilesMatch "^(status\.cgi|time\.cgi|check\.cgic|Dockerfile|requirements\.txt|sites-available-feedvalidator\.conf)$|\.(py|pyc|tmpl|json|md|ini|yml)$">
+Require all denied
+</FilesMatch>
+</IfModule>
+<IfModule !mod_authz_core.c>
+<FilesMatch "^(status\.cgi|time\.cgi|check\.cgic|Dockerfile|requirements\.txt|sites-available-feedvalidator\.conf)$|\.(py|pyc|tmpl|json|md|ini|yml)$">
+Order allow,deny
+Deny from all
+</FilesMatch>
+</IfModule>
+
+<IfModule mod_headers.c>
+Header always set X-Content-Type-Options "nosniff"
+Header always set X-Frame-Options "SAMEORIGIN"
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
+Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+</IfModule>
 
 RewriteRule		^docs/rss2.html(.*)		https://www.rssboard.org/rss-specification [R=301,L]

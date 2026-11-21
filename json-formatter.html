@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ru" class="js">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>JSON Formatter онлайн — FEED Валидатор</title>
+	<meta name="description" content="Форматирование, минификация и проверка JSON прямо в браузере, данные никуда не отправляются.">
+	<meta name="robots" content="index,follow,max-image-preview:large">
+	<link rel="canonical" href="https://lab.ngcms.org/json-formatter.html">
+	<meta name="theme-color" content="#1F65DB">
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="FEED Валидатор">
+	<meta property="og:locale" content="ru_RU">
+	<meta property="og:title" content="JSON Formatter онлайн — FEED Валидатор">
+	<meta property="og:description" content="Форматирование, минификация и проверка JSON прямо в браузере, данные никуда не отправляются.">
+	<meta property="og:url" content="https://lab.ngcms.org/json-formatter.html">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="JSON Formatter онлайн — FEED Валидатор">
+	<meta name="twitter:description" content="Форматирование, минификация и проверка JSON прямо в браузере, данные никуда не отправляются.">
+	<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"JSON Formatter","url":"https://lab.ngcms.org/json-formatter.html","applicationCategory":"DeveloperApplication","operatingSystem":"Any","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"FEED Валидатор","url":"https://lab.ngcms.org/"},"offers":{"@type":"Offer","price":"0","priceCurrency":"RUB"}}</script>
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="stylesheet" href="assets/css/vendor.bundle.css">
+	<link rel="stylesheet" href="assets/css/style.css?ver=131">
+	<link rel="stylesheet" href="assets/css/theme.css?ver=131">
+	<link rel="stylesheet" href="css/fv-theme.css">
+</head>
+<body>
+
+	<!--fv:navbar-->
+	<div id="home" class="header-section half-header section gradiant-background overflow-hidden">
+	<div id="particles-js" class="particles-container"></div>
+	<div id="navigation" class="navigation is-transparent" data-spy="affix" data-offset-top="5">
+	<nav class="navbar navbar-default" aria-label="Основная навигация">
+	<div class="container">
+	<div class="navbar-header">
+	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#site-collapse-nav" aria-expanded="false">
+	<span class="sr-only">Открыть меню</span>
+	<span class="icon-bar"></span>
+	<span class="icon-bar"></span>
+	<span class="icon-bar"></span>
+	</button>
+	<a class="navbar-brand" href="./">
+	<span class="logo logo-light"><span class="lg-hash">#</span> <span class="lg-f">J</span><span class="lg-e1">S</span><span class="lg-e2">O</span><span class="lg-d">N</span> Форматтер</span>
+	<span class="logo logo-color"><span class="lg-hash">#</span> <span class="lg-f">J</span><span class="lg-e1">S</span><span class="lg-e2">O</span><span class="lg-d">N</span> Форматтер</span>
+	</a>
+	</div>
+	<div class="collapse navbar-collapse font-secondary" id="site-collapse-nav">
+	<ul class="nav nav-list navbar-nav navbar-right">
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Проверить</a>
+	<ul class="dropdown-menu">
+	<li><a href="check.cgi">Проверить ленту</a></li>
+	<li><a href="open-graph.html">Open Graph</a></li>
+	<li><a href="meta-tags-analyzer.html">Meta-теги</a></li>
+	<li><a href="http-status-checker.html">HTTP-статус</a></li>
+	<li><a href="robots-txt-validator.html">Robots.txt</a></li>
+	<li><a href="sitemap-validator.html">Sitemap</a></li>
+	<li><a href="dns-lookup.html">DNS</a></li>
+	<li><a href="security-headers-checker.html">Заголовки безопасности</a></li>
+	<li><a href="ssl-checker.html">SSL</a></li>
+	<li><a href="schema-validator.html">Schema.org</a></li>
+	</ul>
+	</li>
+	<li class="dropdown active">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Кодирование</a>
+	<ul class="dropdown-menu">
+	<li><a href="base64.html">Base64</a></li>
+	<li><a href="url-encoder.html">URL</a></li>
+	<li class="active"><a href="json-formatter.html" aria-current="page">JSON</a></li>
+	<li><a href="jwt-decoder.html">JWT</a></li>
+	<li><a href="html-entities.html">HTML Entities</a></li>
+	</ul>
+	</li>
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Генераторы</a>
+	<ul class="dropdown-menu">
+	<li><a href="favicon-generator.html">Favicon</a></li>
+	<li><a href="markdown-editor.html">Markdown</a></li>
+	<li><a href="fancy-text.html">Красивый текст</a></li>
+	<li><a href="regex-tester.html">Regex</a></li>
+	<li><a href="pixel-art-maker.html">Пиксель-арт</a></li>
+	<li><a href="image-to-pixel-art.html">Фото в пиксель-арт</a></li>
+	<li><a href="image-animation.html">Создать анимацию</a></li>
+	</ul>
+	</li>
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Утилиты</a>
+	<ul class="dropdown-menu">
+	<li><a href="timestamp-converter.html">Timestamp</a></li>
+	<li><a href="color-tools.html">Цвета</a></li>
+	<li><a href="cron-generator.html">Cron</a></li>
+	<li><a href="user-agent-parser.html">User-Agent</a></li>
+	<li><a href="image-converter.html">Конвертер фото</a></li>
+	<li><a href="fonts.html">Шрифты</a></li>
+	<li><a href="image-compressor.html">Сжатие фото</a></li>
+	<li><a href="qr-code.html">QR-код</a></li>
+	</ul>
+	</li>
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">NGCMS</a>
+	<ul class="dropdown-menu">
+	<li><a href="bbcode-preview.html">BBCode</a></li>
+	<li><a href="sql-analyzer.html">SQL</a></li>
+	<li><a href="twig-playground.html">Twig</a></li>
+	<li><a href="template-checker.html">Шаблоны</a></li>
+	<li><a href="plugin-checker.html">Плагины</a></li>
+	<li><a href="php-compat-checker.html">PHP</a></li>
+	</ul>
+	</li>
+	</ul>
+	</div>
+	</div>
+	</nav>
+	</div>
+	<!--/fv:navbar-->
+
+		<div class="header-content">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 text-center">
+						<div class="header-texts">
+							<h1 class="wow fadeInUp" data-wow-duration=".5s">JSON Formatter</h1>
+							<p class="lead wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".3s">Форматирование, минификация и проверка JSON прямо в браузере, данные никуда не отправляются.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="feature-boxes fv-panel-wrap fv-tool">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<section class="fv-panel" id="json-formatter-tool" aria-label="JSON Formatter">
+						<div class="fv-tab-content">
+							<div class="b64-options">
+								<div class="b64-opt">
+									<span class="b64-opt-label" id="json-indent-label">Отступ</span>
+									<div class="b64-seg" id="json-indent" role="group" aria-labelledby="json-indent-label">
+										<button type="button" class="b64-seg-btn" data-indent="2" aria-pressed="false">2 пробела</button>
+										<button type="button" class="b64-seg-btn" data-indent="4" aria-pressed="false">4 пробела</button>
+										<button type="button" class="b64-seg-btn" data-indent="tab" aria-pressed="false">Табуляция</button>
+									</div>
+								</div>
+								<div class="b64-opt">
+									<label class="url-check"><input type="checkbox" id="json-sort"> Сортировать ключи</label>
+								</div>
+							</div>
+
+							<div class="b64-field-head">
+								<label for="json-input">JSON</label>
+								<span class="b64-badge" id="json-count"></span>
+							</div>
+							<textarea id="json-input" class="form-control" rows="16" spellcheck="false" placeholder='Вставьте JSON, например {"name":"feed","items":[1,2,3]}'></textarea>
+
+							<div id="json-status" class="fv-result" role="status" hidden></div>
+							<div id="json-error" class="fv-error" role="alert" hidden></div>
+
+							<div class="b64-toolbar">
+								<div class="b64-actions">
+									<button type="button" class="button" id="json-format">Форматировать</button>
+									<button type="button" class="button b64-secondary" id="json-minify">Минифицировать</button>
+									<button type="button" class="button b64-secondary" id="json-copy">Копировать</button>
+									<button type="button" class="button b64-secondary" id="json-download">Скачать .json</button>
+								</div>
+								<div class="b64-actions">
+									<button type="button" class="b64-link" id="json-sample">Загрузить пример</button>
+									<button type="button" class="b64-link" id="json-clear">Очистить</button>
+								</div>
+							</div>
+						</div>
+					</section>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="section grey-background fv-page b64-info">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-10 col-md-offset-1">
+					<article class="page-card">
+						<h2>Что делает JSON Formatter</h2>
+						<p>Инструмент проверяет JSON на синтаксические ошибки, показывает строку и столбец, где разбор остановился, приводит данные к читаемому виду с отступами или сжимает их в одну строку. Это удобно при отладке API, конфигураций и JSON Feed.</p>
+						<div class="b64-tldr">
+							<span class="b64-tldr-label">Кратко</span>
+							<span>Вставьте JSON и нажмите «Форматировать» или «Минифицировать». Данные не покидают ваш браузер.</span>
+						</div>
+					</article>
+					<article class="page-card">
+						<h2>Частые ошибки в JSON</h2>
+						<ul class="url-list">
+							<li>Одинарные кавычки вместо двойных: <code>{'a': 1}</code>.</li>
+							<li>Запятая после последнего элемента: <code>[1, 2,]</code>.</li>
+							<li>Ключи без кавычек: <code>{a: 1}</code>.</li>
+							<li>Комментарии: JSON их не поддерживает.</li>
+							<li>Значения <code>undefined</code>, <code>NaN</code> и <code>Infinity</code> недопустимы.</li>
+						</ul>
+					</article>
+					<article class="page-card">
+						<h2>FAQ</h2>
+						<h3>Отправляются ли данные на сервер?</h3>
+						<p>Нет, разбор и форматирование выполняются в браузере.</p>
+						<h3>Сохраняются ли большие числа точно?</h3>
+						<p>Нет: числа за пределами точности JavaScript (больше 2<sup>53</sup>) при форматировании могут округлиться.</p>
+					</article>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="footer-section section">
+		<div class="container">
+			<div class="row text-center">
+				<div class="col-md-12">
+					<!--fv:footer-nav-->
+					<ul class="footer-navigation inline-list">
+					<li><a href="about.html">О проекте</a></li>
+					<li><a href="docs/">Документация</a></li>
+					<li><a href="terms.html">Условия</a></li>
+					</ul>
+					<!--/fv:footer-nav-->
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="assets/js/jquery.bundle.js"></script>
+	<script src="assets/js/script.js"></script>
+	<script src="js/fv-common.js"></script>
+	<script src="js/json-formatter.js"></script>
+</body>
+</html>

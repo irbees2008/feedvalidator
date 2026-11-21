@@ -1,12 +1,12 @@
-#!/usr/bin/env python
+#!C:\OSPanell\modules\python\python.exe
 from config import *
 
-import cgi, cgitb, sys
-cgitb.enable()
+import cgi, sys
+import safe_errors
+safe_errors.enable()
 
-import codecs
 ENCODING='UTF-8'
-sys.stdout = codecs.getwriter(ENCODING)(sys.stdout)
+sys.stdout.reconfigure(encoding=ENCODING)
 
 if SRCDIR not in sys.path:
     sys.path.insert(0, SRCDIR)
@@ -23,4 +23,4 @@ out =  fs.getvalue('out') or 'xml'
 
 result=index(req,url,out)
 
-print "Content-type: %s\r\n\r\n%s" % (req.content_type, result)
+print("Content-type: %s\r\n\r\n%s" % (req.content_type, result))

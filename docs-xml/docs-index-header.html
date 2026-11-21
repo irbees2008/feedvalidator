@@ -1,36 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru" class="js">
 <head>
-<meta charset="utf-8">
-<title>Feed Validator Documentation</title>
-<style media="screen">@import "../css/common.css";
-@import "../css/documentation.css";</style>
-<script><!-- --></script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Документация — FEED Валидатор</title>
+	<meta name="description" content="Руководства по RSS и Atom, описание сообщений валидатора и каталог инструментов для сайта, кода и NGCMS.">
+	<meta name="robots" content="index,follow">
+	<link rel="canonical" href="https://lab.ngcms.org/docs/">
+	<meta name="theme-color" content="#1F65DB">
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="FEED Валидатор">
+	<meta property="og:locale" content="ru_RU">
+	<meta property="og:title" content="Документация — FEED Валидатор">
+	<meta property="og:description" content="Руководства по RSS и Atom, описание сообщений валидатора и каталог инструментов для сайта, кода и NGCMS.">
+	<meta property="og:url" content="https://lab.ngcms.org/docs/">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Документация — FEED Валидатор">
+	<meta name="twitter:description" content="Руководства, описание сообщений валидатора и каталог инструментов FEED Валидатор.">
+	<link rel="shortcut icon" href="../favicon.ico">
+	<link rel="stylesheet" href="../assets/css/vendor.bundle.css">
+	<link rel="stylesheet" href="../assets/css/style.css?ver=131">
+	<link rel="stylesheet" href="../assets/css/theme.css?ver=131">
+	<link rel="stylesheet" href="../css/fv-theme.css">
 </head>
 <body>
+	<!--fv:navbar-->
+	<!--/fv:navbar-->
+		<div class="header-content">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 text-center">
+						<div class="header-texts">
+							<h1 class="wow fadeInUp" data-wow-duration=".5s">Документация</h1>
+							<p class="lead wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".3s">Руководства по работе с лентами, описания сообщений валидатора и справочник инструментов сайта.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<div id="logo">
-<h1><a href="/"><span id="feed"><span id="f">F</span><span id="e1">E</span><span id="e2">E</span></span><span id="d">D</span> Validator</a></h1>
-<p>Documentation</p>
-<a class="skip" href="#startnavigation">Jump to navigation</a>
-</div> <!--logo-->
+	<main class="section grey-background fv-page fv-docs">
+		<div class="container">
+			<section class="fv-doc-card" aria-labelledby="start-title">
+				<h2 id="start-title">Начало работы</h2>
+				<p>Выберите, что нужно сделать. Для самой проверки откройте валидатор и укажите адрес ленты, вставьте XML или загрузите файл.</p>
+				<div class="fv-doc-actions">
+					<a class="fv-btn" href="../check.cgi">Проверить RSS, Atom или KML</a>
+					<a class="b64-seg-btn" href="../">Все инструменты</a>
+				</div>
+				<ul class="fv-doc-links">
+					<li><a href="howto/declare_namespaces.html">Пространства имён в RSS: что объявлять и зачем</a></li>
+					<li><a href="howto/install_and_run.html">Установка и локальный запуск проекта</a></li>
+				</ul>
+			</section>
 
+			<section class="fv-doc-card" aria-labelledby="tools-title">
+				<h2 id="tools-title">Инструменты сайта</h2>
+				<p>Каталог синхронизирован с меню и главной страницей: здесь перечислены текущие инструменты проекта.</p>
+				{{TOOLS}}
+			</section>
 
-<div id="main">
+			<section class="fv-doc-card" aria-labelledby="specs-title">
+				<h2 id="specs-title">Спецификации форматов</h2>
+				<p>Официальные спецификации приведены на языке оригинала.</p>
+				<ul class="fv-doc-links">
+					<li><a href="https://www.rfc-editor.org/rfc/rfc4287.html">Atom 1.0 — RFC 4287</a></li>
+					<li><a href="https://www.rssboard.org/rss-specification">RSS 2.0</a></li>
+					<li><a href="rss1.html">RSS 1.0 — сохранённый текст спецификации</a></li>
+				</ul>
+			</section>
 
-<h2>Tutorials</h2>
+			<section class="fv-doc-card" aria-labelledby="messages-title">
+				<h2 id="messages-title">Сообщения валидатора</h2>
+				<p>Ниже — справочник ошибок, предупреждений и информационных сообщений. Тексты исторических пояснений пока доступны на английском; названия сообщений оставлены без перевода, чтобы совпадать с отчётом и поиском.</p>
+				{{DIAGNOSTICS}}
+			</section>
 
-<ul>
-<li><a href="howto/declare_namespaces.html">How do I declare namespaces in my RSS feed?</a></li>
-<li><a href="howto/install_and_run.html">How do I install and run the Feed Validator?</a></li>
-
-</ul>
-
-<h2>Specifications</h2>
-
-<ul>
-<li><a href="http://www.atomenabled.org/developers/syndication/atom-format-spec.php">Atom 1.0</a></li>
-<li><a href="rss1.html">RSS 1.0 specification</a></li>
-<li><a href="rss2.html">RSS 2.0 specification</a></li>
-</ul>
-
+			<section class="fv-doc-card" aria-labelledby="project-title">
+				<h2 id="project-title">О проекте</h2>
+				<p>Сведения о принципах работы, обработке данных, ограничениях инструментов и лицензии — на странице <a href="../about.html">«О проекте»</a>. Инструкции по установке обновлены с учётом Python 3.12 и текущей конфигурации Apache CGI.</p>
+			</section>
+		</div>
+	</main>

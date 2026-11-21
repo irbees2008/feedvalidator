@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ru" class="js">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Редактор Markdown онлайн с предпросмотром — FEED Валидатор</title>
+	<meta name="description" content="Онлайн-редактор Markdown с живым предпросмотром: таблицы, списки задач, код, экспорт в .md и HTML. Всё работает в браузере, текст никуда не отправляется.">
+	<meta name="robots" content="index,follow,max-image-preview:large">
+	<link rel="canonical" href="https://lab.ngcms.org/markdown-editor.html">
+	<meta name="theme-color" content="#1F65DB">
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="FEED Валидатор">
+	<meta property="og:locale" content="ru_RU">
+	<meta property="og:title" content="Редактор Markdown онлайн с предпросмотром — FEED Валидатор">
+	<meta property="og:description" content="Онлайн-редактор Markdown с живым предпросмотром, таблицами, списками задач и экспортом в .md и HTML.">
+	<meta property="og:url" content="https://lab.ngcms.org/markdown-editor.html">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Редактор Markdown онлайн с предпросмотром — FEED Валидатор">
+	<meta name="twitter:description" content="Редактор Markdown с живым предпросмотром, экспортом в .md и HTML. Работает в браузере.">
+	<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Редактор Markdown","url":"https://lab.ngcms.org/markdown-editor.html","applicationCategory":"DeveloperApplication","operatingSystem":"Any","inLanguage":"ru","isPartOf":{"@type":"WebSite","name":"FEED Валидатор","url":"https://lab.ngcms.org/"},"offers":{"@type":"Offer","price":"0","priceCurrency":"RUB"}}</script>
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="stylesheet" href="assets/css/vendor.bundle.css">
+	<link rel="stylesheet" href="assets/css/style.css?ver=131">
+	<link rel="stylesheet" href="assets/css/theme.css?ver=131">
+	<link rel="stylesheet" href="css/fv-theme.css">
+</head>
+<body>
+
+	<!--fv:navbar-->
+	<div id="home" class="header-section half-header section gradiant-background overflow-hidden">
+	<div id="particles-js" class="particles-container"></div>
+	<div id="navigation" class="navigation is-transparent" data-spy="affix" data-offset-top="5">
+	<nav class="navbar navbar-default" aria-label="Основная навигация">
+	<div class="container">
+	<div class="navbar-header">
+	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#site-collapse-nav" aria-expanded="false">
+	<span class="sr-only">Открыть меню</span>
+	<span class="icon-bar"></span>
+	<span class="icon-bar"></span>
+	<span class="icon-bar"></span>
+	</button>
+	<a class="navbar-brand" href="./">
+	<span class="logo logo-light"><span class="lg-hash">#</span> <span class="lg-f">Ma</span><span class="lg-e1">rk</span><span class="lg-e2">do</span><span class="lg-d">wn</span> Редактор</span>
+	<span class="logo logo-color"><span class="lg-hash">#</span> <span class="lg-f">Ma</span><span class="lg-e1">rk</span><span class="lg-e2">do</span><span class="lg-d">wn</span> Редактор</span>
+	</a>
+	</div>
+	<div class="collapse navbar-collapse font-secondary" id="site-collapse-nav">
+	<ul class="nav nav-list navbar-nav navbar-right">
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Проверить</a>
+	<ul class="dropdown-menu">
+	<li><a href="check.cgi">Проверить ленту</a></li>
+	<li><a href="open-graph.html">Open Graph</a></li>
+	<li><a href="meta-tags-analyzer.html">Meta-теги</a></li>
+	<li><a href="http-status-checker.html">HTTP-статус</a></li>
+	<li><a href="robots-txt-validator.html">Robots.txt</a></li>
+	<li><a href="sitemap-validator.html">Sitemap</a></li>
+	<li><a href="dns-lookup.html">DNS</a></li>
+	<li><a href="security-headers-checker.html">Заголовки безопасности</a></li>
+	<li><a href="ssl-checker.html">SSL</a></li>
+	<li><a href="schema-validator.html">Schema.org</a></li>
+	</ul>
+	</li>
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Кодирование</a>
+	<ul class="dropdown-menu">
+	<li><a href="base64.html">Base64</a></li>
+	<li><a href="url-encoder.html">URL</a></li>
+	<li><a href="json-formatter.html">JSON</a></li>
+	<li><a href="jwt-decoder.html">JWT</a></li>
+	<li><a href="html-entities.html">HTML Entities</a></li>
+	</ul>
+	</li>
+	<li class="dropdown active">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Генераторы</a>
+	<ul class="dropdown-menu">
+	<li><a href="favicon-generator.html">Favicon</a></li>
+	<li class="active"><a href="markdown-editor.html" aria-current="page">Markdown</a></li>
+	<li><a href="fancy-text.html">Красивый текст</a></li>
+	<li><a href="regex-tester.html">Regex</a></li>
+	<li><a href="pixel-art-maker.html">Пиксель-арт</a></li>
+	<li><a href="image-to-pixel-art.html">Фото в пиксель-арт</a></li>
+	<li><a href="image-animation.html">Создать анимацию</a></li>
+	</ul>
+	</li>
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Утилиты</a>
+	<ul class="dropdown-menu">
+	<li><a href="timestamp-converter.html">Timestamp</a></li>
+	<li><a href="color-tools.html">Цвета</a></li>
+	<li><a href="cron-generator.html">Cron</a></li>
+	<li><a href="user-agent-parser.html">User-Agent</a></li>
+	<li><a href="image-converter.html">Конвертер фото</a></li>
+	<li><a href="fonts.html">Шрифты</a></li>
+	<li><a href="image-compressor.html">Сжатие фото</a></li>
+	<li><a href="qr-code.html">QR-код</a></li>
+	</ul>
+	</li>
+	<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">NGCMS</a>
+	<ul class="dropdown-menu">
+	<li><a href="bbcode-preview.html">BBCode</a></li>
+	<li><a href="sql-analyzer.html">SQL</a></li>
+	<li><a href="twig-playground.html">Twig</a></li>
+	<li><a href="template-checker.html">Шаблоны</a></li>
+	<li><a href="plugin-checker.html">Плагины</a></li>
+	<li><a href="php-compat-checker.html">PHP</a></li>
+	</ul>
+	</li>
+	</ul>
+	</div>
+	</div>
+	</nav>
+	</div>
+	<!--/fv:navbar-->
+
+		<div class="header-content">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 text-center">
+						<div class="header-texts">
+							<h1 class="wow fadeInUp" data-wow-duration=".5s">Редактор Markdown</h1>
+							<p class="lead wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".3s">Пишите в Markdown с живым предпросмотром и экспортируйте в .md или HTML — прямо в браузере.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="feature-boxes fv-panel-wrap md-page">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<section class="fv-panel" id="md-tool" aria-label="Редактор Markdown">
+						<div class="fv-tab-content">
+							<div class="b64-options">
+								<div class="b64-opt">
+									<span class="b64-opt-label" id="md-view-label">Вид</span>
+									<div class="b64-seg" id="md-views" role="group" aria-labelledby="md-view-label">
+										<button type="button" class="b64-seg-btn active" data-view="split" aria-pressed="true">Разделённый</button>
+										<button type="button" class="b64-seg-btn" data-view="editor" aria-pressed="false">Редактор</button>
+										<button type="button" class="b64-seg-btn" data-view="preview" aria-pressed="false">Предпросмотр</button>
+									</div>
+								</div>
+								<div class="b64-opt md-toolbar-buttons" role="group" aria-label="Форматирование">
+									<button type="button" class="md-tool" data-md="bold" title="Жирный (Ctrl+B)"><b>B</b></button>
+									<button type="button" class="md-tool" data-md="italic" title="Курсив (Ctrl+I)"><i>I</i></button>
+									<button type="button" class="md-tool" data-md="heading" title="Заголовок">H</button>
+									<button type="button" class="md-tool" data-md="quote" title="Цитата">&ldquo;</button>
+									<button type="button" class="md-tool" data-md="code" title="Код">&lt;/&gt;</button>
+									<button type="button" class="md-tool" data-md="link" title="Ссылка (Ctrl+K)">Ссылка</button>
+									<button type="button" class="md-tool" data-md="ul" title="Маркированный список">• Список</button>
+									<button type="button" class="md-tool" data-md="ol" title="Нумерованный список">1. Список</button>
+									<button type="button" class="md-tool" data-md="task" title="Список задач">☑ Задачи</button>
+								</div>
+							</div>
+
+							<div class="md-panels md-split" id="md-panels">
+								<div class="md-panel md-panel-editor">
+									<div class="b64-field-head">
+										<label for="md-input">Markdown</label>
+										<span class="b64-badge" id="md-count"></span>
+									</div>
+									<textarea id="md-input" class="form-control" spellcheck="false" placeholder="Введите Markdown, чтобы начать…"></textarea>
+								</div>
+								<div class="md-panel md-panel-preview">
+									<div class="b64-field-head">
+										<span class="b64-label-text" id="md-preview-label">Предпросмотр</span>
+									</div>
+									<div class="md-preview" id="md-preview" aria-labelledby="md-preview-label" aria-live="polite"></div>
+								</div>
+							</div>
+
+							<div class="b64-toolbar">
+								<div class="b64-actions">
+									<button type="button" class="button" id="md-copy-html" disabled>Копировать HTML</button>
+									<button type="button" class="button b64-secondary" id="md-copy-md" disabled>Копировать Markdown</button>
+									<button type="button" class="button b64-secondary" id="md-save-md" disabled>Скачать .md</button>
+									<button type="button" class="button b64-secondary" id="md-save-html" disabled>Скачать .html</button>
+								</div>
+								<div class="b64-actions">
+									<button type="button" class="b64-link" id="md-sample">Загрузить пример</button>
+									<button type="button" class="b64-link" id="md-clear">Очистить</button>
+								</div>
+							</div>
+
+							<p class="b64-stats" id="md-stats" aria-live="polite"></p>
+						</div>
+					</section>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="section grey-background fv-page b64-info">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-10 col-md-offset-1">
+
+					<article class="page-card">
+						<h2>Что такое редактор Markdown?</h2>
+						<p>Markdown — это лёгкий язык разметки: заголовки, выделение, списки, ссылки и код пишутся обычными символами (<code>#</code>, <code>*</code>, <code>-</code>, <code>`</code>), а затем превращаются в аккуратный HTML. Его используют в README на GitHub, документации, заметках, блогах и чатах.</p>
+						<p>Онлайн-редактор показывает результат сразу, пока вы печатаете: слева исходный текст, справа готовая страница. Так проще заметить ошибку в разметке, подготовить README или описание релиза и быстро получить чистый HTML для вставки на сайт.</p>
+						<div class="b64-tldr">
+							<span class="b64-tldr-label">Кратко</span>
+							<span>Пишите в левой панели, смотрите результат справа, затем копируйте HTML или скачивайте файл. Текст не покидает ваш браузер.</span>
+						</div>
+					</article>
+
+					<article class="page-card">
+						<h2>Как пользоваться редактором</h2>
+						<ol class="b64-steps">
+							<li>
+								<span class="b64-step-num">1</span>
+								<h3>Начните печатать</h3>
+								<p>Введите текст в левой панели или нажмите «Загрузить пример». Предпросмотр обновляется при каждом изменении.</p>
+							</li>
+							<li>
+								<span class="b64-step-num">2</span>
+								<h3>Добавьте структуру</h3>
+								<p>Используйте кнопки над редактором или горячие клавиши: <code>Ctrl+B</code> — жирный, <code>Ctrl+I</code> — курсив, <code>Ctrl+K</code> — ссылка.</p>
+							</li>
+							<li>
+								<span class="b64-step-num">3</span>
+								<h3>Выберите вид</h3>
+								<p>«Разделённый» показывает обе панели, «Редактор» — только текст, «Предпросмотр» — только результат. Это удобно на телефоне.</p>
+							</li>
+							<li>
+								<span class="b64-step-num">4</span>
+								<h3>Скопируйте или сохраните</h3>
+								<p>Скопируйте готовый HTML или Markdown, либо скачайте файл <code>.md</code> или самостоятельную страницу <code>.html</code>.</p>
+							</li>
+						</ol>
+					</article>
+
+					<article class="page-card">
+						<h2>Шпаргалка по синтаксису</h2>
+						<div class="b64-table-wrap">
+							<table class="table b64-table b64-cheat">
+								<thead>
+									<tr><th>Элемент</th><th>Markdown</th><th>Результат</th></tr>
+								</thead>
+								<tbody>
+									<tr><td>Заголовок</td><td><code># Заголовок 1</code><br><code>## Заголовок 2</code></td><td>Заголовки уровней 1–6</td></tr>
+									<tr><td>Выделение</td><td><code>**жирный**</code>, <code>*курсив*</code>, <code>~~зачёркнутый~~</code></td><td><strong>жирный</strong>, <em>курсив</em>, <del>зачёркнутый</del></td></tr>
+									<tr><td>Ссылка</td><td><code>[текст](https://example.com)</code></td><td>Кликабельная ссылка</td></tr>
+									<tr><td>Изображение</td><td><code>![описание](https://example.com/a.png)</code></td><td>Картинка по адресу</td></tr>
+									<tr><td>Список</td><td><code>- пункт</code><br><code>1. пункт</code></td><td>Маркированный и нумерованный списки</td></tr>
+									<tr><td>Задачи</td><td><code>- [x] готово</code><br><code>- [ ] в работе</code></td><td>Список с флажками</td></tr>
+									<tr><td>Цитата</td><td><code>&gt; цитата</code></td><td>Выделенный блок</td></tr>
+									<tr><td>Код</td><td><code>`код`</code> или блок из трёх обратных кавычек</td><td>Моноширинный текст</td></tr>
+									<tr><td>Таблица</td><td><code>| A | B |</code><br><code>| --- | --- |</code></td><td>Таблица с заголовком</td></tr>
+									<tr><td>Разделитель</td><td><code>---</code></td><td>Горизонтальная линия</td></tr>
+								</tbody>
+							</table>
+						</div>
+					</article>
+
+					<article class="page-card">
+						<h2>FAQ по Markdown</h2>
+						<div class="b64-faq">
+							<details open>
+								<summary>Как преобразовать Markdown в HTML?</summary>
+								<p>Введите текст в редакторе и нажмите «Копировать HTML» или «Скачать .html». Вы получите разметку, готовую для вставки на страницу, либо отдельный HTML-файл с базовыми стилями.</p>
+							</details>
+							<details open>
+								<summary>Чем GitHub-Flavored Markdown отличается от обычного?</summary>
+								<p>GFM добавляет таблицы, списки задач, зачёркивание и автоматические ссылки. Редактор поддерживает эти расширения, поэтому README из GitHub отображается почти так же.</p>
+							</details>
+							<details open>
+								<summary>Можно ли вставлять HTML внутрь Markdown?</summary>
+								<p>В этом редакторе HTML-теги не выполняются: они показываются как обычный текст. Так нельзя случайно запустить чужой скрипт, а предпросмотр остаётся безопасным.</p>
+							</details>
+							<details open>
+								<summary>Почему не отображается картинка?</summary>
+								<p>Разрешены только адреса <code>http://</code> и <code>https://</code>. Локальные пути и данные других типов в предпросмотре блокируются.</p>
+							</details>
+							<details open>
+								<summary>Редактор приватный?</summary>
+								<p>Да. Текст обрабатывается только в вашем браузере и не отправляется на сервер. Черновик сохраняется локально в этом браузере, и его можно стереть кнопкой «Очистить».</p>
+							</details>
+						</div>
+					</article>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="footer-section section">
+		<div class="container">
+			<div class="row text-center">
+				<div class="col-md-12">
+					<!--fv:footer-nav-->
+					<ul class="footer-navigation inline-list">
+					<li><a href="about.html">О проекте</a></li>
+					<li><a href="docs/">Документация</a></li>
+					<li><a href="terms.html">Условия</a></li>
+					</ul>
+					<!--/fv:footer-nav-->
+					<ul class="footer-links inline-list">
+						<li>Данные обрабатываются в вашем браузере и не отправляются на сервер.</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="assets/js/jquery.bundle.js"></script>
+	<script src="assets/js/script.js"></script>
+	<script src="js/markdown.js"></script>
+</body>
+</html>

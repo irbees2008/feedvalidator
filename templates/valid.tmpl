@@ -1,18 +1,19 @@
-<p>If you would like to create a banner that links to this page (i.e. this validation result), do the following:</p>
+<section class="result-card result-banner">
+<h2 class="text-center">Разместите баннер на своём сайте</h2>
+<p class="text-center result-sub">Покажите посетителям, что ваша лента прошла проверку.</p>
 
-<ol>
-<li><p>Download <a href="images/%(graphic)s">the "valid %(feedType)s" banner</a>.</p></li>
-<li><p>Upload the image to your own server.  (This step is important.  Please do not link directly to the image on this server.)</p></li>
-<li><p>Add this HTML to your page (change the image <code>src</code> attribute if necessary):</p>
-<blockquote>
-<p>
-<textarea rows="5" cols="72">&lt;a href="%(HOMEURL)s?url=%(srcUrl)s"&gt;&lt;img src="%(graphic)s" alt="[Valid %(feedType)s]" title="Validate my %(feedType)s %(docType)s" /&gt;&lt;/a&gt;</textarea>
-</p>
-</blockquote></li>
+<div class="result-banner-body">
+<p>Если вы хотите создать баннер со ссылкой на эту страницу (результат валидации), выполните следующие действия:</p>
+
+<ol class="result-steps">
+<li><p>Скачайте <a href="images/%(graphic)s">баннер "валидный %(feedType)s"</a>.</p></li>
+<li><p>Загрузите изображение на свой сервер. (Этот шаг важен. Пожалуйста, не ссылайтесь напрямую на изображение с этого сервера.)</p></li>
+<li><p>Добавьте этот HTML-код на свою страницу (при необходимости измените атрибут <code>src</code> изображения):</p>
+<textarea class="form-control result-code" rows="4" readonly onclick="this.select()">&lt;a href="%(HOMEURL)s?url=%(srcUrl)s"&gt;&lt;img src="%(graphic)s" alt="[Валидный %(feedType)s]" title="Проверить мой %(feedType)s %(docType)s" /&gt;&lt;/a&gt;</textarea></li>
 </ol>
 
-<p>If you would like to create a text link instead, here is the URL you can use:</p>
+<p>Если вы хотите создать текстовую ссылку, используйте этот URL:</p>
 
-<blockquote>
-<p><code><a href="%(HOMEURL)s?url=%(url)s">%(HOMEURL)s?url=%(url)s</a></code></p>
-</blockquote>
+<p class="result-url"><code><a href="%(HOMEURL)s?url=%(url)s">%(HOMEURL)s?url=%(url)s</a></code></p>
+</div>
+</section>
